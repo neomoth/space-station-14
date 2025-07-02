@@ -1,0 +1,9 @@
+- type: onSignActions
+  id: IonStormInfinite
+  actions:
+    - !type:ActionAddGamerule
+      rules: 
+        - IonStorm
+    - !type:ActionSetCharges
+      charges: 1
+    - !type:ActionClearSigners
