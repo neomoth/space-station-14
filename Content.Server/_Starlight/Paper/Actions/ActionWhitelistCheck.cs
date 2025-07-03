@@ -22,7 +22,8 @@ public sealed partial class ActionWhitelistCheck : OnSignAction
     {
         if (!_whitelistSystem.CheckBoth(target, Whitelist, Blacklist))
         {
-            component.Charges += component.Signers.RemoveAll(signer => signer == target);
+            component.Signers.Remove(target);
+            component.Charges += 1;
         }
         return false;
     }
