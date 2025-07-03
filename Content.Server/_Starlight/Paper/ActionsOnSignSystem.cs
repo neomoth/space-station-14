@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Fax.Components;
 using Content.Shared.Paper;
 using Robust.Shared.Prototypes;
@@ -39,11 +40,11 @@ public sealed class ActionsOnSignSystem : EntitySystem
         }
         else if (component.Charges == 0)
         {
-            PerformActions(proto, uid, component,  component.Signers);
+            PerformActions(proto, uid, component,  component.Signers.AsEnumerable());
         }
     }
 
-    private void PerformActions(OnSignActionsPrototype proto, EntityUid paper, ActionsOnSignComponent component, List<EntityUid> targets)
+    private void PerformActions(OnSignActionsPrototype proto, EntityUid paper, ActionsOnSignComponent component, IEnumerable<EntityUid> targets)
     {
         foreach (var action in proto.Actions)
         {
@@ -52,6 +53,7 @@ public sealed class ActionsOnSignSystem : EntitySystem
                 action.ResolveIoC();
                 action.IoCInjected = true;
             }
+            
             if (action.TargetsPaper)
             {
                 if (action.Action(paper, component, paper))

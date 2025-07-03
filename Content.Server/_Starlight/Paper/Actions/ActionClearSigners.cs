@@ -1,7 +1,3 @@
-using Content.Server.GameTicking;
-using Content.Shared.GameTicking.Components;
-using Robust.Shared.Prototypes;
-
 namespace Content.Server._Starlight.Paper.Actions;
 
 public sealed partial class ActionClearSigners : OnSignAction
@@ -19,6 +15,5 @@ public sealed partial class ActionClearSigners : OnSignAction
 
     public override void ResolveIoC()
     {
-        
     }
 }
