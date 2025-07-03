@@ -20,10 +20,11 @@ public sealed partial class ActionWhitelistCheck : OnSignAction
     
     public override bool Action(EntityUid paper, ActionsOnSignComponent component, EntityUid target)
     {
-        if (!_whitelistSystem.CheckBoth(target, Whitelist, Blacklist))
+        if (!_whitelistSystem.CheckBoth(target, Blacklist, Whitelist))
         {
             component.Signers.Remove(target);
             component.Charges += 1;
+            return true;
         }
         return false;
     }

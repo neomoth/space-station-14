@@ -6,7 +6,7 @@ public abstract partial class OnSignAction
     /// <summary>
     /// Whether this action targets exclusively the paper and will be ran only once instead of on each entity that signed it
     /// </summary>
-    [DataField]
+    [DataField("targetPaper")]
     public bool TargetsPaper = false;
 
     /// <summary>
