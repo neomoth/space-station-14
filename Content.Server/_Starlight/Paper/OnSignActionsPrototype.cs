@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._Starlight.Paper;
 
 [Prototype("onSignActions")]
-public sealed class OnSignActionsPrototype : IPrototype
+public sealed partial class OnSignActionsPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; } = default!;
