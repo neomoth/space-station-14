@@ -93,11 +93,3 @@
         - HandTeleporterStealObjective
         - EnergyShotgunStealObjective
 
-- type: entity
-  id: MailSpamIonStorm
-  name: Robots too orderly?
-  description: A paper. it seems to feel slightly electric in your hands. would probally destroy a fax if you insered it.
-  parent: [ Paper ]
-  components:
-    - type: ActionsOnSign
-      actions: IonStormInfinite

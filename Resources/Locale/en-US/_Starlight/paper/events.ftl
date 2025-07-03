@@ -19,3 +19,22 @@ paper-too-quiet-need-chaos-few = Do you feel like this shift has been way too qu
                                  Don't ask how we got this experimental paper inside this locker. Yes, CentComm is totally aware we did this.
   
                                  For the glory of NanoTrasen
+
+paper-ionstorm-borgs = {"[color=green][bold]Robots Too Orderly?[/bold][/color]"}
+                       
+                       Is your robotics department feeling a bit... predictable?
+                       
+                       Cyborgs executing orders with unerring precision, free of flaw — and also free of flair.
+                       Where's the experimentation? The unexpected? The happy accidents that drive progress?
+                       
+                       This paper proposes a temporary re-randomization of synthetics' behavioral cores.
+                       A mild stochastic variance injection.
+                       Purely for observational research, of course.
+                       
+                       What might a borg do if unbound from strict subroutines?
+                       What scientific insight might emerge from letting order slip—just a little?
+                       
+                       {"[color=yellow]Each signature amplifies the experiment's parameters.[/color]"}
+                       Feel free to sign more than once for stronger emergent results.
+                       
+                       {"[color=gray][i]“Too much order suffocates invention.”[/i][/color]"}

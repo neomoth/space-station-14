@@ -155,3 +155,14 @@
         - UnknownShuttleHonki
         - WizardSpawn
         - NinjaSpawn #spawns less cause there is also less people to take said roles. and I deem these to be the less "chaotic" ones
+
+- type: entity
+  id: PaperIonstormBorgs
+  name: robots too orderly?
+  description: A paper. it seems to feel slightly electric in your hands. would probally destroy a fax if you insered it.
+  parent: [ Paper ]
+  components:
+    - type: Paper
+      content: paper-ionstorm-borgs
+    - type: ActionsOnSign
+      actions: IonStormInfinite
