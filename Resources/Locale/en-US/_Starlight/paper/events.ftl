@@ -38,3 +38,17 @@ paper-ionstorm-borgs = {"[color=green][bold]Robots Too Orderly?[/bold][/color]"}
                        Feel free to sign more than once for stronger emergent results.
                        
                        {"[color=gray][i]“Too much order suffocates invention.”[/i][/color]"}
+
+paper-end-greenshift-vote = {"[head]Hello esteemed captain of this station 14[/head]"}
+                            This paper informs you that this paper upon recieving a supermajority (65%) of signatures
+                            will "restart the clock" and begin random "mishaps" occuring. from derelict borgs,
+                            to that which you are not allowed to know. 
+
+                            {"[bold]Now what can you do with this paper[/bold]"}
+                            Honestly that is up to you. the reccomendation is to leave it in a common area so people can
+                            come by and sign it at their leisure. {"[bold][color=red]DO NOT FORCE PEOPLE TO SIGN[/color][/bold]"}.
+                            as that would be very irrespectful of their autonomy as people.
+
+                            {"[bold]closing notes[/bold]"}
+                            Some may not want to sign this paper. that is fine and that is their choice.
+                            No one should be to make a choice that risk their life when they are unwilling. 

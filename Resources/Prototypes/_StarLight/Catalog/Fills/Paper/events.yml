@@ -170,10 +170,11 @@
 - type: entity
   parent: BaseStarlightAdmemePaper
   id: PaperEndGreenshift
-  description: A paper that seems to "start the clock" again? cant send it to CC wont fit in a fax anyways.
+  name: restart the clock.
+  description: A paper that seems to "start the clock" again? the countdown causes it to be too big to fix into a fax.
   components:
     - type: Paper
-      contents: paper-end-greenshift-vote
+      content: paper-end-greenshift-vote
     - type: ActionsOnSign
       actions: AddSecretRule
       instant: false
