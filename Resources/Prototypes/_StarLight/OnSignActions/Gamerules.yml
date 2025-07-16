@@ -7,3 +7,10 @@
     - !type:ActionSetCharges
       charges: 1
     - !type:ActionClearSigners
+
+- type: onSignActions
+  id: AddSecretRule
+  actions:
+    - !type:ActionAddGamerule
+      rules: 
+        - Secret

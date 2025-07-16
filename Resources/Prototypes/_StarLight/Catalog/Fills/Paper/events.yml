@@ -166,3 +166,17 @@
       content: paper-ionstorm-borgs
     - type: ActionsOnSign
       actions: IonStormInfinite
+
+- type: entity
+  parent: BaseStarlightAdmemePaper
+  id: PaperEndGreenshift
+  description: A paper that seems to "start the clock" again? cant send it to CC wont fit in a fax anyways.
+  components:
+    - type: Paper
+      contents: paper-end-greenshift-vote
+    - type: ActionsOnSign
+      actions: AddSecretRule
+      instant: false
+    - type: ChargesExamine
+    - type: AdjustChargesPopBased
+      percent: 0.65 # 65% of pop has to sign.

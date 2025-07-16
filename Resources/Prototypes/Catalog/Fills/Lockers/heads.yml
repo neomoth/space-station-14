@@ -62,17 +62,12 @@
       conditions:
       - !type:PlayerCountCondition
         max: 15
-    - id: PaperTooQuietNeedChaos #Starlight
+    - id: PaperEndGreenshift
       conditions:
-      - !type:PlayerCountCondition
-        invert: true
-        max: 15
-      prob: 0.05
-    - id: PaperTooQuietNeedChaosFew #lowpop varient which needs less singnatures.
-      conditions:
-      - !type:PlayerCountCondition
-        max: 15
-      prob: 0.05
+      - !type:GamemodeCondition
+        presets:
+        - Greenshift
+        - Sandbox
     #Starlight
 
 
