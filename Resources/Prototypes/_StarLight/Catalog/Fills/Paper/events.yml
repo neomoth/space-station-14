@@ -175,6 +175,7 @@
   components:
     - type: Paper
       content: paper-end-greenshift-vote
+      editingDisabled: true
     - type: ActionsOnSign
       actions: AddSecretRule
       instant: false
