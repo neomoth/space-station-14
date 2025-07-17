@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.GameTicking.Presets;
 using Content.Server.Maps;
-using Content.Shared._Starlight.EntityTable;
+using Content.Shared._Starlight.EntityTable; //#Starlight
 using Content.Shared.CCVar;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
@@ -93,7 +93,7 @@ public sealed partial class GameTicker
         private void InitializeGamePreset()
         {
             SetGamePreset(LobbyEnabled ? _cfg.GetCVar(CCVars.GameLobbyDefaultPreset) : "sandbox");
-            //#Starlight
+            //#region Starlight
             SubscribeAllEvent<PresetConditionCheckEvent>(CheckPresetCondition);
         }
 
@@ -102,7 +102,7 @@ public sealed partial class GameTicker
             if (CurrentPreset != null)
                 ev.Valid = ev.Presets.Contains(CurrentPreset.ID);
         }
-        
+        //#endregion Starlight
     public void SetGamePreset(GamePresetPrototype? preset, bool force = false, int? resetDelay = null)
     {
         // Do nothing if this game ticker is a dummy!
