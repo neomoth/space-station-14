@@ -63,13 +63,14 @@
       conditions:
       - !type:PlayerCountCondition
         max: 15
+    #region Starlight
     - id: PaperEndGreenshift
       conditions:
       - !type:GamemodeCondition
         presets:
         - Greenshift
         - Sandbox
-    #Starlight
+    #endregion Starlight
 
 
 # No laser table + Laser table
