@@ -171,3 +171,6 @@
 
 - type: Tag
   id: DockEscape
+
+- type: Tag
+  id: ThermiteIgnitor
