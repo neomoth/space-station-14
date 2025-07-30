@@ -110,6 +110,7 @@
   - type: Tag
     tags:
     - GhostOnlyWarp
+    - UnDissolvable
   - type: WarpPoint
     follow: true
     location: nuclear bomb

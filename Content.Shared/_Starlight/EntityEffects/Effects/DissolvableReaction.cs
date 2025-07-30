@@ -1,6 +1,8 @@
 using JetBrains.Annotations;
 using Content.Shared.EntityEffects;
 using Content.Shared.Database;
+using Content.Shared.Tag;
+using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Content.Shared.Starlight.EntityEffects.Components;
 using Content.Shared.Starlight.EntityEffects.EntitySystems;
@@ -16,6 +18,10 @@ public sealed partial class DissolvableReaction : EntityEffect
 
     [DataField]
     public float MultiplierOnExisting = -1f;
+    
+    [DataField(required: true)]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier Damage = new();
 
     public override bool ShouldLog => true;
 
@@ -26,8 +32,10 @@ public sealed partial class DissolvableReaction : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (!args.EntityManager.TryGetComponent(args.TargetEntity, out DissolvableComponent? dissolvable))
+        if (args.EntityManager.System<TagSystem>().HasTag(args.TargetEntity, "UnDissolvable")) // Yeah, this is hardcode but.... Idk
             return;
+        var dissolvable = args.EntityManager.EnsureComponent<DissolvableComponent>(args.TargetEntity);
+        dissolvable.Damage = Damage;
 
         // Sets the multiplier for FireStacks to MultiplierOnExisting is 0 or greater and target already has FireStacks
         var multiplier = dissolvable.DissolveStacks != 0f && MultiplierOnExisting >= 0 ? MultiplierOnExisting : Multiplier;

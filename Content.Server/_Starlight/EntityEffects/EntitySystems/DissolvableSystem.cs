@@ -55,7 +55,7 @@ public sealed class DissolvableSystem : SharedDissolvableSystem
         var isHotEvent = new IsHotEvent();
         RaiseLocalEvent(args.Used, isHotEvent);
 
-        if (!isHotEvent.IsHot && thermite.requiredTag == null || !_tagSystem.HasTag(args.Used, thermite.requiredTag!))
+        if (!isHotEvent.IsHot && (thermite.requiredTag == null || !_tagSystem.HasTag(args.Used, thermite.requiredTag!)))
             return;
         
         foreach (var dissolvable in _lookupSystem.GetEntitiesInRange<DissolvableComponent>(_transform.GetMapCoordinates(uid), 1f))

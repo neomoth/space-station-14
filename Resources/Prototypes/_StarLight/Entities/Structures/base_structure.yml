@@ -7,8 +7,3 @@
   - type: Reactive
     groups:
       Dissolvable: [ Touch ]
-  - type: Dissolvable
-    canResistDissolve: false
-    damage: #per second, scales with number of dissolve 'stacks'
-      types:
-        Structural: 3

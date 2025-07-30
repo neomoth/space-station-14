@@ -32,6 +32,9 @@
       effects:
       - !type:DissolvableReaction
         multiplier: 1
+        damage: 
+          types:
+            Structural: 3
   metabolisms:
     Poison:
       effects:
