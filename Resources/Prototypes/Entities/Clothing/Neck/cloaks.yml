@@ -289,3 +289,12 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/pan.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakGeneric
+  name: cloak
+  description: An awfully bland looking cloak. A blank canvas for those wishing to show their true colors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/generic.rsi
+
