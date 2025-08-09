@@ -423,3 +423,100 @@
     # tags:
     # - ClothMade
     # - WhitelistChameleon
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakGeneric
+  name: cloak
+  description: A canvas for those who wish to show their true colors.
+  components:
+    - type: Sprite
+      sprite: _Starlight/Clothing/Neck/Cloaks/generic.rsi
+    - type: GenericCloakData
+      color: "#FFFFFF"
+    - type: Appearance
+      
+- type: entity
+  parent: ClothingNeckCloakGeneric
+  id: ClothingNeckCloakGenericWhite
+  name: white cloak
+  description: You have left your mark on the... wait, why the hell would you paint white on white??
+  components:
+    - type: GenericCloakData
+      color: "#FFFFFF"
+
+- type: entity
+  parent: ClothingNeckCloakGeneric
+  id: ClothingNeckCloakGenericBlack
+  name: black cloak
+  description: You have left your mark on the canvas. Deep within the darkness, you feel your light shining through.
+  components:
+    - type: GenericCloakData
+      color: "#333333"
+
+- type: entity
+  parent: ClothingNeckCloakGeneric
+  id: ClothingNeckCloakGenericRed
+  name: red cloak
+  description: You have left your mark on the canvas. Burning with rage and determination, you triumph over any hardships you might face.
+  components:
+    - type: GenericCloakData
+      color: "#DC0000"
+      
+- type: entity
+  parent: ClothingNeckCloakGeneric
+  id: ClothingNeckCloakGenericOrange
+  name: orange cloak
+  description: You have left your mark on the canvas. Wearing this sparks the flame within your soul.
+  components:
+    - type: GenericCloakData
+      color: "#E88200"
+
+- type: entity
+  parent: ClothingNeckCloakGeneric
+  id: ClothingNeckCloakGenericYellow
+  name: yellow cloak
+  description: You have left your mark on the canvas. No matter the situation, you manage to make it through with a smile.
+  components:
+    - type: GenericCloakData
+      color: "#E8E800"
+
+- type: entity
+  parent: ClothingNeckCloakGeneric
+  id: ClothingNeckCloakGenericGreen
+  name: green cloak
+  description: You have left your mark on the canvas. Wearing this makes you feel at peace, almost as if you were one with mother nature.
+  components:
+    - type: GenericCloakData
+      color: "#00EF00"
+
+- type: entity
+  parent: ClothingNeckCloakGeneric
+  id: ClothingNeckCloakGenericBlue
+  name: blue cloak
+  description: You have left your mark on the canvas. Through patience, you overcome anything that stands in your way. 
+  components:
+    - type: GenericCloakData
+      color: "#0000CD"
+
+- type: entity
+  parent: ClothingNeckCloakGeneric
+  id: ClothingNeckCloakGenericPurple
+  name: purple cloak
+  description: You have left your mark on the canvas. No mystery goes unsolved forever. Not if you have anything to say about it at least.
+  components:
+    - type: GenericCloakData
+      color: purple
+
+- type: entity
+  parent: ClothingNeckCloakGeneric
+  id: ClothingNeckCloakGenericRainbow
+  name: rainbow cloak
+  description: You have left your mark on the canvas. The mark in question is fucking awesome.
+  components:
+    - type: GenericCloakData
+      rainbow: true
+    - type: PointLight
+      radius: 1.5
+      energy: 2
+    - type: RgbLightController
+      layers: [ 0 ]

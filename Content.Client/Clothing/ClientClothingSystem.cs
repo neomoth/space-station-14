@@ -1,12 +1,16 @@
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Client._Starlight.Clothing;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
+using Content.Shared._Starlight.Clothing;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DisplacementMap;
+using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -14,6 +18,7 @@ using Content.Shared.Item;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
@@ -53,6 +58,9 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IComponentFactory _factory = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -60,20 +68,43 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         SubscribeLocalEvent<ClothingComponent, GetEquipmentVisualsEvent>(OnGetVisuals);
         SubscribeLocalEvent<ClothingComponent, InventoryTemplateUpdated>(OnInventoryTemplateUpdated);
-
         SubscribeLocalEvent<InventoryComponent, VisualsChangedEvent>(OnVisualsChanged);
         SubscribeLocalEvent<SpriteComponent, DidUnequipEvent>(OnDidUnequip);
         SubscribeLocalEvent<InventoryComponent, AppearanceChangeEvent>(OnAppearanceUpdate);
+        SubscribeLocalEvent<GenericCloakDataComponent, ComponentInit>(UpdateGenericCloak);
+		SubscribeLocalEvent<GenericCloakDataComponent, GotEquippedHandEvent>(UpdateGenericCloak);
+        SubscribeLocalEvent<GenericCloakDataComponent, EquipmentVisualsUpdatedEvent>(UpdateGenericCloak);
+    }
+
+    private void UpdateGenericCloak(EntityUid uid, GenericCloakDataComponent component, object _)
+    {
+	    if (!TryComp(uid, out SpriteComponent? sprite)) return;
+	    if (!TryComp(uid, out AppearanceComponent? appearance)) return;
+	    if (!component.Rainbow) _sprite.SetColor((uid, sprite), component.Color * Color.White);
+	    _appearance.SetData(uid, GenericCloakVisuals.Color, component.Color, appearance);
+	    _appearance.QueueUpdate(uid, appearance);
+    }
+    
+    private void OnGenericEquipmentVisualsChanged(EntityUid uid, GenericCloakDataComponent component, ref EquipmentVisualsUpdatedEvent args)
+    {
+	    // if (!TryComp(uid, out SpriteComponent? sprite)) return;
+	    // _sprite.SetColor((uid, sprite), component.Color * Color.White);
     }
 
     private void OnAppearanceUpdate(EntityUid uid, InventoryComponent component, ref AppearanceChangeEvent args)
     {
-        // May need to update displacement maps if the sex changed. Also required to properly set the stencil on init
-        if (args.Sprite == null)
-            return;
+		// May need to update displacement maps if the sex changed. Also required to properly set the stencil on init
+		if (args.Sprite == null)
+			return;
 
-        UpdateAllSlots(uid, component);
+		if (args.AppearanceData.TryGetValue(GenericCloakVisuals.Color, out var visualObject))
+		{
+			var color = visualObject as Color? ?? default;
+			_sprite.SetColor((uid, args.Sprite), color * Color.White);
+		}
 
+		UpdateAllSlots(uid, component);
+        
         // No clothing equipped -> make sure the layer is hidden, though this should already be handled by on-unequip.
         if (_sprite.LayerMapTryGet((uid, args.Sprite), HumanoidVisualLayers.StencilMask, out var layer, false))
         {
@@ -98,7 +129,7 @@ public sealed class ClientClothingSystem : ClothingSystem
             RenderEquipment(uid, item, slot.Name, inventoryComponent, clothingComponent: clothing);
         }
     }
-
+    
     private void OnGetVisuals(EntityUid uid, ClothingComponent item, GetEquipmentVisualsEvent args)
     {
         if (!TryComp(args.Equipee, out InventoryComponent? inventory))
@@ -201,6 +232,12 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (!inventorySlots.VisualLayerKeys.TryGetValue(args.Slot, out var revealedLayers))
             return;
 
+        // if (TryComp(args.Equipment, out GenericCloakDataComponent? cloakData))
+        // {
+	       //  if(!TryComp(args.Equipment))
+	       //  _sprite.SetColor(args.Equipment);
+        // }
+        
         // Remove old layers. We could also just set them to invisible, but as items may add arbitrary layers, this
         // may eventually bloat the player with lots of invisible layers.
         foreach (var layer in revealedLayers)
@@ -341,8 +378,13 @@ public sealed class ClientClothingSystem : ClothingSystem
                     index++;
                 }
             }
+            
+            if (TryComp(equipment, out GenericCloakDataComponent? cloakData))
+            {
+	            if(!cloakData.Rainbow) _sprite.LayerSetColor((equipee, sprite), index, cloakData.Color);
+            }
         }
-
+        
         RaiseLocalEvent(equipment, new EquipmentVisualsUpdatedEvent(equipee, slot, revealedLayers), true);
     }
 }
