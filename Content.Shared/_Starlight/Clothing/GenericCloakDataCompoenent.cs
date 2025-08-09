@@ -4,29 +4,11 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Clothing.Components;
 
-[NetworkedComponent, ComponentProtoName("GenericCloakData"), Access(typeof(ClothingSystem))]
-public abstract partial class SharedGenericCloakDataComponent : Component
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(ClothingSystem))]
+public sealed partial class GenericCloakDataComponent : Component
 {
-	/// <summary>
-	/// The color of the cloak
-	/// </summary>
-	[DataField] public Color Color;
+    [DataField, AutoNetworkedField] public Color Color;
 
-	/// <summary>
-	/// If true, ignore set color and cycle through the rainbow.
-	/// </summary>
-	[DataField] public bool Rainbow;
-}
-
-[NetSerializable, Serializable]
-public sealed class GenericCloakDataComponentState : ComponentState
-{
-	public readonly Color Color;
-	public readonly bool Rainbow;
-
-	public GenericCloakDataComponentState(Color color, bool rainbow)
-	{
-		Color = color;
-		Rainbow = rainbow;
-	}
+    [DataField, AutoNetworkedField] public bool Rainbow;
 }

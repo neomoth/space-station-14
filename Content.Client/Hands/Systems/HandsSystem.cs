@@ -296,6 +296,10 @@ namespace Content.Client.Hands.Systems
             // add the new layers
             foreach (var (key, layerData) in ev.Layers)
             {
+                if (TryComp(held, out SpriteComponent? heldSprite))
+                {
+                    layerData.Color ??= heldSprite.Color;
+                }
                 if (!revealedLayers.Add(key))
                 {
                     Log.Warning($"Duplicate key for in-hand visuals: {key}. Are multiple components attempting to modify the same layer? Entity: {ToPrettyString(held)}");

@@ -1,0 +1,7 @@
+- type: construction
+  id: ClothingGenericCloak
+  graph: ClothingGenericCloak
+  startNode: start
+  targetNode: cloak
+  category: construction-category-clothing
+  objectType: Item

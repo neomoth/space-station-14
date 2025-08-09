@@ -2,15 +2,16 @@ using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Client._Starlight.Clothing;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
+using Content.Client.Items.Systems;
 using Content.Shared._Starlight.Clothing;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -61,6 +62,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly ItemSystem _itemSystem = default!;
 
     public override void Initialize()
     {
@@ -78,17 +80,13 @@ public sealed class ClientClothingSystem : ClothingSystem
 
     private void UpdateGenericCloak(EntityUid uid, GenericCloakDataComponent component, object _)
     {
+        if (!TryComp(uid, out ItemComponent? item)) return;
 	    if (!TryComp(uid, out SpriteComponent? sprite)) return;
 	    if (!TryComp(uid, out AppearanceComponent? appearance)) return;
 	    if (!component.Rainbow) _sprite.SetColor((uid, sprite), component.Color * Color.White);
 	    _appearance.SetData(uid, GenericCloakVisuals.Color, component.Color, appearance);
-	    _appearance.QueueUpdate(uid, appearance);
-    }
-    
-    private void OnGenericEquipmentVisualsChanged(EntityUid uid, GenericCloakDataComponent component, ref EquipmentVisualsUpdatedEvent args)
-    {
-	    // if (!TryComp(uid, out SpriteComponent? sprite)) return;
-	    // _sprite.SetColor((uid, sprite), component.Color * Color.White);
+        _appearance.QueueUpdate(uid, appearance);
+        if(_ is ComponentInit) _itemSystem.VisualsChanged(uid);
     }
 
     private void OnAppearanceUpdate(EntityUid uid, InventoryComponent component, ref AppearanceChangeEvent args)
@@ -101,6 +99,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 		{
 			var color = visualObject as Color? ?? default;
 			_sprite.SetColor((uid, args.Sprite), color * Color.White);
+            
 		}
 
 		UpdateAllSlots(uid, component);

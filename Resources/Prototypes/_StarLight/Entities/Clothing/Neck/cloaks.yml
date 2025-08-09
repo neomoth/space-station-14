@@ -520,3 +520,16 @@
       energy: 2
     - type: RgbLightController
       layers: [ 0 ]
+    - type: Item
+      inhandVisuals:
+        left:
+          - state: inhand-left
+            shader: unshaded
+        right:
+          - state: inhand-right
+            shader: unshaded
+    - type: Clothing
+      clothingVisuals:
+        neck:
+          - state: equipped-NECK
+            shader: unshaded
