@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: CloakGenericBase
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          completion:
+            - !type:SpawnPrototype
+              prototype: NeckClothingCloakGeneric
+          steps:
+            - material: Cloth
+              amount: 8
+            - material: Cable
+              amount: 3
+            - material: sewingNeedle
+              amount: 1
+    - node: end
+      entity: sewingNeedle

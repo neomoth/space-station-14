@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseItem
+  id: sewingNeedle
+  name: Sewing Needle
+  description: Perfect for stitching together cloth.
+  components:
+    - type: Sharp
+    - type: Sprite
+      sprite: _Starlight/Objects/Tools/sewing_needle.rsi
+    - type: MeleeWeapon
+      damage:
+        types:
+          Piercing: 1
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Piercing: 1
+    - type: Item
+      size: Tiny
+    - type: BalloonPopper
+    - type: ThrowingAngle
+      angle: -135
+    - type: LandAtCursor
+      

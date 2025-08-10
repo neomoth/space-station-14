@@ -434,6 +434,7 @@
     - type: GenericCloakData
       color: "#FFFFFF"
     - type: Appearance
+    - type: Construction
       
 - type: entity
   parent: ClothingNeckCloakGeneric
