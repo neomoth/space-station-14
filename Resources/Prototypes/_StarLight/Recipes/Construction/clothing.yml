@@ -6,10 +6,10 @@
   category: construction-category-clothing
   objectType: Item
   
-- type: construction
-  id: CloakGenericBase
-  graph: CloakGenericBase
-  startNode: start
-  targetNode: end
-  category: construction-category-clothing
-  objectType: Item
+#- type: construction
+#  id: CloakGenericBase
+#  graph: CloakGenericBase
+#  startNode: start
+#  targetNode: end
+#  category: construction-category-clothing
+#  objectType: Item

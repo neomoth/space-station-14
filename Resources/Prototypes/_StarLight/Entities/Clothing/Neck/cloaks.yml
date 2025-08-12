@@ -274,7 +274,6 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-  - type: Construction
 
 ## colored
 
@@ -435,7 +434,7 @@
     - type: GenericCloakData
       color: "#FFFFFF"
     - type: Appearance
-    - type: Construction
+#    - type: Construction
       
 - type: entity
   parent: ClothingNeckCloakGeneric
