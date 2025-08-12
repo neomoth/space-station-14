@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: sewingNeedle
+  id: SewingNeedle
   name: Sewing Needle
   description: Perfect for stitching together cloth.
   components:
@@ -21,4 +21,4 @@
     - type: ThrowingAngle
       angle: -135
     - type: LandAtCursor
-      
+    - type: Construction

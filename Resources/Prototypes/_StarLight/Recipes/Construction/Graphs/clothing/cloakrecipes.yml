@@ -13,7 +13,7 @@
               amount: 8
             - material: Cable
               amount: 3
-            - material: sewingNeedle
+            - material: SewingNeedle
               amount: 1
     - node: end
       entity: sewingNeedle
