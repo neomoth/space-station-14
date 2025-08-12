@@ -173,6 +173,9 @@
   id: SyndieDungeon
 
 - type: Tag
+  id: Compy
+
+- type: Tag
   id: Table
 
 - type: Tag
