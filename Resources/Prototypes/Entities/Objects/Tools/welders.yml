@@ -108,6 +108,15 @@
   - type: Tag
     tags:
     - ThermiteIgnitor
+  # 🌟Starlight-start🌟
+  - type: SurgeryTool
+    successRate: 0.75
+    startSound:
+      path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
+    endSound:
+      path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
+  - type: Cautery
+  # 🌟Starlight-end🌟
 
 - type: entity
   name: industrial welding tool
