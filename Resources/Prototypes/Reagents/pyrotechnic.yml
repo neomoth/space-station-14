@@ -26,6 +26,7 @@
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 2
+  # Starlight-start: Working thermite
   reactiveEffects:
     Dissolvable:
       methods: [ Touch ]
@@ -43,6 +44,7 @@
           types:
             Heat: 2
             Poison: 1
+  # Starlight-end
 
 - type: reagent
   id: Napalm

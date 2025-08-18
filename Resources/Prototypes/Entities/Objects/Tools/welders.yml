@@ -105,10 +105,10 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+  # 🌟Starlight-start🌟
   - type: Tag
     tags:
     - ThermiteIgnitor
-  # 🌟Starlight-start🌟
   - type: SurgeryTool
     successRate: 0.75
     startSound:

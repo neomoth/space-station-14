@@ -110,7 +110,7 @@
   - type: Tag
     tags:
     - GhostOnlyWarp
-    - UnDissolvable
+    - UnDissolvable # Starlight-edit
   - type: WarpPoint
     follow: true
     location: nuclear bomb
