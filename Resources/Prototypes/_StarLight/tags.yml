@@ -184,6 +184,12 @@
   id: Table
 
 - type: Tag
+  id: SecuredLocker
+
+- type: Tag
+  id: Locker
+  
+- type: Tag
   id: ThermiteIgnitor
   
 - type: Tag
