@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.EUI;
@@ -93,6 +94,12 @@ public sealed class GhostThemeSystem : EntitySystem
             {
                 if (_nulllinkPlayerRoles.IsAnyRole(session, roleReq.Roles))
                     AvailableThemes.Add(ghostTheme.ID);
+                // surely there is a better way to get the role id but whatever
+                else if (_prototypeManager.TryIndex(new ProtoId<RoleRequirementPrototype>("StaffRolesReq"), out var staffReq))
+                {
+                    if (roleReq.StaffOverrideable && _nulllinkPlayerRoles.IsAnyRole(session, staffReq.Roles))
+                        AvailableThemes.Add(ghostTheme.ID);
+                }
                 continue;
             }
             AvailableThemes.Add(ghostTheme.ID);

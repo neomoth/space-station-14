@@ -5,6 +5,7 @@
   - 1294130153651306516 # BetaTester
   discord: roles-req-discord-starlight
   rolesLoc: roles-req-tester-roles
+  staffOverrideable: True
 
 - type: roleRequirementPrototype
   id: MentorRolesReq
@@ -12,6 +13,7 @@
   - 1294132218918207639 # Mentor
   discord: roles-req-discord-starlight
   rolesLoc: roles-req-mentor-roles
+  staffOverrideable: True
 
 - type: roleRequirementPrototype
   id: GoldEventWinnerReq

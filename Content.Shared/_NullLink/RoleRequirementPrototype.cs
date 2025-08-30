@@ -22,4 +22,7 @@ public sealed partial class RoleRequirementPrototype : IPrototype
 
     [DataField(required: true)]
     public string RolesLoc = default!;
+
+    [DataField]
+    public bool StaffOverrideable; // Does having staff override the requirement or not
 }
