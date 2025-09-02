@@ -156,7 +156,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
     private void OnStepEmoteEffectComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
     {
 
-        if (!HasComp<PainNumbnessComponent>(args.Body) && !HasComp<SleepingComponent>)
+        if (!HasComp<PainNumbnessComponent>(args.Body) && !HasComp<SleepingComponent>(args.Body))
             _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote);
         else
             _sleeping.TryWaking(args.Body); // If the patient sleeping without n2o or reagents, wake them up.
