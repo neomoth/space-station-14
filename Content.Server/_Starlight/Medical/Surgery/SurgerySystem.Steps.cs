@@ -81,9 +81,10 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
     }
 
     private void OnStepBleedComplete(Entity<SurgeryStepBleedEffectComponent> ent, ref SurgeryStepEvent args)
-    {        
+    {      
+        var damage = HasComp<SleepingComponent>(args.Body) ? ent.Comp.SleepDamage : ent.Comp.SleepDamage * 2;  
         if (ent.Comp.Damage is not null && TryComp<DamageableComponent>(args.Body, out var comp))
-            _damageableSystem.TryChangeDamage(args.Body, ent.Comp.Damage);
+            _damageableSystem.TryChangeDamage(args.Body, damage);
     }
 
     private void OnStepClampBleedComplete(Entity<SurgeryClampBleedEffectComponent> ent, ref SurgeryStepEvent args)
