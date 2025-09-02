@@ -10,6 +10,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Traits.Assorted;
+using Content.Shared.Bed.Sleep;
 using Microsoft.CodeAnalysis;
 using Content.Server._Starlight.Medical.Limbs;
 using Content.Server.Administration.Systems;
@@ -154,11 +155,11 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
     private void OnStepEmoteEffectComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
     {
-        
-        if (!HasComp<PainNumbnessComponent>(args.Body))
-        {
-             _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote);
-        }
+
+        if (!HasComp<PainNumbnessComponent>(args.Body) && !HasComp<SleepingComponent>)
+            _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote);
+        else
+            _sleeping.TryWaking(args.Body); // If the patient sleeping without n2o or reagents, wake them up.
     }
 
     private void OnStepSpawnComplete(Entity<SurgeryStepSpawnEffectComponent> ent, ref SurgeryStepEvent args)
