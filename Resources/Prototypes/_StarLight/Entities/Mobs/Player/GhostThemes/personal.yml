@@ -42,3 +42,15 @@
       state: ghost-rinary
     color: "#ffffff"
   requiredCkey: Rinary
+  
+- type: ghostTheme
+  id: Catmoth
+  name: Cat Moth
+  colorizeable: true
+  description: A cute lil catmoth goober thingy bwehblehelhblbhh :3
+  spriteSpecifier:
+    sprite:
+      sprite: _Starlight/Mobs/Customization/GhostThemes/ghosts.rsi
+      state: ghost-catmoth
+    color: "#ffffff"
+  requiredCkey: neomoth
