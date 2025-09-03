@@ -1,0 +1,5 @@
+- type: physicalsocialinteraction
+  id: Pet
+
+- type: physicalsocialinteraction
+  id: Boop
