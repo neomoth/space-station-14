@@ -1,3 +1,5 @@
+using System.Linq; // Starlight-edit
+using Content.Shared._Starlight.Silicons.Borgs; // Starlight-edit
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
@@ -47,10 +49,16 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         _actionsSystem.AddAction(ent, ref ent.Comp.SelectTypeAction, ActionId);
         Dirty(ent);
 
-        if (ent.Comp.SelectedBorgType != null)
+        // Starlight-start: Borg paints
+        if (ent.Comp.SelectedBorgType != null
+            && Prototypes.TryIndex<BorgTypePrototype>(ent.Comp.SelectedBorgType, out var borgTypePrototype))
         {
-            SelectBorgModule(ent, ent.Comp.SelectedBorgType.Value);
+            if (borgTypePrototype.BasicPaint != null)
+                SelectBorgModule(ent, ent.Comp.SelectedBorgType.Value, borgTypePrototype.BasicPaint.Value);
+            else if (borgTypePrototype.Paints.Count > 0)
+                SelectBorgModule(ent, ent.Comp.SelectedBorgType.Value, borgTypePrototype.Paints.First());
         }
+        // Starlight-end
     }
 
     private void OnShutdown(Entity<BorgSwitchableTypeComponent> ent, ref ComponentShutdown args)
@@ -76,7 +84,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         if (!Prototypes.HasIndex(args.Prototype))
             return;
 
-        SelectBorgModule(ent, args.Prototype);
+        SelectBorgModule(ent, args.Prototype, args.Paint); // Starlight-edit
     }
 
     //
@@ -85,9 +93,11 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
     protected virtual void SelectBorgModule(
         Entity<BorgSwitchableTypeComponent> ent,
-        ProtoId<BorgTypePrototype> borgType)
+        ProtoId<BorgTypePrototype> borgType, // Starlight-edit
+        ProtoId<BorgPaintPrototype> borgPaint) // Starlight-edit
     {
         ent.Comp.SelectedBorgType = borgType;
+        ent.Comp.SelectedBorgPaint = borgPaint; // Starlight-edit
 
         _actionsSystem.RemoveAction(ent.Owner, ent.Comp.SelectTypeAction);
         ent.Comp.SelectTypeAction = null;
@@ -100,15 +110,17 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
     protected void UpdateEntityAppearance(Entity<BorgSwitchableTypeComponent> entity)
     {
-        if (!Prototypes.TryIndex(entity.Comp.SelectedBorgType, out var proto))
+        if (!Prototypes.TryIndex(entity.Comp.SelectedBorgType, out var proto)
+            || !Prototypes.TryIndex(entity.Comp.SelectedBorgPaint, out var paint))
             return;
 
-        UpdateEntityAppearance(entity, proto);
+        UpdateEntityAppearance(entity, proto, paint);
     }
 
     protected virtual void UpdateEntityAppearance(
         Entity<BorgSwitchableTypeComponent> entity,
-        BorgTypePrototype prototype)
+        BorgTypePrototype prototype, // Starlight-edit
+        BorgPaintPrototype paint) // Starlight-edit
     {
         if (TryComp(entity, out InteractionPopupComponent? popup))
         {

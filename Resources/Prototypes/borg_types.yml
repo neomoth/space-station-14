@@ -21,7 +21,11 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  spritePath: Mobs/Silicon/Chassis/generic.rsi
+  # Starlight-start: Borg Paints
+  paints:
+  - generic
+  basicPaint: generic
+  # Starlight-end
 
   # Pet
   petSuccessString: petting-success-generic-cyborg
@@ -54,7 +58,11 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  spritePath: Mobs/Silicon/Chassis/engineer.rsi
+  # Starlight-start: Borg Paints
+  paints:
+  - engineering
+  basicPaint: engineering
+  # Starlight-end
 
   # Pet
   petSuccessString: petting-success-engineer-cyborg
@@ -87,8 +95,11 @@
 
   # Visual
   inventoryTemplateId: borgTall
-  spritePath: Mobs/Silicon/Chassis/miner.rsi
-  spriteBodyMovementState: borg_moving
+  # Starlight-start: Borg Paints
+  paints:
+  - mining
+  basicPaint: mining
+  # Starlight-end
 
   # Pet
   petSuccessString: petting-success-salvage-cyborg
@@ -120,8 +131,11 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  spritePath: Mobs/Silicon/Chassis/janitor.rsi
-  spriteBodyMovementState: borg_moving
+  # Starlight-start: Borg Paints
+  paints:
+  - janitor
+  basicPaint: janitor
+  # Starlight-end
 
   # Pet
   petSuccessString: petting-success-janitor-cyborg
@@ -163,8 +177,11 @@
 
   # Visual
   inventoryTemplateId: borgDutch
-  spritePath: Mobs/Silicon/Chassis/medical.rsi
-  spriteBodyMovementState: borg_moving
+  # Starlight-start: Borg Paints
+  paints:
+  - medical
+  basicPaint: medical
+  # Starlight-end
 
   # Pet
   petSuccessString: petting-success-medical-cyborg
@@ -202,7 +219,11 @@
 
   # Visual
   inventoryTemplateId: borgTall
-  spritePath: Mobs/Silicon/Chassis/service.rsi
+  # Starlight-start: Borg Paints
+  paints:
+  - service
+  basicPaint: service
+  # Starlight-end
 
   # Pet
   petSuccessString: petting-success-service-cyborg

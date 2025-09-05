@@ -3,6 +3,7 @@ using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared._Starlight.Silicons.Borgs; // Starlight-edit
 
 namespace Content.Shared.Silicons.Borgs.Components;
 
@@ -41,6 +42,15 @@ public sealed partial class BorgSwitchableTypeComponent : Component
     public ProtoId<BorgTypePrototype>? SelectedBorgType;
 
     /// <summary>
+    /// The currently selected borg paint, if any.
+    /// </summary>
+    /// <remarks>
+    /// This can be set in a prototype to immediately apply a borg paint, and not have switching support.
+    /// </remarks>
+    [DataField, AutoNetworkedField]
+    public ProtoId<BorgPaintPrototype>? SelectedBorgPaint; // Starlight-edit
+
+    /// <summary>
     /// Radio channels that the borg will always have. These are added on top of the selected type's radio channels.
     /// </summary>
     [DataField]
@@ -57,9 +67,10 @@ public sealed partial class BorgToggleSelectTypeEvent : InstantActionEvent;
 /// </summary>
 /// <param name="prototype">The borg type prototype that the user selected.</param>
 [Serializable, NetSerializable]
-public sealed class BorgSelectTypeMessage(ProtoId<BorgTypePrototype> prototype) : BoundUserInterfaceMessage
+public sealed class BorgSelectTypeMessage(ProtoId<BorgTypePrototype> prototype, ProtoId<BorgPaintPrototype> paint) : BoundUserInterfaceMessage // Starlight-edit
 {
     public ProtoId<BorgTypePrototype> Prototype = prototype;
+    public ProtoId<BorgPaintPrototype> Paint = paint; // Starlight-edit
 }
 
 /// <summary>

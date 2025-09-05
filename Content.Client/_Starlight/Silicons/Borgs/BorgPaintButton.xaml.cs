@@ -3,14 +3,13 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
-using System.Linq;
 
-namespace Content.Client._Starlight.GhostTheme;
+namespace Content.Client._Starlight.Silicons.Borgs;
 
 [GenerateTypedNameReferences]
-public sealed partial class GhostPicker : ContainerButton
+public sealed partial class BorgPaintButton : ContainerButton
 {
-    public GhostPicker(
+    public BorgPaintButton(
         SpriteSystem spriteSystem,
         SpriteSpecifier icon,
         string name,
@@ -18,7 +17,7 @@ public sealed partial class GhostPicker : ContainerButton
     {
         RobustXamlLoader.Load(this);
         AddStyleClass(StyleClassButton);
-        
+
         Disabled = isDisabled;
         View.Texture = spriteSystem.Frame0(icon);
         DescriptionLabel.Text = name;

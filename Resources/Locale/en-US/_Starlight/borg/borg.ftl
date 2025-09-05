@@ -1,0 +1,1 @@
+borg-select-type-menu-paints = Paints
