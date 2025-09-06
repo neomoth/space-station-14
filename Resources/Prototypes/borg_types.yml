@@ -187,8 +187,14 @@
   inventoryTemplateId: borgDutch
   # Starlight-start: Borg Paints
   paints:
-  - medical
-  basicPaint: medical
+  - MedicalBasic
+  - MedicalSurgeon
+  - MedicalDroid
+  - MedicalNeedles
+  - MedicalStandard
+  - MedicalNoble
+  - MedicalCricket
+  basicPaint: MedicalSurgeon
   # Starlight-end
 
   # Pet

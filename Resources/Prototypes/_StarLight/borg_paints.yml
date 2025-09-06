@@ -13,11 +13,3 @@
   # Visual
   spritePath: Mobs/Silicon/Chassis/janitor.rsi
   spriteBodyMovementState: borg_moving
-
-# Medical borg
-- type: borgPaint
-  id: medical
-
-  # Visual
-  spritePath: Mobs/Silicon/Chassis/medical.rsi
-  spriteBodyMovementState: borg_moving

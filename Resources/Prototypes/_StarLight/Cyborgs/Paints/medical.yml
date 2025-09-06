@@ -1,0 +1,56 @@
+- type: borgPaint
+  id: MedicalBasic
+  name: Basic
+  spritePath: Mobs/Silicon/Chassis/medical.rsi
+
+- type: borgPaint
+  id: MedicalSurgeon
+  name: Surgeon
+  spritePath: Mobs/Silicon/Chassis/medical.rsi
+  spriteBodyState: surgeon
+  spriteHasMindState: surgeon_e
+  spriteNoMindState: surgeon_e_r
+  spriteToggleLightState: surgeon_l
+  spriteBodyMovementState: surgeon_moving
+
+- type: borgPaint
+  id: MedicalDroid
+  name: Advanced Droid
+  spritePath: Mobs/Silicon/Chassis/medical.rsi
+  spriteBodyState: droid
+  spriteHasMindState: droid_e
+  spriteNoMindState: droid_e_r
+  spriteToggleLightState: droid_l
+
+- type: borgPaint
+  id: MedicalNeedles
+  name: Needles
+  spritePath: Mobs/Silicon/Chassis/medical.rsi
+  spriteBodyState: needles
+
+- type: borgPaint
+  id: MedicalStandard
+  name: Standard
+  spritePath: Mobs/Silicon/Chassis/medical.rsi
+  spriteBodyState: standard
+  spriteHasMindState: standard_e
+  spriteNoMindState: standard_e_r
+  spriteToggleLightState: standard_l
+
+- type: borgPaint
+  id: MedicalNoble
+  name: Noble-MED
+  spritePath: Mobs/Silicon/Chassis/medical.rsi
+  spriteBodyState: noble
+  spriteHasMindState: noble_e
+  spriteNoMindState: noble_e_r
+  spriteToggleLightState: noble_l
+
+- type: borgPaint
+  id: MedicalCricket
+  name: Cricket
+  spritePath: Mobs/Silicon/Chassis/medical.rsi
+  spriteBodyState: cricket
+  spriteHasMindState: cricket_e
+  spriteNoMindState: cricket_e_r
+  spriteToggleLightState: cricket_l
