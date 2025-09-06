@@ -6,7 +6,7 @@
   - type: Sprite
     layers:
     - state: borg
-      map: [ "enum.BorgVisualLayers.Body", "movement" ]
+      map: [ "movement", "enum.BorgVisualLayers.Body" ]
     - state: borg_e_r
       map: [ "enum.BorgVisualLayers.Light" ]
       shader: unshaded
@@ -94,7 +94,7 @@
 
 - type: entity
   id: BorgChassisSyndicateAssault
-  parent: BaseBorgChassisSyndicate
+  parent: BorgChassisSelectableSyndicate # Starlight-edit
   name: syndicate assault cyborg
   description: A lean, mean killing machine with access to a variety of deadly modules.
   components:
@@ -104,7 +104,7 @@
 
 - type: entity
   id: BorgChassisSyndicateMedical
-  parent: [ BaseBorgChassisSyndicate, ShowMedicalIcons ]
+  parent: [ BorgChassisSelectableSyndicate, ShowMedicalIcons ] # Starlight-edit
   name: syndicate medical cyborg
   description: A combat medical cyborg. Has limited offensive potential, but makes more than up for it with its support capabilities.
   components:
@@ -114,7 +114,7 @@
 
 - type: entity
   id: BorgChassisSyndicateSaboteur
-  parent: BaseBorgChassisSyndicate
+  parent: BorgChassisSelectableSyndicate # Starlight-edit
   name: syndicate saboteur cyborg
   description: A streamlined engineering cyborg, equipped with covert modules. Its chameleon projector lets it disguise itself as a Nanotrasen cyborg.
   components:

@@ -18,3 +18,7 @@ borg-type-SyndicateMedical-transponder = syndicate medical cyborg
 borg-type-SyndicateSaboteur-name = Syndicate Saboteur
 borg-type-SyndicateSaboteur-desc = A stealth-oriented cyborg designed for infiltration, sabotage, and covert operations.
 borg-type-SyndicateSaboteur-transponder = syndicate saboteur cyborg
+
+borg-type-SyndicateStealth-name = Syndicate Stealth
+borg-type-SyndicateStealth-desc = A stealth-oriented cyborg designed for infiltration, vent crawling and covert operations.
+borg-type-SyndicateStealth-transponder = syndicate stealth cyborg

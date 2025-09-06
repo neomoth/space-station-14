@@ -12,3 +12,9 @@
   id: SyndicateSaboteur
   name: Default
   spritePath: Mobs/Silicon/Chassis/synd_eng.rsi
+
+- type: borgPaint
+  id: SyndicateStealth
+  name: Default
+  spritePath: _Starlight/Mobs/Silicon/Chassis/synd_stealth.rsi
+  spriteBodyMovementState: borg_moving

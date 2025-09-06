@@ -21,6 +21,7 @@
   spriteHasMindState: rex_e
   spriteNoMindState: rex_e_r
   spriteToggleLightState: rex_l
+  spriteBodyMovementState: rex_moving
 
 - type: borgPaint
   id: JanitorStandard

@@ -7,14 +7,14 @@
     sprite: _Starlight/Mobs/Silicon/Chassis/syndicate.rsi
     layers:
     - state: borg
-      map: [ "enum.BorgVisualLayers.Body", "movement" ]
+      map: [ "movement", "enum.BorgVisualLayers.Body" ]
     - state: borg_e_r
       map: [ "enum.BorgVisualLayers.Light" ]
       shader: unshaded
       visible: false
     - state: borg_l
       shader: unshaded
-      map: [ "light","enum.BorgVisualLayers.LightStatus" ]
+      map: [ "light", "enum.BorgVisualLayers.LightStatus" ]
       visible: false
   - type: BorgChassis
     # Default borg can take no modules until selected type.
@@ -33,18 +33,25 @@
     inherentRadioChannels:
     - Common
     - Binary
-    # Starlight-start
     availableTypes:
     - SyndicateAssault
     - SyndicateMedical
     - SyndicateSaboteur
-  # Starlight-end
+    - SyndicateStealth
 
 - type: entity
   id: BorgChassisSecurity
   parent: BorgChassisSelectable
   name: security cyborg
   components:
-  - type: TextToSpeech
   - type: BorgSwitchableType
     selectedBorgType: security
+
+- type: entity
+  id: BorgChassisSyndicateStealth
+  parent: BorgChassisSelectableSyndicate
+  name: syndicate stealth cyborg
+  components:
+  - type: TextToSpeech
+  - type: BorgSwitchableType
+    selectedBorgType: SyndicateStealth
