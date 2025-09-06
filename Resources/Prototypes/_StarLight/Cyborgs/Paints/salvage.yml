@@ -35,10 +35,10 @@
   id: MiningNoble
   name: Noble-DIG
   spritePath: Mobs/Silicon/Chassis/miner.rsi
-  spriteBodyState: nogle
-  spriteHasMindState: nogle_e
-  spriteNoMindState: nogle_e_r
-  spriteToggleLightState: nogle_l
+  spriteBodyState: noble
+  spriteHasMindState: noble_e
+  spriteNoMindState: noble_e_r
+  spriteToggleLightState: noble_l
 
 - type: borgPaint
   id: MiningCricket
