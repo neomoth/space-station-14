@@ -503,7 +503,7 @@
     fireCost: 62.5
   - type: Tag
     tags:
-    - Disabler
+    - Disabler # Starlight-edit
     - Taser
     - Sidearm
 
