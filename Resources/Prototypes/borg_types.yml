@@ -221,8 +221,14 @@
   inventoryTemplateId: borgTall
   # Starlight-start: Borg Paints
   paints:
-  - service
-  basicPaint: service
+  - ServiceDefault
+  - ServiceWaitress
+  - ServiceBrobot
+  - ServiceMaximillion
+  - ServiceStandart
+  - ServiceNoble
+  - ServiceCricket
+  basicPaint: ServiceDefault
   # Starlight-end
 
   # Pet

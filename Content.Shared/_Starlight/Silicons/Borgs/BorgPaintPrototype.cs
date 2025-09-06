@@ -56,4 +56,10 @@ public sealed partial class BorgPaintPrototype : IPrototype
     /// </summary>
     [DataField]
     public string SpriteToggleLightState { get; set; } = "borg_l";
+
+    /// <summary>
+    /// Optional price for this paint. If null, the paint is free.
+    /// </summary>
+    [DataField]
+    public int? Price = null;
 }

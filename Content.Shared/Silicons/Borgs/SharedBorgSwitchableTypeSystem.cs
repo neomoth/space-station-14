@@ -1,5 +1,6 @@
 using System.Linq; // Starlight-edit
 using Content.Shared._Starlight.Silicons.Borgs; // Starlight-edit
+using Content.Shared.Starlight; // Starlight-edit
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
@@ -22,6 +23,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
     [Dependency] protected readonly IPrototypeManager Prototypes = default!;
     [Dependency] private readonly InteractionPopupSystem _interactionPopup = default!;
+    [Dependency] private readonly ISharedPlayersRoleManager _playerRoles = default!; // Starlight-edit
 
     public static readonly EntProtoId ActionId = "ActionSelectBorgType";
 
@@ -83,6 +85,20 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
         if (!Prototypes.HasIndex(args.Prototype))
             return;
+
+        // Starlight-start: Handle paint cost
+        if (!Prototypes.TryIndex(args.Paint, out var paint))
+            return;
+
+        if (paint.Price is not null and > 0)
+        {
+            if (_playerRoles.GetPlayerData(ent.Owner) is not PlayerData playerData
+                || playerData.Balance < paint.Price)
+                return;
+
+            playerData.Balance -= paint.Price.Value;
+        }
+        // Starlight-end
 
         SelectBorgModule(ent, args.Prototype, args.Paint); // Starlight-edit
     }

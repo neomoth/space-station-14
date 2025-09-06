@@ -30,8 +30,9 @@
 
                         <!-- Starlight-start: borg paints -->
                         <Label Text="{Loc 'borg-select-type-menu-paints'}" />
-                        <BoxContainer Name="PaintContents" Orientation="Horizontal" Visible="True">
-                        </BoxContainer>
+                        <ScrollContainer VScrollEnabled="False" VerticalExpand="True">
+                            <BoxContainer Name="PaintContents" Orientation="Horizontal" Visible="True"/>
+                        </ScrollContainer>
                         <!-- Starlight-end -->
                     </BoxContainer>
                 </Control>

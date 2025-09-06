@@ -1,0 +1,61 @@
+# Default
+- type: borgPaint
+  id: ServiceDefault
+  name: Default
+  spritePath: Mobs/Silicon/Chassis/service.rsi
+
+# Waitress
+- type: borgPaint
+  id: ServiceWaitress
+  name: Waitress
+  spritePath: Mobs/Silicon/Chassis/service.rsi
+  spriteBodyState: waitress
+
+# Bro bot
+- type: borgPaint
+  id: ServiceBrobot
+  name: Brobot
+  spritePath: Mobs/Silicon/Chassis/service.rsi
+  spriteBodyState: brobot
+  spriteHasMindState: brobot_e
+  spriteNoMindState: brobot_e_r
+
+# Maximillion
+- type: borgPaint
+  id: ServiceMaximillion
+  name: Maximillion
+  spritePath: Mobs/Silicon/Chassis/service.rsi
+  spriteBodyState: maximillion
+  spriteHasMindState: maximillion_e
+  spriteNoMindState: maximillion_e_r
+  price: 500
+
+# Standart
+- type: borgPaint
+  id: ServiceStandart
+  name: Standart
+  spritePath: Mobs/Silicon/Chassis/service.rsi
+  spriteBodyState: standart
+  spriteHasMindState: standart_e
+  spriteNoMindState: standart_e_r
+  spriteToggleLightState: standart_l
+
+# Noble
+- type: borgPaint
+  id: ServiceNoble
+  name: Noble
+  spritePath: Mobs/Silicon/Chassis/service.rsi
+  spriteBodyState: noble
+  spriteHasMindState: noble_e
+  spriteNoMindState: noble_e_r
+  spriteToggleLightState: noble_l
+
+# Cricket
+- type: borgPaint
+  id: ServiceCricket
+  name: Cricket
+  spritePath: Mobs/Silicon/Chassis/service.rsi
+  spriteBodyState: cricket
+  spriteHasMindState: cricket_e
+  spriteNoMindState: cricket_e_r
+  spriteToggleLightState: cricket_l

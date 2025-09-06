@@ -36,10 +36,3 @@
   # Visual
   spritePath: Mobs/Silicon/Chassis/medical.rsi
   spriteBodyMovementState: borg_moving
-
-# Service borg
-- type: borgPaint
-  id: service
-
-  # Visual
-  spritePath: Mobs/Silicon/Chassis/service.rsi

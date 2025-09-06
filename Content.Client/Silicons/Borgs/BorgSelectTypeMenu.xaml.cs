@@ -51,7 +51,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
             };
             button.OnPressed += _ =>
             {
-                _selectedBorgType = borgType;
+                //_selectedBorgType = borgType; Already added at UpdateInformation
                 UpdateInformation(borgType);
             };
             SelectionsContainer.AddChild(button);
@@ -63,6 +63,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
     private void UpdateInformation(BorgTypePrototype prototype)
     {
+        var oldSelectedType = _selectedBorgType; // Starlight-edit
         _selectedBorgType = prototype;
 
         InfoContents.Visible = true;
@@ -79,6 +80,9 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         ChassisView.SetPrototype(prototype.DummyPrototype);
 
         // Starlight-start: Borg Paints
+        if (oldSelectedType != null && oldSelectedType.ID == prototype.ID)
+            return;
+
         PaintContents.RemoveAllChildren();
         var paintGroup = new ButtonGroup();
         foreach (var borgPaint in prototype.Paints)
@@ -86,7 +90,12 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
             if (!_prototypeManager.TryIndex<BorgPaintPrototype>(borgPaint, out var borgPaintPrototype))
                 continue;
 
-            var paintButton = new BorgPaintButton(_spriteSystem, new SpriteSpecifier.Rsi(new ResPath(borgPaintPrototype.SpritePath), borgPaintPrototype.SpriteBodyState), borgPaintPrototype.Name ?? borgPaintPrototype.ID, false)
+            var name = borgPaintPrototype.Name ?? borgPaintPrototype.ID;
+
+            if (borgPaintPrototype.Price != null && borgPaintPrototype.Price > 0)
+                name += $" ({borgPaintPrototype.Price}₡)";
+
+            var paintButton = new BorgPaintButton(_spriteSystem, new SpriteSpecifier.Rsi(new ResPath(borgPaintPrototype.SpritePath), borgPaintPrototype.SpriteBodyState), name, false)
             {
                 Group = paintGroup,
             };
@@ -96,6 +105,8 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
                 if (_selectedBorgType != null)
                     UpdateInformation(_selectedBorgType);
             };
+
+
 
             PaintContents.AddChild(paintButton);
         }
