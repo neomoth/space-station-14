@@ -36,6 +36,11 @@
   petSuccessString: petting-success-security-cyborg
   petFailureString: petting-failure-security-cyborg
 
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 #10 hrs
+
 # Syndicate borgs
 
 - type: borgType
