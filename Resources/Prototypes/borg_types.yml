@@ -105,8 +105,13 @@
   inventoryTemplateId: borgTall
   # Starlight-start: Borg Paints
   paints:
-  - mining
-  basicPaint: mining
+  - MiningBasic
+  - MiningDroid
+  - MiningThreadhead
+  - MiningStandard
+  - MiningNoble
+  - MiningCricket
+  basicPaint: MiningThreadhead
   # Starlight-end
 
   # Pet

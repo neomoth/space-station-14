@@ -1,11 +1,3 @@
-# Salvage
-- type: borgPaint
-  id: mining
-
-  # Visual
-  spritePath: Mobs/Silicon/Chassis/miner.rsi
-  spriteBodyMovementState: borg_moving
-
 # Janitor borg
 - type: borgPaint
   id: janitor

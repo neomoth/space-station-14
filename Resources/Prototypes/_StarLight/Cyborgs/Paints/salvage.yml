@@ -1,0 +1,50 @@
+- type: borgPaint
+  id: MiningBasic
+  name: Basic
+  spritePath: Mobs/Silicon/Chassis/miner.rsi
+
+- type: borgPaint
+  id: MiningDroid
+  name: Advanced Basic
+  spritePath: Mobs/Silicon/Chassis/miner.rsi
+  spriteBodyState: droid
+  spriteHasMindState: droid_e
+  spriteNoMindState: droid_e_r
+  spriteToggleLightState: droid_l
+
+- type: borgPaint
+  id: MiningThreadhead
+  name: Threadhead
+  spritePath: Mobs/Silicon/Chassis/miner.rsi
+  spriteBodyState: threadhead
+  spriteHasMindState: threadhead_e
+  spriteNoMindState: threadhead_e_r
+  spriteToggleLightState: threadhead_l
+  spriteBodyMovementState: threadhead_moving
+
+- type: borgPaint
+  id: MiningStandard
+  name: Standard
+  spritePath: Mobs/Silicon/Chassis/miner.rsi
+  spriteBodyState: standard
+  spriteHasMindState: standard_e
+  spriteNoMindState: standard_e_r
+  spriteToggleLightState: standard_l
+
+- type: borgPaint
+  id: MiningNoble
+  name: Noble-DIG
+  spritePath: Mobs/Silicon/Chassis/miner.rsi
+  spriteBodyState: nogle
+  spriteHasMindState: nogle_e
+  spriteNoMindState: nogle_e_r
+  spriteToggleLightState: nogle_l
+
+- type: borgPaint
+  id: MiningCricket
+  name: Cricket
+  spritePath: Mobs/Silicon/Chassis/miner.rsi
+  spriteBodyState: cricket
+  spriteHasMindState: cricket_e
+  spriteNoMindState: cricket_e_r
+  spriteToggleLightState: cricket_l
