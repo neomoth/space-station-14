@@ -4,6 +4,7 @@
   components:
   - type: TextToSpeech
   - type: Sprite
+    sprite: _Starlight/Mobs/Silicon/Chassis/syndicate.rsi
     layers:
     - state: borg
       map: [ "enum.BorgVisualLayers.Body", "movement" ]
@@ -22,7 +23,7 @@
     noMindState: borg_e_r
   - type: BorgTransponder
     sprite:
-      sprite: Mobs/Silicon/Chassis/generic.rsi
+      sprite: _Starlight/Mobs/Silicon/Chassis/syndicate.rsi
       state: borg
     name: cyborg
   - type: InteractionPopup

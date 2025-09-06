@@ -1293,7 +1293,7 @@
           emptyLabel: borg-slot-light-ammo-box-empty
           whitelist:
             tags:
-            - MagazineLightRifleBox
+            - MagazineBoxLightRifle
       - item: PinpointerSyndicateNuclear
       # Starlight end
     - type: BorgModuleIcon
