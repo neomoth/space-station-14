@@ -188,3 +188,9 @@
 
 - type: Tag
   id: Locker
+
+- type: Tag
+  id: BorgModuleSecurity
+
+- type: Tag
+  id: Disabler
