@@ -52,7 +52,7 @@
         emptyLabel: borg-slot-zipties-empty
         whitelist:
           tags:
-          - Handucuffs # Can be replaced by handcuffs or zipties
+          - Handcuffs # Can be replaced by handcuffs or zipties
     - item: Stunbaton
       hand:
         emptyRepresentative: Stunbaton
