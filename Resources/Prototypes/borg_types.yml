@@ -146,8 +146,13 @@
   inventoryTemplateId: borgShort
   # Starlight-start: Borg Paints
   paints:
-  - janitor
-  basicPaint: janitor
+  - JanitorBasic
+  - JanitorMopbot
+  - JanitorRex
+  - JanitorStandard
+  - JanitorNoble
+  - JanitorCricket
+  basicPaint: JanitorRex
   # Starlight-end
 
   # Pet
