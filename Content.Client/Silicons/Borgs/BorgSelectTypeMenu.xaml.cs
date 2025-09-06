@@ -68,12 +68,8 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         InfoContents.Visible = true;
         InfoPlaceholder.Visible = false;
+        
         // Starlight-start: Borg Paints
-        if (_selectedBorgPaint == null
-            && prototype.BasicPaint != null
-            && _prototypeManager.TryIndex<BorgPaintPrototype>(prototype.BasicPaint, out var basicPaint))
-            _selectedBorgPaint = basicPaint;
-
         if (_selectedBorgPaint == null || !_selectedBorgType.Paints.Contains(_selectedBorgPaint))
             ConfirmTypeButton.Disabled = true;
         else
@@ -87,6 +83,11 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         // Starlight-start: Borg Paints
         if (oldSelectedType != null && oldSelectedType.ID == prototype.ID)
             return;
+
+        if (_selectedBorgPaint == null
+            && prototype.BasicPaint != null
+            && _prototypeManager.TryIndex<BorgPaintPrototype>(prototype.BasicPaint, out var basicPaint))
+            _selectedBorgPaint = basicPaint;
 
         PaintContents.RemoveAllChildren();
         var paintGroup = new ButtonGroup();
