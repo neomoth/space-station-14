@@ -24,10 +24,10 @@
   # Starlight-start: Borg Paints
   paints:
   - GenericBasic
-  - GenericDefault
+  - GenericStandard
   - GenericDroid
   - GenericNoble
-  basicPaint: GenericDefault
+  basicPaint: GenericStandard
   # Starlight-end
 
   # Pet
