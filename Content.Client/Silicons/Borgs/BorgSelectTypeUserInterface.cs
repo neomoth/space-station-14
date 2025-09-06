@@ -25,6 +25,7 @@ public sealed class BorgSelectTypeUserInterface : BoundUserInterface
         base.Open();
 
         _menu = this.CreateWindow<BorgSelectTypeMenu>();
+        _menu.SetupMenu(Owner); // Starlight-edit
         _menu.ConfirmedBorgType += args => // Starlight-edit
         {
             var (prototype, paint) = args; // Starlight-edit

@@ -59,6 +59,9 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: sp
+  - type: Tag
+    tags:
+    - MagazineBoxLightRifle
 
 - type: entity
   parent: BaseMagazineBoxLightRifle

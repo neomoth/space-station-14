@@ -35,3 +35,104 @@
   # Pet
   petSuccessString: petting-success-security-cyborg
   petFailureString: petting-failure-security-cyborg
+
+# Syndicate borgs
+
+- type: borgType
+  id: SyndicateAssault
+
+  # Description
+  dummyPrototype: BorgChassisSyndicateAssault
+
+  # Functional
+  extraModuleCount: 4
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSyndicate
+    - BorgModuleSyndicateAssault
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleOperative
+  - BorgModuleL6C
+  - BorgModuleEsword
+
+  radioChannels:
+  - Syndicate
+
+  # Visual
+  inventoryTemplateId: borgShort
+  paints:
+  - SyndicateAssault
+  basicPaint: SyndicateAssault
+
+  # Pet
+  petSuccessString: petting-success-syndicate-cyborg
+  petFailureString: petting-failure-syndicate-cyborg
+
+- type: borgType
+  id: SyndicateMedical
+
+  # Description
+  dummyPrototype: BorgChassisSyndicateMedical
+
+  # Functional
+  extraModuleCount: 4
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleMedical
+    - BorgModuleSyndicate
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleChemical
+  - BorgModuleTopicals
+  - BorgModuleSyndicateWeapon
+
+  radioChannels:
+  - Syndicate
+
+  # Visual
+  inventoryTemplateId: borgShort
+  paints:
+  - SyndicateMedical
+  basicPaint: SyndicateMedical
+
+  # Pet
+  petSuccessString: petting-success-syndicate-cyborg
+  petFailureString: petting-failure-syndicate-cyborg
+
+- type: borgType
+  id: SyndicateSaboteur
+
+  # Description
+  dummyPrototype: BorgChassisSyndicateSaboteur
+
+  # Functional
+  extraModuleCount: 4
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleEngineering
+    - BorgModuleSyndicate
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleRCD
+  - BorgModuleOperative
+  - BorgModuleSyndicateWeapon
+
+  radioChannels:
+  - Syndicate
+
+  # Visual
+  inventoryTemplateId: borgShort
+  paints:
+  - SyndicateSaboteur
+  basicPaint: SyndicateSaboteur
+
+  # Pet
+  petSuccessString: petting-success-syndicate-cyborg
+  petFailureString: petting-failure-syndicate-cyborg

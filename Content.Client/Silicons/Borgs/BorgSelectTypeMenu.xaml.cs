@@ -41,25 +41,56 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         IoCManager.InjectDependencies(this);
         _spriteSystem = _entManager.System<SpriteSystem>(); // Starlight-edit
 
-        var group = new ButtonGroup();
-        foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
-        {
-            var button = new Button
-            {
-                Text = PrototypeName(borgType),
-                Group = group,
-            };
-            button.OnPressed += _ =>
-            {
-                //_selectedBorgType = borgType; Already added at UpdateInformation
-                UpdateInformation(borgType);
-            };
-            SelectionsContainer.AddChild(button);
-        }
-
         ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
         HelpGuidebookIds = GuidebookEntries;
     }
+
+    // Starlight-start: Setup menu with available borg types and paints
+    public void SetupMenu(EntityUid owner)
+    {
+        if (!_entManager.TryGetComponent<BorgSwitchableTypeComponent>(owner, out var switchableType))
+            return;
+
+        var group = new ButtonGroup();
+        if (switchableType.AvailableTypes.Any())
+        {
+            foreach (var borgTypeId in switchableType.AvailableTypes)
+            {
+                if (!_prototypeManager.TryIndex<BorgTypePrototype>(borgTypeId, out var borgType))
+                    continue;
+
+                var button = new Button
+                {
+                    Text = PrototypeName(borgType),
+                    Group = group,
+                };
+                button.OnPressed += _ =>
+                {
+                    //_selectedBorgType = borgType; Already added at UpdateInformation
+                    UpdateInformation(borgType);
+                };
+                SelectionsContainer.AddChild(button);
+            }
+        }
+        else
+        {
+            foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
+            {
+                var button = new Button
+                {
+                    Text = PrototypeName(borgType),
+                    Group = group,
+                };
+                button.OnPressed += _ =>
+                {
+                    //_selectedBorgType = borgType; Already added at UpdateInformation
+                    UpdateInformation(borgType);
+                };
+                SelectionsContainer.AddChild(button);
+            }
+        }
+    }
+    // Starlight-end
 
     private void UpdateInformation(BorgTypePrototype prototype)
     {
@@ -71,7 +102,6 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         // Starlight-start: Borg Paints
         if (IsFirstUpdate(oldSelectedType, prototype)
-            && _selectedBorgPaint == null
             && prototype.BasicPaint != null
             && _prototypeManager.TryIndex<BorgPaintPrototype>(prototype.BasicPaint, out var basicPaint))
             _selectedBorgPaint = basicPaint;
@@ -134,5 +164,5 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         return Loc.GetString($"borg-type-{prototype.ID}-name");
     }
 
-    private bool IsFirstUpdate(BorgTypePrototype? oldProto, BorgTypePrototype newProto) => oldProto == null || oldProto.ID != newProto.ID;
+    private bool IsFirstUpdate(BorgTypePrototype? oldProto, BorgTypePrototype newProto) => oldProto == null || oldProto.ID != newProto.ID; // Starlight-edit
 }

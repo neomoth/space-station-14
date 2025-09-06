@@ -13,3 +13,5 @@ ghost-role-information-soviet-marine-rules = You are required to obey orders giv
 
 ghost-role-information-derelict-borgi-name = Derelict Borgi
 ghost-role-information-derelict-borgi-desc = You are a regular borgi that got lost in space. After years of exposure to ion storms you find yourself near a space station.
+
+ghost-role-information-syndicate-cyborg-name = Syndicate Cyborg

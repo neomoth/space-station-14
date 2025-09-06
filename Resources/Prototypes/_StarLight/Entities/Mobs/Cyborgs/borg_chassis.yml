@@ -1,4 +1,45 @@
 - type: entity
+  id: BorgChassisSelectableSyndicate
+  parent: BaseBorgChassisSyndicate
+  components:
+  - type: TextToSpeech
+  - type: Sprite
+    layers:
+    - state: borg
+      map: [ "enum.BorgVisualLayers.Body", "movement" ]
+    - state: borg_e_r
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+    - state: borg_l
+      shader: unshaded
+      map: [ "light","enum.BorgVisualLayers.LightStatus" ]
+      visible: false
+  - type: BorgChassis
+    # Default borg can take no modules until selected type.
+    maxModules: 0
+    hasMindState: borg_e
+    noMindState: borg_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: Mobs/Silicon/Chassis/generic.rsi
+      state: borg
+    name: cyborg
+  - type: InteractionPopup
+    interactSuccessString: petting-success-generic-cyborg
+    interactFailureString: petting-failure-generic-cyborg
+  - type: BorgSwitchableType
+    inherentRadioChannels:
+    - Common
+    - Binary
+    # Starlight-start
+    availableTypes:
+    - SyndicateAssault
+    - SyndicateMedical
+    - SyndicateSaboteur
+  # Starlight-end
+
+- type: entity
   id: BorgChassisSecurity
   parent: BorgChassisSelectable
   name: security cyborg

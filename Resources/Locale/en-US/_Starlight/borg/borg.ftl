@@ -6,3 +6,15 @@ borg-select-type-menu-paints = Models
 borg-type-security-name = Security
 borg-type-security-desc = Assist the security team in maintaining order on the station, apprehending criminals, and responding to threats.
 borg-type-security-transponder = security cyborg
+
+borg-type-SyndicateAssault-name = Syndicate Assault
+borg-type-SyndicateAssault-desc = A heavily armed combat cyborg designed for frontline engagements and assault operations.
+borg-type-SyndicateAssault-transponder = syndicate assault cyborg
+
+borg-type-SyndicateMedical-name = Syndicate Medical
+borg-type-SyndicateMedical-desc = A medical cyborg equipped to provide emergency medical care and support in hostile environments.
+borg-type-SyndicateMedical-transponder = syndicate medical cyborg
+
+borg-type-SyndicateSaboteur-name = Syndicate Saboteur
+borg-type-SyndicateSaboteur-desc = A stealth-oriented cyborg designed for infiltration, sabotage, and covert operations.
+borg-type-SyndicateSaboteur-transponder = syndicate saboteur cyborg
