@@ -11,7 +11,9 @@ using Robust.Client.GameObjects; // Starlight-edit
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility; // Starlight-edit
+using Robust.Shared.Utility;
+using Content.Client.Players.PlayTimeTracking; // Starlight-edit
+using Robust.Client.Player; // Starlight-edit
 
 namespace Content.Client.Silicons.Borgs;
 
@@ -25,6 +27,8 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entManager = default!; // Starlight-edit
+    [Dependency] private readonly IPlayerManager _playerManager = default!; // Starlight-edit
+    [Dependency] private readonly JobRequirementsManager _requirementsManager = default!; // Starlight-edit
     private readonly SpriteSystem _spriteSystem = default!; // Starlight-edit
 
     private BorgTypePrototype? _selectedBorgType;
@@ -86,6 +90,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
                     //_selectedBorgType = borgType; Already added at UpdateInformation
                     UpdateInformation(borgType);
                 };
+                button.Disabled = !_requirementsManager.CheckRoleRequirements(borgType.Requirements, _playerManager.LocalSession, null, out _); // Starlight-edit
                 SelectionsContainer.AddChild(button);
             }
         }
