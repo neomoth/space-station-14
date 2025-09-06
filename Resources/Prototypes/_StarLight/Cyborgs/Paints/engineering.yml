@@ -22,13 +22,13 @@
   spriteToggleLightState: landmate_l
 
 - type: borgPaint
-  id: EngineeringStandart
+  id: EngineeringStandard
   name: Standard
   spritePath: Mobs/Silicon/Chassis/engineer.rsi
-  spriteBodyState: standart
-  spriteHasMindState: standart_e
-  spriteNoMindState: standart_e_r
-  spriteToggleLightState: standart_l
+  spriteBodyState: standard
+  spriteHasMindState: standard_e
+  spriteNoMindState: standard_e_r
+  spriteToggleLightState: standard_l
 
 - type: borgPaint
   id: EngineeringNoble
