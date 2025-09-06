@@ -53,7 +53,7 @@
 # Cricket
 - type: borgPaint
   id: ServiceCricket
-  name: Cricket-SERV
+  name: Cricket
   spritePath: Mobs/Silicon/Chassis/service.rsi
   spriteBodyState: cricket
   spriteHasMindState: cricket_e

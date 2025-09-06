@@ -63,8 +63,13 @@
   inventoryTemplateId: borgShort
   # Starlight-start: Borg Paints
   paints:
-  - engineering
-  basicPaint: engineering
+  - EngineeringBasic
+  - EngineeringAntique
+  - EngineeringLandmate
+  - EngineeringStandart
+  - EngineeringNoble
+  - EngineeringCricket
+  basicPaint: EngineeringLandmate
   # Starlight-end
 
   # Pet
