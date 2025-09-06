@@ -1,11 +1,3 @@
-# Generic borg
-- type: borgPaint
-  id: generic
-  name: default
-
-  # Visual
-  spritePath: Mobs/Silicon/Chassis/generic.rsi
-
 # Engineering
 - type: borgPaint
   id: engineering

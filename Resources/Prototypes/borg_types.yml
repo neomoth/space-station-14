@@ -23,8 +23,11 @@
   inventoryTemplateId: borgShort
   # Starlight-start: Borg Paints
   paints:
-  - generic
-  basicPaint: generic
+  - GenericBasic
+  - GenericDefault
+  - GenericDroid
+  - GenericNoble
+  basicPaint: GenericDefault
   # Starlight-end
 
   # Pet

@@ -43,7 +43,7 @@
 # Noble
 - type: borgPaint
   id: ServiceNoble
-  name: Noble
+  name: Noble-SRV
   spritePath: Mobs/Silicon/Chassis/service.rsi
   spriteBodyState: noble
   spriteHasMindState: noble_e
@@ -53,7 +53,7 @@
 # Cricket
 - type: borgPaint
   id: ServiceCricket
-  name: Cricket
+  name: Cricket-SERV
   spritePath: Mobs/Silicon/Chassis/service.rsi
   spriteBodyState: cricket
   spriteHasMindState: cricket_e
