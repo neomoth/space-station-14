@@ -1,0 +1,50 @@
+- type: borgPaint
+  id: JanitorBasic
+  name: Basic
+  spritePath: Mobs/Silicon/Chassis/janitor.rsi
+  spriteBodyMovementState: borg_moving
+
+- type: borgPaint
+  id: JanitorMopbot
+  name: Mopbot
+  spritePath: Mobs/Silicon/Chassis/janitor.rsi
+  spriteBodyState: mopbot
+  spriteHasMindState: mopbot_e
+  spriteNoMindState: mopbot_e_r
+  spriteToggleLightState: mopbot_l
+
+- type: borgPaint
+  id: JanitorRex
+  name: Mop Gear REX
+  spritePath: Mobs/Silicon/Chassis/janitor.rsi
+  spriteBodyState: rex
+  spriteHasMindState: rex_e
+  spriteNoMindState: rex_e_r
+  spriteToggleLightState: rex_l
+
+- type: borgPaint
+  id: JanitorStandard
+  name: Standard
+  spritePath: Mobs/Silicon/Chassis/janitor.rsi
+  spriteBodyState: standard
+  spriteHasMindState: standard_e
+  spriteNoMindState: standard_e_r
+  spriteToggleLightState: standard_l
+
+- type: borgPaint
+  id: JanitorNoble
+  name: Noble-CLN
+  spritePath: Mobs/Silicon/Chassis/janitor.rsi
+  spriteBodyState: noble
+  spriteHasMindState: noble_e
+  spriteNoMindState: noble_e_r
+  spriteToggleLightState: noble_l
+
+- type: borgPaint
+  id: JanitorCricket
+  name: Cricket
+  spritePath: Mobs/Silicon/Chassis/janitor.rsi
+  spriteBodyState: cricket
+  spriteHasMindState: cricket_e
+  spriteNoMindState: cricket_e_r
+  spriteToggleLightState: cricket_l

@@ -1,7 +1,0 @@
-# Janitor borg
-- type: borgPaint
-  id: janitor
-
-  # Visual
-  spritePath: Mobs/Silicon/Chassis/janitor.rsi
-  spriteBodyMovementState: borg_moving
