@@ -111,7 +111,7 @@ public sealed class DissolvableSystem : SharedDissolvableSystem
         dissolvable.Resisting = true;
 
         _popup.PopupEntity(Loc.GetString("dissolvable-component-resist-message"), uid, uid);
-        _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(2f), true);
+        _stunSystem.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(2f));
 
         dissolvable.ResistingStartedOn = _timing.CurTime;
 
