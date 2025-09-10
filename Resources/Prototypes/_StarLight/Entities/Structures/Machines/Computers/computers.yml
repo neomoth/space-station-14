@@ -42,6 +42,7 @@
       board: !type:Container
 
 #abductor
+
 - type: entity
   parent: BaseComputer
   id: AbductorConsole
@@ -95,7 +96,6 @@
       energy: 1.6
       color: "#90EE90"
 
-
 - type: entity
   parent: BaseComputer
   id: AbductorHumanObservationConsole
@@ -107,13 +107,22 @@
     layers:
     - map: ["console"]
       state: console
-  - type: AbductorHumanObservationConsole
+  - type: RemoteEyeConsole
+    remoteEntityProto: AbductorHumanObservationConsoleEye
+    color: "#A04B81"
+    whitelist:
+      tags:
+        - Abductor
+    actions:
+    - ActionExitConsole
+    - ActionSendYourself
+    - ActionGizmoMark
   - type: ActivatableUI
-    key: enum.AbductorCameraConsoleUIKey.Key
+    key: enum.RemoteEyeUIKey.Key
   - type: UserInterface
     interfaces:
-     enum.AbductorCameraConsoleUIKey.Key:
-        type: AbductorCameraConsoleBui
+     enum.RemoteEyeUIKey.Key:
+        type: RemoteEyeConsoleBui
   - type: PointLight
     enabled: true
     radius: 1.5
@@ -125,8 +134,8 @@
   - Incorporeal
   - BaseMob
   id: AbductorHumanObservationConsoleEye
-  name: abductor eye
-  description: The abductor's viewer.
+  name: "???"
+  description: "ERROR"
   categories: [ HideSpawnMenu ]
   suffix: DO NOT MAP
   components:
@@ -135,13 +144,58 @@
     follow: true
   - type: Eye
     pvsScale: 1.5
+  - type: StationAiOverlay
+    allowCrossGrid: true
   - type: Visibility
-    layer: 4
+    layer: 32768
   - type: Sprite
-    sprite: _Starlight/Structures/Machines/abductor_camera_console.rsi
+    sprite: _Starlight/Mobs/Net/net_eye.rsi
     layers:
-    - state: eye
+    - map: ["base"]
+      state: enemy
       shader: unshaded
+  - type: SpriteWhitelisted
+    localEntityWhitelist:
+      tags:
+        - Abductor
+        - Ghost
+    passedLayers:
+      base:
+        state: abductor
+    failedLayers:
+      base:
+        state: enemy
   - type: Tag
     tags:
     - CantInteract
+
+- type: entity
+  parent: BaseComputerShuttle
+  id: CompuerShuttleSalvage
+  name: salvage shuttle console
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: shuttle
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: DroneConsole
+    components:
+      - type: SalvageShuttle
+  - type: RadarConsole
+    maxRange: 256
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#43ccb5"
+  - type: Computer
+    board: SalvageShuttleConsoleCircuitboard
+  - type: StealTarget
+    stealGroup: SalvageShuttleConsoleCircuitboard

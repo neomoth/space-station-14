@@ -10,6 +10,7 @@
   # Starlight-start
   - MechAirTank 
   - MechThruster
+  - AiInterfaceCube
   # Starlight-end
 
 - type: latheRecipePack
@@ -18,6 +19,9 @@
   - BorgModuleTool
   - BorgModuleCable
   - BorgModuleFireExtinguisher
+  # Starlight-start
+  - BorgModuleUppies
+  # Starlight-end
 
 - type: latheRecipePack
   id: BorgLimbsStatic
@@ -41,6 +45,7 @@
   recipes:
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
+  - BorgModuleAdvancedClowning
   - BorgModuleAdvancedChemical
   - BorgModuleAdvancedMining
 
