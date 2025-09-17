@@ -705,21 +705,6 @@
         - ReagentId: BoneGel
           Quantity: 30
   - type: BoneGel
-  
-- type: entity
-  name: abductor's bottle of bone gel
-  id: BoneGelAbductor
-  parent: BoneGel
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/bone_gel.rsi
-    state: abductor
-  - type: SolutionRegeneration
-    solution: container
-    generated:
-      reagents:
-      - ReagentId: BoneGel
-        Quantity: 1
 
 - type: entity
   name: bottle of bone gel
