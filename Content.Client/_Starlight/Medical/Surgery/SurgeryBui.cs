@@ -343,7 +343,7 @@ public sealed class SurgeryBui : BoundUserInterface
             stepName.AddText(_entities.GetComponent<MetaDataComponent>(stepButton.Step).EntityName);
 
             var stepDescription = _entities.GetComponent<MetaDataComponent>(stepButton.Step).EntityDescription;
-            Func<string> stepTooltip = stepDescription != null || stepDescription != string.Empty ? (() => stepDescription) : (() => stepName.ToString());
+            Func<string> stepTooltip = !string.IsNullOrEmpty(stepDescription) ? (() => stepDescription) : (() => stepName.ToString() ?? "Empty");
 
             if (status == StepStatus.Complete)
                 stepButton.Button.Modulate = Color.Green;
