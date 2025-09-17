@@ -84,7 +84,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
     {      
         if (ent.Comp.Damage == null)
             return;
-        var damage = HasComp<SleepingComponent>(args.Body) ? ent.Comp.Damage : ent.Comp.Damage * 2;  
+        var damage = ent.Comp.Damage;  
         if (ent.Comp.Damage is not null && TryComp<DamageableComponent>(args.Body, out var comp))
             _damageableSystem.TryChangeDamage(args.Body, damage);
     }
