@@ -23,8 +23,8 @@
     Plasma: 50
 
 - type: latheRecipe
-  id: BorgModuleL6C
-  result: BorgModuleL6C
+  id: BorgModuleC20r
+  result: BorgModuleC20r
   categories:
     - Robotics
   materials: #basically just 2x as expensive compared to the generic weapon module due to... well.. it is a l6c... do I need to explain?
