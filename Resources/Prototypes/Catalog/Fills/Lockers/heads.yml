@@ -65,12 +65,12 @@
       - !type:PlayerCountCondition
         max: 15
     #region Starlight
-    - id: PaperEndGreenshift
-      conditions:
-      - !type:GamemodeCondition
-        presets:
-        - Greenshift
-        - Sandbox
+    # - id: PaperEndGreenshift
+    #   conditions:
+    #   - !type:GamemodeCondition
+    #     presets:
+    #     - Greenshift
+    #     - Sandbox
     #endregion Starlight
 
 
