@@ -145,7 +145,7 @@
           types:
             Poison: 1
       - !type:ChemVomit
-        probability: 0.05
+        probability: 0.1
         conditions:
           - !type:ReagentThreshold
             min: 30
