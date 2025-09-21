@@ -37,7 +37,7 @@
     equipmentWhitelist:
       tags:
       - SmallMech
-      
+
 - type: entity
   id: NanotrasenMech
   abstract: true
@@ -49,7 +49,7 @@
       path: /Audio/Mecha/lowpowernano.ogg
     nominalSound:
       path: /Audio/Mecha/nominalnano.ogg
-      
+
 - type: entity
   id: SyndieMech
   abstract: true
@@ -208,6 +208,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -268,6 +269,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -301,7 +303,7 @@
       - PowerCellHigh
       mech-gas-tank-slot:
       - MechAirTankFilled
-      
+
 # Paddy
 - type: entity
   id: MechPaddy
@@ -335,6 +337,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
     siren: true
   - type: MeleeWeapon
     hidden: true
@@ -363,7 +366,7 @@
       - PowerCellHigh
       mech-gas-tank-slot:
       - MechAirTankFilled
-      
+
 - type: entity
   id: MechPaddyFilled
   parent: MechPaddyBattery
@@ -400,6 +403,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -627,6 +631,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -684,6 +689,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -749,6 +755,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -818,6 +825,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -890,6 +898,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -965,6 +974,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
