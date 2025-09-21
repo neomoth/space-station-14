@@ -482,7 +482,7 @@
   name: space medipen
   parent: ChemicalMedipen
   id: SpaceMedipen
-  description: Contains a mix of chemicals that protect you from the deadly effects of space.
+  description: Contains a mix of chemicals that protect you from the deadly effects of space. Only use one! #Starlight
   components:
   - type: Item
     inhandVisuals:
