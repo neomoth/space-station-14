@@ -21,11 +21,11 @@
       types:
         Blunt: 5
         Structural: 10
-    - type: StaminaDamageOnHit
-      damage: 20
-    - type: MeleeThrowOnHit
-      speed: 15
-      distance: 8
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: MeleeThrowOnHit
+    speed: 15
+    distance: 8
   - type: Item
     size: Normal
     shape:
