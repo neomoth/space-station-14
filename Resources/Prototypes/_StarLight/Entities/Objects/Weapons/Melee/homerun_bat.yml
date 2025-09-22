@@ -25,7 +25,7 @@
     damage: 20
   - type: MeleeThrowOnHit
     speed: 15
-    distance: 8
+    distance: 7
   - type: Item
     size: Normal
     shape:
