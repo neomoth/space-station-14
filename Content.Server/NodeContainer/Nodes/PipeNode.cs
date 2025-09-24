@@ -167,9 +167,10 @@ namespace Content.Server.NodeContainer.Nodes
                 var remQ = new RemQueue<PipeNode>();
                 foreach (var pipe in _alwaysReachable)
                 {
-                    if (pipe.Deleting)
+                    if (pipe.Deleting || !entMan.EntityExists(pipe.Owner)) // Starlight-edit
                     {
                         remQ.Add(pipe);
+                        continue; // Starlight
                     }
                     yield return pipe;
                 }
