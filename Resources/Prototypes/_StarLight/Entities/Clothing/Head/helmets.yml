@@ -267,7 +267,7 @@
       Hair: HEAD
 
 - type: entity
-  parent: ClothingHeadHelmetBasic
+  parent: ClothingHeadBase
   id: ClothingHeadHelmetRisk
   name: station daredevil's helmet
   description: A strong helmet with a cool red line in the middle.
