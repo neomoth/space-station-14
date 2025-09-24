@@ -782,6 +782,7 @@
   - CargoTechnicianJumpsuitFormal # afterlight
   - CargoTechnicianJumpskirt
   - CargoTechnicianJumpskirtFormal # afterlight
+  - CargoTechnicianOveralls #Starlight
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -1279,7 +1280,6 @@
   - TrooperUniform
   - SecurityJumpsuitBlue
   - SecurityTshirt #Starlight
-  - SecurityCadetTshirt #Starlight
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1362,6 +1362,7 @@
   loadouts:
   - RedJumpsuit
   - RedJumpskirt
+  - SecurityCadetTshirt #Starlight
 
 - type: loadoutGroup
   id: SurvivalSecurity

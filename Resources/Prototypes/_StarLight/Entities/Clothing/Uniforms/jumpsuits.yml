@@ -416,3 +416,14 @@
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/security_tshirt.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/security_tshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRisk
+  name: station daredevil's  jumpsuit
+  description: A jumpsuit with red lines along the sides. 
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/riskjumpsuit.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/riskjumpsuit.rsi
