@@ -30,16 +30,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargo
 
-- type: loadout
-  id: CargoTechnicianJumpsuitAlt
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitCargoAlt
-
-- type: loadout
-  id: CargoTechnicianJumpsuitFormal
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitCargoFormal
-
+# Jumpskirt
 - type: loadout
   id: CargoTechnicianJumpskirt
   equipment:
