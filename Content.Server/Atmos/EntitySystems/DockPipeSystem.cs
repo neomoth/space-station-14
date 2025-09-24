@@ -44,30 +44,11 @@ public sealed class DockPipeSystem : EntitySystem
 
         SubscribeLocalEvent<DockEvent>(OnGridDocked);
         SubscribeLocalEvent<UndockEvent>(OnGridUndocked);
-        SubscribeLocalEvent<EntityTerminatingEvent>(OnEntityTerminating);
     }
 
     #endregion
 
     #region Event Handlers
-
-    /// <summary>
-    /// Handles entity termination to clean up any dock connections referencing pipe nodes on the deleted entity.
-    /// </summary>
-    private void OnEntityTerminating(EntityTerminatingEvent args)
-    {
-        if (TryComp<NodeContainerComponent>(args.Entity, out var nodeContainer))
-        {
-            foreach (var node in nodeContainer.Nodes.Values)
-            {
-                if (node is PipeNode)
-                {
-                    CleanupConnectionsForEntity(args.Entity);
-                    break;
-                }
-            }
-        }
-    }
 
     /// <summary>
     /// Removes any pipe connections that reference the specified entity.
@@ -574,7 +555,7 @@ public sealed class DockPipeSystem : EntitySystem
     }
 
     /// <summary>
-    /// Manually refresh all dock connections. Useful for debugging or after system restarts.
+    /// Manually refresh all dock connections.
     /// </summary>
     public void RefreshAllDockConnections()
     {
@@ -618,6 +599,145 @@ public sealed class DockPipeSystem : EntitySystem
     }
 
     #endregion
+
+    #region Debug Methods
+
+    /// <summary>
+    /// Returns a string listing all current docked pipe connections.
+    /// </summary>
+    public string GetDebugInfo()
+    {
+        if (_dockConnections.Count == 0)
+            return "No docked pipe connections.";
+
+        var lines = new List<string>();
+        foreach (var ((dockA, dockB), connections) in _dockConnections)
+        {
+            lines.Add($"Dock pair: {dockA} <-> {dockB} ({connections.Count} connections)");
+            foreach (var (pipeA, pipeB) in connections)
+            {
+                lines.Add($"  PipeA: {pipeA.Owner} <-> PipeB: {pipeB.Owner}");
+            }
+        }
+        return string.Join('\n', lines);
+    }
+
+    /// <summary>
+    /// Returns debug info for a specific pipe entity.
+    /// </summary>
+    public string GetPipeDebugInfo(EntityUid entity)
+    {
+        foreach (var ((dockA, dockB), connections) in _dockConnections)
+        {
+            foreach (var (pipeA, pipeB) in connections)
+            {
+                if (pipeA.Owner == entity || pipeB.Owner == entity)
+                {
+                    return $"Pipe {entity} is connected in dock pair {dockA} <-> {dockB}.";
+                }
+            }
+        }
+        return $"Pipe {entity} is not part of any docked connection.";
+    }
+
+    /// <summary>
+    /// Returns debug info for all entities on a given tile.
+    /// </summary>
+    public string GetTileDebugInfo(EntityUid gridId, Vector2i tile)
+    {
+        if (!TryComp<MapGridComponent>(gridId, out var grid))
+            return $"Grid {gridId} not found.";
+
+        var entities = _mapSystem.GetAnchoredEntities(gridId, grid, tile).ToList();
+        if (entities.Count == 0)
+            return $"No anchored entities at {gridId} {tile}.";
+
+        var lines = new List<string> { $"Entities at {gridId} {tile}:" };
+        foreach (var ent in entities)
+        {
+            lines.Add($"  {ent}");
+        }
+        return string.Join('\n', lines);
+    }
+
+    /// <summary>
+    /// Tests if two pipes are connected by a docked connection.
+    /// </summary>
+    public string TestPipeConnection(EntityUid pipeA, EntityUid pipeB)
+    {
+        foreach (var ((dockA, dockB), connections) in _dockConnections)
+        {
+            foreach (var (a, b) in connections)
+            {
+                if ((a.Owner == pipeA && b.Owner == pipeB) || (a.Owner == pipeB && b.Owner == pipeA))
+                    return $"Pipes {pipeA} and {pipeB} are connected via dock pair {dockA} <-> {dockB}.";
+            }
+        }
+        return $"Pipes {pipeA} and {pipeB} are not connected via any docked connection.";
+    }
+
+    /// <summary>
+    /// Scans all docked airlocks and lists possible connections.
+    /// </summary>
+    public string ScanAllDockedAirlocks()
+    {
+        if (_dockConnections.Count == 0)
+            return "No docked airlocks to scan.";
+
+        var lines = new List<string>();
+        foreach (var ((dockA, dockB), connections) in _dockConnections)
+        {
+            lines.Add($"Dock pair: {dockA} <-> {dockB} ({connections.Count} connections)");
+        }
+        return string.Join('\n', lines);
+    }
+
+    #endregion
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        CleanupDeadConnections();
+    }
+
+    /// <summary>
+    /// Periodically cleans up any dock connections that reference deleted pipe entities.
+    /// </summary>
+    private void CleanupDeadConnections()
+    {
+        var connectionsToRemove = new List<(EntityUid, EntityUid)>();
+        var connectionsToUpdate = new List<(EntityUid, EntityUid, List<(PipeNode, PipeNode)>)>();
+
+        foreach (var ((dockA, dockB), connections) in _dockConnections)
+        {
+            var updatedConnections = new List<(PipeNode, PipeNode)>();
+            var needsUpdate = false;
+
+            foreach (var (pipeA, pipeB) in connections)
+            {
+                if (!EntityManager.EntityExists(pipeA.Owner) || !EntityManager.EntityExists(pipeB.Owner))
+                {
+                    needsUpdate = true;
+                    continue;
+                }
+                updatedConnections.Add((pipeA, pipeB));
+            }
+
+            if (needsUpdate)
+            {
+                if (updatedConnections.Count == 0)
+                    connectionsToRemove.Add((dockA, dockB));
+                else
+                    connectionsToUpdate.Add((dockA, dockB, updatedConnections));
+            }
+        }
+
+        foreach (var (dockA, dockB) in connectionsToRemove)
+            _dockConnections.Remove((dockA, dockB));
+
+        foreach (var (dockA, dockB, updatedConnections) in connectionsToUpdate)
+            _dockConnections[(dockA, dockB)] = updatedConnections;
+    }
 }
 
 /// <summary>
