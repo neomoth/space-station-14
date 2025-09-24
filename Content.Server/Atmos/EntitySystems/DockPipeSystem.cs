@@ -9,6 +9,7 @@ using Content.Server.NodeContainer.NodeGroups;
 using Robust.Shared.Map.Components;
 using System.Linq;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Log;
 
 namespace Content.Server.Atmos.EntitySystems;
 
@@ -113,27 +114,77 @@ public sealed class DockPipeSystem : EntitySystem
     /// </summary>
     private void OnGridDocked(DockEvent ev)
     {
-        // Get the EntityUids from the DockingComponent objects
         var dockA = ev.DockA.Owner;
         var dockB = ev.DockB.Owner;
-        
-        // Verify these airlocks are actually docked to each other
-        if (ev.DockA.DockedWith != dockB || ev.DockB.DockedWith != dockA)
-            return;
 
-        // Get the docking direction between the two specific airlocks
+        Logger.InfoS("dockpipe", $"[DockPipeSystem] Docking event: {dockA} <-> {dockB}");
+
+        if (ev.DockA.DockedWith != dockB || ev.DockB.DockedWith != dockA)
+        {
+            Logger.InfoS("dockpipe", $"[DockPipeSystem] DockedWith mismatch: {ev.DockA.DockedWith} vs {dockB}, {ev.DockB.DockedWith} vs {dockA}");
+            return;
+        }
+
         var dockDirection = GetDockingDirection(dockA, dockB);
         if (dockDirection == null)
+        {
+            Logger.InfoS("dockpipe", $"[DockPipeSystem] Could not determine docking direction between {dockA} and {dockB}");
             return;
+        }
 
-        // Connect pipes across all layers
-        var connectionPairs = ConnectAllLayers(dockA, dockB, dockDirection.Value);
+        Logger.InfoS("dockpipe", $"[DockPipeSystem] Dock direction: {dockDirection}");
 
-        // Store the connections for later disconnection, keyed by the specific dock pair
+        var pipesA = GetPipesWithVisualLayers(dockA, dockDirection.Value);
+        var pipesB = GetPipesWithVisualLayers(dockB, dockDirection.Value.GetOpposite());
+
+        Logger.InfoS("dockpipe", $"[DockPipeSystem] Found {pipesA.Count} pipes on dockA ({dockA}), {pipesB.Count} pipes on dockB ({dockB})");
+
+        var connectionPairs = new List<(PipeNode, PipeNode)>();
+
+        // Try to connect pipes (same as ConnectAllLayers, but with logging)
+        foreach (var (pipeA, layerA) in pipesA)
+        {
+            foreach (var (pipeB, layerB) in pipesB)
+            {
+                if (pipeA.CurrentPipeLayer == pipeB.CurrentPipeLayer && CanPipesConnect(pipeA, pipeB))
+                {
+                    Logger.InfoS("dockpipe", $"[DockPipeSystem] Connecting pipe {pipeA.Owner} (layer {pipeA.CurrentPipeLayer}) <-> {pipeB.Owner} (layer {pipeB.CurrentPipeLayer})");
+                    ConnectPipes(pipeA, pipeB);
+                    connectionPairs.Add((pipeA, pipeB));
+                }
+            }
+        }
+
+        if (connectionPairs.Count == 0)
+        {
+            foreach (var (pipeA, visualLayerA) in pipesA)
+            {
+                foreach (var (pipeB, visualLayerB) in pipesB)
+                {
+                    if (visualLayerA == visualLayerB && CanPipesConnect(pipeA, pipeB) &&
+                        !connectionPairs.Any(pair => pair.Item1 == pipeA || pair.Item2 == pipeB))
+                    {
+                        Logger.InfoS("dockpipe", $"[DockPipeSystem] (Visual) Connecting pipe {pipeA.Owner} (visual {visualLayerA}) <-> {pipeB.Owner} (visual {visualLayerB})");
+                        ConnectPipes(pipeA, pipeB);
+                        connectionPairs.Add((pipeA, pipeB));
+                    }
+                }
+            }
+        }
+
         if (connectionPairs.Count > 0)
         {
+            Logger.InfoS("dockpipe", $"[DockPipeSystem] {connectionPairs.Count} dock pipe connections made between {dockA} and {dockB}");
             _dockConnections[(dockA, dockB)] = connectionPairs;
         }
+        else
+        {
+            Logger.InfoS("dockpipe", $"[DockPipeSystem] No dock pipe connections made between {dockA} and {dockB}");
+        }
+
+        // Ensure all pipes on both dock tiles are connected if already anchored (handles admin placed or pre-existing pipes)
+        TryConnectAllPipesIfDocked(dockA);
+        TryConnectAllPipesIfDocked(dockB);
     }
 
     /// <summary>
@@ -518,6 +569,8 @@ public sealed class DockPipeSystem : EntitySystem
             var nodeGroupSystem = EntityManager.System<NodeGroupSystem>();
             nodeGroupSystem.QueueRemakeGroup((BaseNodeGroup)pipeB.NodeGroup);
         }
+
+        Logger.InfoS("dockpipe", $"[DockPipeSystem] Actually connecting pipes {pipeA.Owner} <-> {pipeB.Owner}");
     }
 
     /// <summary>
@@ -737,6 +790,49 @@ public sealed class DockPipeSystem : EntitySystem
 
         foreach (var (dockA, dockB, updatedConnections) in connectionsToUpdate)
             _dockConnections[(dockA, dockB)] = updatedConnections;
+    }
+
+    public void TryConnectAllPipesIfDocked(EntityUid entity)
+    {
+        // Only attempt to connect if the entity is docked
+        if (!EntityManager.TryGetComponent<DockingComponent>(entity, out var docking) || docking.DockedWith == null)
+            return;
+
+        // Connect pipes in the same node container
+        if (EntityManager.TryGetComponent<NodeContainerComponent>(entity, out var nodeContainer))
+        {
+            foreach (var node in nodeContainer.Nodes.Values)
+            {
+                if (node is PipeNode pipeNode)
+                {
+                    Logger.DebugS("dockpipe", $"[DockPipeSystem] TryConnectPipeIfDocked for {entity} node {pipeNode}");
+                    TryConnectPipeIfDocked(entity, pipeNode);
+                }
+            }
+        }
+
+        // Also connect any pipes on the same tile (other entities) that may have been admin placed or loaded before docking
+        if (!EntityManager.TryGetComponent<TransformComponent>(entity, out var xform) || xform.GridUid == null)
+            return;
+        if (!EntityManager.TryGetComponent<MapGridComponent>(xform.GridUid.Value, out var grid))
+            return;
+
+        var tilePos = _mapSystem.TileIndicesFor(xform.GridUid.Value, grid, xform.Coordinates);
+        foreach (var other in _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, tilePos))
+        {
+            if (other == entity)
+                continue;
+            if (!EntityManager.TryGetComponent<NodeContainerComponent>(other, out var otherNodeContainer))
+                continue;
+            foreach (var node in otherNodeContainer.Nodes.Values)
+            {
+                if (node is PipeNode pipeNode)
+                {
+                    Logger.DebugS("dockpipe", $"[DockPipeSystem] TryConnectPipeIfDocked for other {other} node {pipeNode}");
+                    TryConnectPipeIfDocked(other, pipeNode);
+                }
+            }
+        }
     }
 }
 
