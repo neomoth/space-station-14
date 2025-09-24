@@ -1278,6 +1278,8 @@
   - SeniorOfficerJumpskirt
   - TrooperUniform
   - SecurityJumpsuitBlue
+  - SecurityTshirt #Starlight
+  - SecurityCadetTshirt #Starlight
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1305,6 +1307,7 @@
   - ArmorVestStab
   - ArmorVestHeatAbsorb
   - SecurityOfficerWintercoat
+  - SecurityBomber #Starlight
 
 - type: loadoutGroup
   id: SecurityShoes
