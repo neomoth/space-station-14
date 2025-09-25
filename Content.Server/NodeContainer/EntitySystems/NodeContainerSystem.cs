@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server.Atmos.EntitySystems; // Starlight: DockPipeSystem
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Examine;
@@ -165,6 +166,13 @@ namespace Content.Server.NodeContainer.EntitySystems
                 else
                     _nodeGroupSystem.QueueNodeRemove(node);
             }
+            // Starlight Start: DockPipeSystem
+            if (args.Anchored)
+            {
+                var dockPipeSystem = EntitySystem.Get<DockPipeSystem>();
+                dockPipeSystem.TryConnectDockedPipe(uid);
+            }
+            // Starlight End
         }
 
         private void OnReAnchor(EntityUid uid, NodeContainerComponent component, ref ReAnchorEvent args)

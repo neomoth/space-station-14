@@ -366,6 +366,26 @@ namespace Content.Server.NodeContainer.EntitySystems
                 }
             }
         }
+        // Starlight Start: DockPipeSystem
+        private IEnumerable<Node> GetCompatibleNodes(Node node, NodeContainerComponent container, EntityQuery<NodeContainerComponent> nodeQuery, EntityQuery<TransformComponent> xformQuery, MapGridComponent? grid)
+        {
+            if (!node.Connectable(EntityManager, xformQuery.GetComponent(node.Owner)))
+                yield break;
+
+            foreach (var reachable in node.GetReachableNodes(
+                xformQuery.HasComponent(node.Owner) ? xformQuery.GetComponent(node.Owner) : null,
+                nodeQuery,
+                xformQuery,
+                grid,
+                EntityManager))
+            {
+                if (!xformQuery.HasComponent(reachable.Owner))
+                    continue;
+
+                yield return reachable;
+            }
+        }
+        // Starlight End
 
         private void VisDoUpdate(float frametime)
         {
