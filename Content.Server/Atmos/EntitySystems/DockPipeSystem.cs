@@ -20,7 +20,6 @@ namespace Content.Server.Atmos.EntitySystems
 
         [Dependency] public readonly SharedMapSystem _mapSystem = default!;
         private readonly ISawmill _sawmill = Logger.GetSawmill("dockpipe");
-
         private readonly HashSet<EntityUid> _dockConnectionsChecked = new();
 
         #endregion
@@ -43,14 +42,19 @@ namespace Content.Server.Atmos.EntitySystems
             var dockA = ev.DockA.Owner;
             var dockB = ev.DockB.Owner;
 
-            var pipesA = GetTilePipes(dockA).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored).ToList();
-            var pipesB = GetTilePipes(dockB).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored).ToList();
+            var pipesA = GetTilePipes(dockA);
+            var pipesB = GetTilePipes(dockB);
 
-            // Connect pipes by matching CurrentPipeLayer
+            // Use HashSet for anchored pipes for faster lookup
+            var anchoredA = new HashSet<EntityUid>(pipesA.Select(p => p.Owner));
+            var anchoredB = new HashSet<EntityUid>(pipesB.Select(p => p.Owner));
+
             foreach (var pipeA in pipesA)
             {
+                if (!anchoredA.Contains(pipeA.Owner) || !EntityManager.GetComponent<TransformComponent>(pipeA.Owner).Anchored) continue;
                 foreach (var pipeB in pipesB)
                 {
+                    if (!anchoredB.Contains(pipeB.Owner) || !EntityManager.GetComponent<TransformComponent>(pipeB.Owner).Anchored) continue;
                     if (CanConnect(pipeA, pipeB) && pipeA.CurrentPipeLayer == pipeB.CurrentPipeLayer)
                     {
                         pipeA.AddAlwaysReachable(pipeB);
@@ -61,8 +65,11 @@ namespace Content.Server.Atmos.EntitySystems
 
             foreach (var dock in new[] { dockA, dockB })
             {
-                foreach (var pipe in GetTilePipes(dock).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored))
+                foreach (var pipe in GetTilePipes(dock))
+                {
+                    if (!EntityManager.GetComponent<TransformComponent>(pipe.Owner).Anchored) continue;
                     CheckForDockConnections(pipe.Owner, pipe);
+                }
             }
         }
 
@@ -71,14 +78,18 @@ namespace Content.Server.Atmos.EntitySystems
             var dockA = ev.DockA.Owner;
             var dockB = ev.DockB.Owner;
 
-            var pipesA = GetTilePipes(dockA).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored).ToList();
-            var pipesB = GetTilePipes(dockB).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored).ToList();
+            var pipesA = GetTilePipes(dockA);
+            var pipesB = GetTilePipes(dockB);
 
-            // Disconnect pipes by matching CurrentPipeLayer
+            var anchoredA = new HashSet<EntityUid>(pipesA.Select(p => p.Owner));
+            var anchoredB = new HashSet<EntityUid>(pipesB.Select(p => p.Owner));
+
             foreach (var pipeA in pipesA)
             {
+                if (!anchoredA.Contains(pipeA.Owner) || !EntityManager.GetComponent<TransformComponent>(pipeA.Owner).Anchored) continue;
                 foreach (var pipeB in pipesB)
                 {
+                    if (!anchoredB.Contains(pipeB.Owner) || !EntityManager.GetComponent<TransformComponent>(pipeB.Owner).Anchored) continue;
                     if (pipeA.CurrentPipeLayer == pipeB.CurrentPipeLayer)
                     {
                         pipeA.RemoveAlwaysReachable(pipeB);
@@ -152,14 +163,10 @@ namespace Content.Server.Atmos.EntitySystems
                     continue;
                 if (!TryComp<NodeContainerComponent>(ent, out var nodeContainer))
                     continue;
-                // Only include pipes that are anchored and not deleted
                 if (!TryComp<TransformComponent>(ent, out var entXform) || !entXform.Anchored)
                     continue;
-                foreach (var node in nodeContainer.Nodes.Values)
-                {
-                    if (node is PipeNode pipe && !pipe.Deleting)
-                        result.Add(pipe);
-                }
+                // Use OfType for direct filtering
+                result.AddRange(nodeContainer.Nodes.Values.OfType<PipeNode>().Where(pipe => !pipe.Deleting));
             }
             return result;
         }
@@ -182,40 +189,79 @@ namespace Content.Server.Atmos.EntitySystems
             if (!EntityManager.TryGetComponent<NodeContainerComponent>(pipeEntity, out var nodeContainer))
                 return;
 
-            // Copy the node list to avoid modifying the collection during enumeration
-            var nodesCopy = nodeContainer.Nodes.Values.ToList();
+            var nodesCopy = nodeContainer.Nodes.Values.OfType<PipeNode>().ToList();
 
-            foreach (var node in nodesCopy)
+            if (!EntityManager.TryGetComponent<TransformComponent>(pipeEntity, out var xform) || xform.GridUid == null || !xform.Anchored)
+                return;
+            if (!EntityManager.TryGetComponent<MapGridComponent>(xform.GridUid.Value, out var grid))
+                return;
+            var tile = _mapSystem.TileIndicesFor(xform.GridUid.Value, grid, xform.Coordinates);
+
+            var anchoredEntities = _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, tile).ToList();
+            var dockedEntities = anchoredEntities.Where(ent =>
+                ent != pipeEntity &&
+                EntityManager.TryGetComponent<DockingComponent>(ent, out var docking) &&
+                docking.DockedWith is not null).ToList();
+
+            foreach (var pipe in nodesCopy)
             {
-                if (node is PipeNode pipe)
+                foreach (var ent in dockedEntities)
                 {
-                    // Check if this pipe is on a dock tile with a docked dock
-                    if (!EntityManager.TryGetComponent<TransformComponent>(pipeEntity, out var xform) || xform.GridUid == null || !xform.Anchored)
-                        continue;
-                    if (!EntityManager.TryGetComponent<MapGridComponent>(xform.GridUid.Value, out var grid))
-                        continue;
-                    var tile = _mapSystem.TileIndicesFor(xform.GridUid.Value, grid, xform.Coordinates);
-                    foreach (var ent in _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, tile))
+                    var docking = EntityManager.GetComponent<DockingComponent>(ent);
+                    var otherDock = docking.DockedWith!.Value;
+                    var pipesOther = GetTilePipes(otherDock).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored).ToList();
+                    foreach (var pipeB in pipesOther)
                     {
-                        if (ent == pipeEntity)
-                            continue;
-                        if (!EntityManager.TryGetComponent<DockingComponent>(ent, out var docking))
-                            continue;
-                        if (docking.DockedWith is not { } otherDock)
-                            continue;
-                        var pipesOther = GetTilePipes(otherDock).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored).ToList();
-                        foreach (var pipeB in pipesOther)
+                        if (CanConnect(pipe, pipeB) && pipe.CurrentPipeLayer == pipeB.CurrentPipeLayer)
                         {
-                            if (CanConnect(pipe, pipeB) && pipe.CurrentPipeLayer == pipeB.CurrentPipeLayer)
-                            {
-                                var reachableA = pipe.GetAlwaysReachable();
-                                var reachableB = pipeB.GetAlwaysReachable();
-                                if (reachableA == null || !reachableA.Contains(pipeB))
-                                    pipe.AddAlwaysReachable(pipeB);
-                                if (reachableB == null || !reachableB.Contains(pipe))
-                                    pipeB.AddAlwaysReachable(pipe);
-                            }
+                            var reachableA = pipe.GetAlwaysReachable();
+                            var reachableB = pipeB.GetAlwaysReachable();
+                            if (reachableA == null || !reachableA.Contains(pipeB))
+                                pipe.AddAlwaysReachable(pipeB);
+                            if (reachableB == null || !reachableB.Contains(pipe))
+                                pipeB.AddAlwaysReachable(pipe);
                         }
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        #region Dock Checking
+
+        public void CheckForDockConnections(EntityUid pipeEntity, PipeNode pipeNode)
+        {
+            if (!_dockConnectionsChecked.Add(pipeEntity))
+                return;
+
+            if (!EntityManager.TryGetComponent<TransformComponent>(pipeEntity, out var xform) || xform.GridUid == null || !xform.Anchored)
+                return;
+            if (!EntityManager.TryGetComponent<MapGridComponent>(xform.GridUid.Value, out var grid))
+                return;
+            var tile = _mapSystem.TileIndicesFor(xform.GridUid.Value, grid, xform.Coordinates);
+
+            var anchoredEntities = _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, tile).ToList();
+            var dockedEntities = anchoredEntities.Where(ent =>
+                ent != pipeEntity &&
+                EntityManager.TryGetComponent<DockingComponent>(ent, out var docking) &&
+                docking.DockedWith is not null).ToList();
+
+            foreach (var ent in dockedEntities)
+            {
+                var docking = EntityManager.GetComponent<DockingComponent>(ent);
+                var otherDock = docking.DockedWith!.Value;
+                var pipesOther = GetTilePipes(otherDock).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored);
+                foreach (var pipeB in pipesOther)
+                {
+                    if (CanConnect(pipeNode, pipeB) && pipeNode.CurrentPipeLayer == pipeB.CurrentPipeLayer)
+                    {
+                        var reachableA = pipeNode.GetAlwaysReachable();
+                        var reachableB = pipeB.GetAlwaysReachable();
+                        if (reachableA == null || !reachableA.Contains(pipeB))
+                            pipeNode.AddAlwaysReachable(pipeB);
+                        if (reachableB == null || !reachableB.Contains(pipeNode))
+                            pipeB.AddAlwaysReachable(pipeNode);
                     }
                 }
             }
@@ -299,6 +345,10 @@ namespace Content.Server.Atmos.EntitySystems
             return lines.Count == 0 ? "No docked airlocks." : string.Join('\n', lines);
         }
 
+        #endregion
+
+        #region Connection Refresh
+
         public void RefreshAllDockConnections()
         {
             ClearDockConnectionsChecked();
@@ -306,9 +356,16 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 var pipesA = GetTilePipes(dockA);
                 var pipesB = GetTilePipes(dockB);
+
+                var anchoredA = new HashSet<EntityUid>(pipesA.Select(p => p.Owner));
+                var anchoredB = new HashSet<EntityUid>(pipesB.Select(p => p.Owner));
+
                 foreach (var pipeA in pipesA)
                 foreach (var pipeB in pipesB)
                 {
+                    if (!anchoredA.Contains(pipeA.Owner) || !anchoredB.Contains(pipeB.Owner) ||
+                        !EntityManager.GetComponent<TransformComponent>(pipeA.Owner).Anchored ||
+                        !EntityManager.GetComponent<TransformComponent>(pipeB.Owner).Anchored) continue;
                     var reachableA = pipeA.GetAlwaysReachable();
                     var reachableB = pipeB.GetAlwaysReachable();
                     if (reachableA != null && reachableA.Contains(pipeB))
@@ -318,7 +375,10 @@ namespace Content.Server.Atmos.EntitySystems
                 }
                 foreach (var pipeA in pipesA)
                 foreach (var pipeB in pipesB)
-                    if (CanConnect(pipeA, pipeB))
+                    if (anchoredA.Contains(pipeA.Owner) && anchoredB.Contains(pipeB.Owner) &&
+                        EntityManager.GetComponent<TransformComponent>(pipeA.Owner).Anchored &&
+                        EntityManager.GetComponent<TransformComponent>(pipeB.Owner).Anchored &&
+                        CanConnect(pipeA, pipeB))
                     {
                         pipeA.AddAlwaysReachable(pipeB);
                         pipeB.AddAlwaysReachable(pipeA);
@@ -326,52 +386,15 @@ namespace Content.Server.Atmos.EntitySystems
             }
         }
 
-        public void CheckForDockConnections(EntityUid pipeEntity, PipeNode pipeNode)
+        private void ClearDockConnectionsChecked()
         {
-            if (_dockConnectionsChecked.Contains(pipeEntity))
-                return;
-            _dockConnectionsChecked.Add(pipeEntity);
-
-            if (!EntityManager.TryGetComponent<TransformComponent>(pipeEntity, out var xform) || xform.GridUid == null || !xform.Anchored)
-                return;
-            if (!EntityManager.TryGetComponent<MapGridComponent>(xform.GridUid.Value, out var grid))
-                return;
-            var tile = _mapSystem.TileIndicesFor(xform.GridUid.Value, grid, xform.Coordinates);
-            foreach (var ent in _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, tile))
-            {
-                if (ent == pipeEntity)
-                    continue;
-                if (!EntityManager.TryGetComponent<DockingComponent>(ent, out var docking))
-                    continue;
-                if (docking.DockedWith is not { } otherDock)
-                    continue;
-                var pipesOther = GetTilePipes(otherDock).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored);
-                foreach (var pipeB in pipesOther)
-                {
-                    if (CanConnect(pipeNode, pipeB) && pipeNode.CurrentPipeLayer == pipeB.CurrentPipeLayer)
-                    {
-                        var reachableA = pipeNode.GetAlwaysReachable();
-                        var reachableB = pipeB.GetAlwaysReachable();
-                        if (reachableA == null || !reachableA.Contains(pipeB))
-                            pipeNode.AddAlwaysReachable(pipeB);
-                        if (reachableB == null || !reachableB.Contains(pipeNode))
-                            pipeB.AddAlwaysReachable(pipeNode);
-                    }
-                }
-            }
+            _dockConnectionsChecked.Clear();
         }
 
         #endregion
 
         #region Helper Methods
 
-        // Call this to force a refresh (e.g. in RefreshAllDockConnections)
-        private void ClearDockConnectionsChecked()
-        {
-            _dockConnectionsChecked.Clear();
-        }
-
-        // Helper to enumerate all docked pairs
         public IEnumerable<(EntityUid, EntityUid)> GetAllDockedPairs()
         {
             foreach (var dockEntity in EntityManager.EntityQuery<DockingComponent>())
