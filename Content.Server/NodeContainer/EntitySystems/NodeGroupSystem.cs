@@ -367,22 +367,24 @@ namespace Content.Server.NodeContainer.EntitySystems
             }
         }
         // Starlight Start: DockPipeSystem
-        private IEnumerable<Node> GetCompatibleNodes(Node node, NodeContainerComponent container, EntityQuery<NodeContainerComponent> nodeQuery, EntityQuery<TransformComponent> xformQuery, MapGridComponent? grid)
+        private IEnumerable<Node> GetCompatibleNodes(
+            Node node,
+            NodeContainerComponent container,
+            EntityQuery<NodeContainerComponent> nodeQuery,
+            EntityQuery<TransformComponent> xformQuery,
+            MapGridComponent? grid)
         {
-            if (!node.Connectable(EntityManager, xformQuery.GetComponent(node.Owner)))
+            // Fix: Use TryGetComponent to avoid KeyNotFoundException
+            if (!xformQuery.TryGetComponent(node.Owner, out var xform))
                 yield break;
 
-            foreach (var reachable in node.GetReachableNodes(
-                xformQuery.HasComponent(node.Owner) ? xformQuery.GetComponent(node.Owner) : null,
-                nodeQuery,
-                xformQuery,
-                grid,
-                EntityManager))
-            {
-                if (!xformQuery.HasComponent(reachable.Owner))
-                    continue;
+            if (!node.Connectable(EntityManager, xform))
+                yield break;
 
-                yield return reachable;
+            foreach (var reachable in node.GetReachableNodes(xform, nodeQuery, xformQuery, grid, EntityManager))
+            {
+                if (xformQuery.HasComponent(reachable.Owner))
+                    yield return reachable;
             }
         }
         // Starlight End
