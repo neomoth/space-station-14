@@ -12,7 +12,7 @@ using Robust.Shared.Map.Components;
 namespace Content.Server.Atmos.Commands;
 
 /// <summary>
-/// Console command for managing and inspecting docked pipe connections.
+/// Command for managing and inspecting docked pipe connections.
 /// </summary>
 [AdminCommand(AdminFlags.Debug)]
 public sealed class DockPipeCommand : IConsoleCommand
@@ -31,10 +31,6 @@ dockpipe cleanup              - Alias for refresh.
 dockpipe check <entityId>     - Force a dock connection check for a pipe entity, show what was connected.
 ";
 
-    /// <summary>
-    /// Executes the dockpipe command with the provided arguments.
-    /// Handles subcommands for info, pipe, tile, test, scan, refresh, connect, cleanup, and check.
-    /// </summary>
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length == 0)
@@ -63,7 +59,6 @@ dockpipe check <entityId>     - Force a dock connection check for a pipe entity,
                             continue;
                         var reachableA = pipeAInfo.GetAlwaysReachable();
                         var reachableB = pipeBInfo.GetAlwaysReachable();
-                        // Only count if both sides mutually contain each other and only once per pair
                         if (dockPipeSystem.CanConnect(pipeAInfo, pipeBInfo)
                             && reachableA != null && reachableA.Contains(pipeBInfo)
                             && reachableB != null && reachableB.Contains(pipeAInfo)
@@ -73,8 +68,10 @@ dockpipe check <entityId>     - Force a dock connection check for a pipe entity,
                         }
                     }
                     shell.WriteLine($"    {infoCount} pipe connections");
-                    shell.WriteLine($"    PipesA: {string.Join(", ", pipesA.Select(p => p.Owner))}");
-                    shell.WriteLine($"    PipesB: {string.Join(", ", pipesB.Select(p => p.Owner))}");
+                    // Show pipe names and node names for pipesA
+                    shell.WriteLine($"    PipesA: {string.Join(", ", pipesA.Select(p => $"{GetEntityName(entityManager, p.Owner)} [{GetNodeName(entityManager, p.Owner, p)}]"))}");
+                    // Show pipe names and node names for pipesB
+                    shell.WriteLine($"    PipesB: {string.Join(", ", pipesB.Select(p => $"{GetEntityName(entityManager, p.Owner)} [{GetNodeName(entityManager, p.Owner, p)}]"))}");
                 }
                 break;
 
@@ -98,7 +95,7 @@ dockpipe check <entityId>     - Force a dock connection check for a pipe entity,
                 {
                     if (node is PipeNode pipe)
                     {
-                        shell.WriteLine($"Pipe {entityId.Value}: Layer={pipe.CurrentPipeLayer} Dir={pipe.CurrentPipeDirection}");
+                        shell.WriteLine($"Pipe {entityId.Value}: {GetEntityName(entityManager, pipe.Owner)} [{GetNodeName(entityManager, pipe.Owner, pipe)}] Layer={pipe.CurrentPipeLayer} Dir={pipe.CurrentPipeDirection}");
                         var reachable = pipe.GetAlwaysReachable();
                         if (reachable == null || reachable.Count == 0)
                         {
@@ -108,7 +105,7 @@ dockpipe check <entityId>     - Force a dock connection check for a pipe entity,
                         {
                             foreach (var target in reachable)
                             {
-                                shell.WriteLine($"  Dock-connected to {target.Owner} (Layer={target.CurrentPipeLayer}, Dir={target.CurrentPipeDirection})");
+                                shell.WriteLine($"  Dock-connected to {target.Owner} ({GetEntityName(entityManager, target.Owner)} [{GetNodeName(entityManager, target.Owner, target)}], Layer={target.CurrentPipeLayer}, Dir={target.CurrentPipeDirection})");
                             }
                         }
                     }
@@ -146,14 +143,14 @@ dockpipe check <entityId>     - Force a dock connection check for a pipe entity,
                 shell.WriteLine($"Entities on grid {gridId.Value} tile {tile}:");
                 foreach (var ent in entities)
                 {
-                    shell.WriteLine($"{ent}");
+                    shell.WriteLine($"{ent} {GetEntityName(entityManager, ent)}");
                     if (entityManager.TryGetComponent<DockingComponent>(ent, out var docking))
                         shell.WriteLine(" [Dock]");
                     if (entityManager.TryGetComponent<NodeContainerComponent>(ent, out var nodesComp))
                     {
                         var pipes = nodesComp.Nodes.Values.OfType<PipeNode>().ToList();
                         if (pipes.Count > 0)
-                            shell.WriteLine($" [PipeNodes: {string.Join(", ", pipes.Select(p => $"{p.CurrentPipeLayer}/{p.CurrentPipeDirection}"))}]");
+                            shell.WriteLine($" [PipeNodes: {string.Join(", ", pipes.Select(p => $"{GetNodeName(entityManager, ent, p)} {p.CurrentPipeLayer}/{p.CurrentPipeDirection}"))}]");
                     }
                 }
                 break;
@@ -200,6 +197,8 @@ dockpipe check <entityId>     - Force a dock connection check for a pipe entity,
                         }
                     }
                     shell.WriteLine($"Dock {dockA} <-> {dockB}: {scanCount} pipe connections");
+                    shell.WriteLine($"    PipesA: {string.Join(", ", pipesA.Select(p => $"{GetEntityName(entityManager, p.Owner)} [{GetNodeName(entityManager, p.Owner, p)}]"))}");
+                    shell.WriteLine($"    PipesB: {string.Join(", ", pipesB.Select(p => $"{GetEntityName(entityManager, p.Owner)} [{GetNodeName(entityManager, p.Owner, p)}]"))}");
                 }
                 break;
 
@@ -265,13 +264,13 @@ dockpipe check <entityId>     - Force a dock connection check for a pipe entity,
                     if (node is PipeNode pipeNodeCheck)
                     {
                         dockPipeSystem.CheckForDockConnections(entity.Value, pipeNodeCheck);
-                        shell.WriteLine($"Checked dock connections for pipe node: {node.GetType().Name} ({pipeNodeCheck.Owner})");
+                        shell.WriteLine($"Checked dock connections for pipe node: {node.GetType().Name} ({pipeNodeCheck.Owner}) [{GetEntityName(entityManager, pipeNodeCheck.Owner)} {GetNodeName(entityManager, pipeNodeCheck.Owner, pipeNodeCheck)}]");
                         var reachable = pipeNodeCheck.GetAlwaysReachable();
                         if (reachable != null && reachable.Count > 0)
                         {
                             shell.WriteLine("Connections added:");
                             foreach (var target in reachable)
-                                shell.WriteLine($"  {target.Owner} (Layer={target.CurrentPipeLayer} Dir={target.CurrentPipeDirection})");
+                                shell.WriteLine($"  {target.Owner} ({GetEntityName(entityManager, target.Owner)} [{GetNodeName(entityManager, target.Owner, target)}], Layer={target.CurrentPipeLayer} Dir={target.CurrentPipeDirection})");
                         }
                         else
                         {
@@ -292,7 +291,6 @@ dockpipe check <entityId>     - Force a dock connection check for a pipe entity,
 
     public IEnumerable<string> GetCommandOptions(IConsoleShell shell, string[] args)
     {
-        // If no args, suggest all commands
         if (args.Length == 0)
         {
             yield return "info";
@@ -338,9 +336,29 @@ dockpipe check <entityId>     - Force a dock connection check for a pipe entity,
                 foreach (var grid in entityManager.EntityQuery<MapGridComponent>())
                     yield return grid.Owner.ToString();
             }
-            // Suggest X/Y coordinates if grid is already provided
-            // (no autocomplete for coordinates, but could suggest "0", "1", "2", etc.)
             yield break;
         }
+    }
+
+    // Helper to get the entity name
+    private static string GetEntityName(IEntityManager entityManager, EntityUid entity)
+    {
+        if (entityManager.TryGetComponent<MetaDataComponent>(entity, out var meta))
+            return meta.EntityName;
+        return entity.ToString();
+    }
+
+    // Helper to get the node name
+    private static string GetNodeName(IEntityManager entityManager, EntityUid entity, PipeNode pipe)
+    {
+        if (entityManager.TryGetComponent<NodeContainerComponent>(entity, out var nodeContainer))
+        {
+            foreach (var kvp in nodeContainer.Nodes)
+            {
+                if (ReferenceEquals(kvp.Value, pipe))
+                    return kvp.Key;
+            }
+        }
+        return "?";
     }
 }
