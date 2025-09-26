@@ -122,3 +122,22 @@
     - type: ContainerFill
       containers:
         board: [DoorElectronicsSyndicateAgent]
+
+#EVA
+- type: entity
+  parent: AirlockEVA
+  id: AirlockEVALocked
+  suffix: Command (EVA), Locked
+  components:
+    - type: ContainerFill
+      containers:
+        board: [ DoorElectronicsCommand ]
+
+- type: entity
+  parent: AirlockEVAGlass
+  id: AirlockEVAGlassLocked
+  suffix: Command (EVA), Locked
+  components:
+    - type: ContainerFill
+      containers:
+        board: [ DoorElectronicsCommand ]
