@@ -38,8 +38,11 @@
   - BlueShield
   - GenpopEnter
   - GenpopLeave
+  - Mining # Starlight
+  - SalvageLead # Starlight
 
 - type: accessGroup
   id: General
   tags:
   - Maintenance
+  - External # Starlight-edit
