@@ -178,11 +178,4 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<int> DeltaPressureParallelBatchSize =
         CVarDef.Create("atmos.delta_pressure_parallel_batch_size", 10, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     Starlight
-    ///     Whether dock pipe connections are enabled.
-    /// </summary>
-    public static readonly CVarDef<bool> DockPipes =
-        CVarDef.Create("atmos.dock_pipes", true, CVar.SERVERONLY);
 }
