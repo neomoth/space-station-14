@@ -196,6 +196,8 @@
       sprite: _Starlight/Structures/Doors/Airlocks/Standard/eva.rsi
     - type: Wires
       layoutId: AirlockCommand
+    - type: Paintable
+      group: AirlockStandard
 
 - type: entity
   parent: AirlockGlass
@@ -206,3 +208,5 @@
       sprite: _Starlight/Structures/Doors/Airlocks/Glass/eva.rsi
     - type: Wires
       layoutId: AirlockCommand
+    - type: Paintable
+      group: AirlockGlass
