@@ -12,5 +12,4 @@ public sealed partial class StarlightCCVars
 
     public static readonly CVarDef<bool> DockLV =
         CVarDef.Create("power.DockLV", false, CVar.REPLICATED | CVar.SERVER);
-
 }
