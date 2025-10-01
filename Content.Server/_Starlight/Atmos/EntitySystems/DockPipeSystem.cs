@@ -11,16 +11,56 @@ using Content.Server.NodeContainer.NodeGroups;
 using Content.Shared.Atmos.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Log;
+using Content.Shared.Starlight.CCVar;
+using Robust.Shared.Configuration;
 
+/// <summary>
+/// Allows pipes to connect over docks
+/// </summary>
 namespace Content.Server.Atmos.EntitySystems
 {
+    /// <summary>
+    /// Allows pipes to connect over docks.
+    /// </summary>
     public sealed class DockPipeSystem : EntitySystem
     {
         #region Dependencies
 
         [Dependency] public readonly SharedMapSystem _mapSystem = default!;
-        private readonly ISawmill _sawmill = Logger.GetSawmill("dockpipe");
+        [Dependency] private IConfigurationManager _configurationManager = default!;
         private readonly HashSet<EntityUid> _dockConnectionsChecked = new();
+
+        // Theres definetly a better way to do this
+        public bool DockPipeStraight = true;
+        public bool DockPipeHalf = true;
+        public bool DockPipeBend = true;
+        public bool DockPipeTJunction = true;
+        public bool DockPipeFourway = true;
+        public bool DockPipeManifold = true;
+        public bool DockPressurePump = true;
+        public bool DockVolumePump = true;
+        public bool DockPassiveGate = true;
+        public bool DockValve = true;
+        public bool DockSignalValve = true;
+        public bool DockPressureRegulator = true;
+        public bool DockPipeSensor = true;
+        public bool DockFilter = true;
+        public bool DockMixer = true;
+        public bool DockPneumaticValve = true;
+        public bool DockHeatExchanger = true;
+        public bool DockHeatExchangerBend = true;
+        public bool DockRecycler = true;
+        public bool DockVentPump = true;
+        public bool DockPassiveVent = true;
+        public bool DockVentScrubber = true;
+        public bool DockOutletInjector = true;
+        public bool DockThermoMachineFreezer = true;
+        public bool DockThermoMachineHeater = true;
+        public bool DockThermoMachineHellfireFreezer = true;
+        public bool DockThermoMachineHellfireHeater = true;
+        public bool DockCondenser = true;
+        public bool DockPort = true;
+        // Im missing some arent I?
 
         #endregion
 
@@ -31,6 +71,37 @@ namespace Content.Server.Atmos.EntitySystems
             base.Initialize();
             SubscribeLocalEvent<DockEvent>(OnDocked);
             SubscribeLocalEvent<UndockEvent>(OnUndocked);
+
+            // Yup. Definetly has to be a better way.
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeStraight, v => DockPipeStraight = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeHalf, v => DockPipeHalf = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeBend, v => DockPipeBend = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeTJunction, v => DockPipeTJunction = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeFourway, v => DockPipeFourway = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeManifold, v => DockPipeManifold = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPressurePump, v => DockPressurePump = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockVolumePump, v => DockVolumePump = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPassiveGate, v => DockPassiveGate = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockValve, v => DockValve = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockSignalValve, v => DockSignalValve = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPressureRegulator, v => DockPressureRegulator = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeSensor, v => DockPipeSensor = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockFilter, v => DockFilter = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockMixer, v => DockMixer = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPneumaticValve, v => DockPneumaticValve = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockHeatExchanger, v => DockHeatExchanger = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockHeatExchangerBend, v => DockHeatExchangerBend = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockRecycler, v => DockRecycler = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockVentPump, v => DockVentPump = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPassiveVent, v => DockPassiveVent = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockVentScrubber, v => DockVentScrubber = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockOutletInjector, v => DockOutletInjector = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockThermoMachineFreezer, v => DockThermoMachineFreezer = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockThermoMachineHeater, v => DockThermoMachineHeater = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockThermoMachineHellfireFreezer, v => DockThermoMachineHellfireFreezer = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockThermoMachineHellfireHeater, v => DockThermoMachineHellfireHeater = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockCondenser, v => DockCondenser = v, true);
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPort, v => DockPort = v, true);
         }
 
         #endregion
@@ -45,14 +116,9 @@ namespace Content.Server.Atmos.EntitySystems
             var dockA = ev.DockA.Owner;
             var dockB = ev.DockB.Owner;
 
-            _sawmill.Info($"Docked: {dockA} <-> {dockB}");
 
-            // Only connect the closest/facing node on each dock
-            var dockAConnecting = GetDockConnectingPipe(dockA);
-            var dockBConnecting = GetDockConnectingPipe(dockB);
-
-            _sawmill.Info($"DockA GetDockConnectingPipe: {string.Join(", ", dockAConnecting.Select(p => $"{p.Owner} Dir={p.CurrentPipeDirection} Layer={p.CurrentPipeLayer} Type={p.GetType().Name}"))}");
-            _sawmill.Info($"DockB GetDockConnectingPipe: {string.Join(", ", dockBConnecting.Select(p => $"{p.Owner} Dir={p.CurrentPipeDirection} Layer={p.CurrentPipeLayer} Type={p.GetType().Name}"))}");
+            var dockAConnecting = GetDockConnectingPipe(dockA).Where(ShouldDockPipeType).ToList();
+            var dockBConnecting = GetDockConnectingPipe(dockB).Where(ShouldDockPipeType).ToList();
 
             var anchoredA = new HashSet<EntityUid>(dockAConnecting.Select(p => p.Owner));
             var anchoredB = new HashSet<EntityUid>(dockBConnecting.Select(p => p.Owner));
@@ -63,7 +129,6 @@ namespace Content.Server.Atmos.EntitySystems
                 var pipeADir = pipeA.CurrentPipeDirection;
                 var pipeALayer = pipeA.CurrentPipeLayer;
                 var pipeAAnchored = EntityManager.GetComponent<TransformComponent>(pipeA.Owner).Anchored;
-                _sawmill.Info($"PipeA {pipeA.Owner} Type={pipeAType} Dir={pipeADir} Layer={pipeALayer} Anchored={pipeAAnchored}");
 
                 if (!anchoredA.Contains(pipeA.Owner) || !pipeAAnchored) continue;
                 foreach (var pipeB in dockBConnecting)
@@ -72,104 +137,69 @@ namespace Content.Server.Atmos.EntitySystems
                     var pipeBDir = pipeB.CurrentPipeDirection;
                     var pipeBLayer = pipeB.CurrentPipeLayer;
                     var pipeBAnchored = EntityManager.GetComponent<TransformComponent>(pipeB.Owner).Anchored;
-                    _sawmill.Info($"PipeB {pipeB.Owner} Type={pipeBType} Dir={pipeBDir} Layer={pipeBLayer} Anchored={pipeBAnchored}");
-
+   
                     if (!anchoredB.Contains(pipeB.Owner) || !pipeBAnchored) continue;
                     var canConnect = CanConnect(pipeA, pipeB) && pipeA.CurrentPipeLayer == pipeB.CurrentPipeLayer;
-                    _sawmill.Info($"Trying connect: {pipeA.Owner} <-> {pipeB.Owner} | CanConnect={canConnect} | LayerA={pipeA.CurrentPipeLayer} LayerB={pipeB.CurrentPipeLayer} DirA={pipeADir} DirB={pipeBDir}");
                     if (canConnect)
                     {
                         pipeA.AddAlwaysReachable(pipeB);
                         pipeB.AddAlwaysReachable(pipeA);
-                        _sawmill.Info($"Connected: {pipeA.Owner} <-> {pipeB.Owner} | TypeA={pipeAType} TypeB={pipeBType}");
                     }
                 }
             }
 
             foreach (var dock in new[] { dockA, dockB })
             {
-                _sawmill.Info($"Checking dock {dock} for dock connections...");
-                foreach (var pipe in GetDockConnectingPipe(dock))
+                foreach (var pipe in GetDockConnectingPipe(dock).Where(ShouldDockPipeType))
                 {
                     var pipeType = pipe.GetType().Name;
                     var pipeDir = pipe.CurrentPipeDirection;
                     var pipeLayer = pipe.CurrentPipeLayer;
                     var pipeAnchored = EntityManager.GetComponent<TransformComponent>(pipe.Owner).Anchored;
-                    _sawmill.Info($"CheckForDockConnections: {pipe.Owner} Type={pipeType} Dir={pipeDir} Layer={pipeLayer} Anchored={pipeAnchored}");
                     if (!pipeAnchored) continue;
                     CheckForDockConnections(pipe.Owner, pipe);
                 }
             }
         }
 
-        /// <summary>
-        /// Returns all pipe nodes on the dock's tile whose direction faces the dock's connecting direction
-        /// and whose owner entity's position is either on the edge tile adjacent to the dock's connecting direction
-        /// OR is the closest node facing the dock direction (if none are on the edge).
-        /// This allows filters, mixers, valves, etc. to connect if their output/input is facing the dock.
-        /// </summary>
         private List<PipeNode> GetDockConnectingPipe(EntityUid dock)
         {
             if (!DockPipes)
                 return new();
             if (!TryComp<TransformComponent>(dock, out var xform) || xform.GridUid == null)
-            {
-                _sawmill.Info($"GetDockConnectingPipe({dock}): No Transform or GridUid");
                 return new();
-            }
             if (!TryComp<MapGridComponent>(xform.GridUid.Value, out var grid))
-            {
-                _sawmill.Info($"GetDockConnectingPipe({dock}): No MapGridComponent");
                 return new();
-            }
 
             var dockTile = _mapSystem.TileIndicesFor(xform.GridUid.Value, grid, xform.Coordinates);
             var dockDir = xform.LocalRotation.GetCardinalDir();
             var edgeTile = dockTile.Offset(dockDir);
 
-            _sawmill.Info($"GetDockConnectingPipe({dock}): dockTile={dockTile} dockDir={dockDir} edgeTile={edgeTile}");
-
-            // First, collect all nodes on the edge tile, facing the dock direction
             var edgeNodes = new List<PipeNode>();
             float closestEdgeDist = float.MaxValue;
             PipeNode? closestEdgeNode = null;
-
-            // Also collect all nodes on dock tile facing dock direction
             var facingNodes = new List<(PipeNode node, float dist)>();
 
             foreach (var ent in _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, dockTile))
             {
                 if (!TryComp<NodeContainerComponent>(ent, out var nodeContainer))
-                {
-                    _sawmill.Info($"Entity {ent} on dockTile has no NodeContainerComponent");
                     continue;
-                }
                 if (!TryComp<TransformComponent>(ent, out var entXform) || !entXform.Anchored)
-                {
-                    _sawmill.Info($"Entity {ent} not anchored");
                     continue;
-                }
 
                 foreach (var node in nodeContainer.Nodes.Values.OfType<PipeNode>())
                 {
                     if (node.Deleting)
-                    {
-                        _sawmill.Info($"PipeNode {node.Owner} is deleting");
                         continue;
-                    }
-
+                    if (!ShouldDockPipeType(node))
+                        continue;
                     var hasDir = node.CurrentPipeDirection.HasDirection(dockDir.ToPipeDirection());
                     if (!hasDir)
-                    {
-                        _sawmill.Info($"PipeNode {node.Owner} Dir={node.CurrentPipeDirection} does not face dockDir={dockDir}");
                         continue;
-                    }
+
 
                     if (!TryComp<TransformComponent>(node.Owner, out var pipeXform))
-                    {
-                        _sawmill.Info($"PipeNode {node.Owner} has no TransformComponent");
                         continue;
-                    }
                     var pipeTile = _mapSystem.TileIndicesFor(xform.GridUid.Value, grid, pipeXform.Coordinates);
 
                     var dockPos = xform.Coordinates.Position;
@@ -191,20 +221,15 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             if (edgeNodes.Count > 0)
-            {
-                _sawmill.Info($"GetDockConnectingPipe({dock}): edgeNodes={string.Join(", ", edgeNodes.Select(n => $"{n.Owner} Dir={n.CurrentPipeDirection} Layer={n.CurrentPipeLayer}"))}");
                 return edgeNodes;
-            }
 
             if (facingNodes.Count > 0)
             {
                 var minDist = facingNodes.Min(x => x.dist);
                 var closestNodes = facingNodes.Where(x => Math.Abs(x.dist - minDist) < 0.01f).Select(x => x.node).ToList();
-                _sawmill.Info($"GetDockConnectingPipe({dock}): closestNodes={string.Join(", ", closestNodes.Select(n => $"{n.Owner} Dir={n.CurrentPipeDirection} Layer={n.CurrentPipeLayer}"))}");
                 return closestNodes;
             }
 
-            _sawmill.Info($"GetDockConnectingPipe({dock}): result=");
             return new();
         }
 
@@ -239,9 +264,8 @@ namespace Content.Server.Atmos.EntitySystems
 
         #endregion
 
-        #region Pipe Query Helpers
+        #region Pipe Query
 
-        // Returns (PipeNode, visualLayer) for all pipes on the dock's tile, and outputs grid rotation
         private List<(PipeNode pipe, int visualLayer)> GetTilePipesWithRotation(EntityUid dock, out int gridRotation)
         {
             gridRotation = 0;
@@ -270,7 +294,7 @@ namespace Content.Server.Atmos.EntitySystems
             return result;
         }
 
-        // Returns grid rotation in 90-degree increments (0, 1, 2, 3)
+        // Grid rotation
         private int GetGridRotation(EntityUid gridUid)
         {
             var gridXform = EntityManager.GetComponent<TransformComponent>(gridUid);
@@ -287,7 +311,6 @@ namespace Content.Server.Atmos.EntitySystems
         {
             if (!DockPipes)
                 return new();
-            // Only return pipes that are anchored and not deleted
             if (!TryComp<TransformComponent>(dock, out var xform) || xform.GridUid == null)
                 return new();
 
@@ -306,7 +329,8 @@ namespace Content.Server.Atmos.EntitySystems
                     continue;
                 foreach (var pipe in nodeContainer.Nodes.Values.OfType<PipeNode>().Where(pipe => !pipe.Deleting))
                 {
-                    _sawmill.Info($"GetTilePipes: Found pipe {pipe.Owner} Type={pipe.GetType().Name} Dir={pipe.CurrentPipeDirection} Layer={pipe.CurrentPipeLayer} Anchored={entXform.Anchored}");
+                    if (!ShouldDockPipeType(pipe))
+                        continue;
                     result.Add(pipe);
                 }
             }
@@ -318,7 +342,6 @@ namespace Content.Server.Atmos.EntitySystems
             if (!DockPipes)
                 return false;
             var result = a.NodeGroupID == b.NodeGroupID && !a.Deleting && !b.Deleting;
-            _sawmill.Info($"CanConnect: {a.Owner}({a.GetType().Name}) <-> {b.Owner}({b.GetType().Name}) | NodeGroupID: {a.NodeGroupID} vs {b.NodeGroupID} | Deleting: {a.Deleting}/{b.Deleting} | Result={result}");
             return result;
         }
 
@@ -327,7 +350,7 @@ namespace Content.Server.Atmos.EntitySystems
         #region Anchor Handling
 
         /// <summary>
-        /// Calling this after anchoring a pipe
+        /// Anchoring Pipes
         /// </summary>
         public void TryConnectDockedPipe(EntityUid pipeEntity)
         {
@@ -335,23 +358,23 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
             if (!EntityManager.TryGetComponent<NodeContainerComponent>(pipeEntity, out var nodeContainer))
                 return;
-
-            PipeNode? closestNode = null;
-            float closestDist = float.MaxValue;
-
             if (!EntityManager.TryGetComponent<TransformComponent>(pipeEntity, out var xform) || xform.GridUid == null || !xform.Anchored)
                 return;
             if (!EntityManager.TryGetComponent<MapGridComponent>(xform.GridUid.Value, out var grid))
                 return;
             var tile = _mapSystem.TileIndicesFor(xform.GridUid.Value, grid, xform.Coordinates);
 
-            // Find the closest node facing the dock direction and on the edge tile if possible
+            // Find the dock direction and edge
             var dockDir = xform.LocalRotation.GetCardinalDir();
             var edgeTile = tile.Offset(dockDir);
+
+            List<PipeNode> nodesToConnect = new();
 
             foreach (var node in nodeContainer.Nodes.Values.OfType<PipeNode>())
             {
                 if (node.Deleting)
+                    continue;
+                if (!ShouldDockPipeType(node))
                     continue;
                 var nodeDir = node.CurrentPipeDirection;
                 if (!nodeDir.HasDirection(dockDir.ToPipeDirection()))
@@ -363,35 +386,32 @@ namespace Content.Server.Atmos.EntitySystems
                 var nodePos = nodeXform.Coordinates.Position;
                 var dist = (dockPos - nodePos).Length();
 
-                // Prefer node on edge tile
                 if (nodeTile == edgeTile)
                 {
-                    if (dist < closestDist)
+                    if (nodesToConnect.Count == 0 || dist < (nodesToConnect.Count > 0 ? (dockPos - EntityManager.GetComponent<TransformComponent>(nodesToConnect[0].Owner).Coordinates.Position).Length() : float.MaxValue))
                     {
-                        closestDist = dist;
-                        closestNode = node;
+                        nodesToConnect.Clear();
+                        nodesToConnect.Add(node);
                     }
                 }
-                // Fallback: closest node on dock tile facing dock direction
                 else if (nodeTile == tile)
                 {
-                    if (closestNode == null || dist < closestDist)
-                    {
-                        closestDist = dist;
-                        closestNode = node;
-                    }
+                    if (nodesToConnect.Count == 0)
+                        nodesToConnect.Add(node);
                 }
             }
 
-            if (closestNode == null)
+            if (nodesToConnect.Count == 0)
                 return;
 
-            // Remove all previous dock connections for this node before reconnecting
-            var reachable = closestNode.GetAlwaysReachable();
-            if (reachable != null)
+            foreach (var node in nodesToConnect)
             {
-                foreach (var target in reachable.ToList())
-                    closestNode.RemoveAlwaysReachable(target);
+                var reachable = node.GetAlwaysReachable();
+                if (reachable != null)
+                {
+                    foreach (var target in reachable.ToList())
+                        node.RemoveAlwaysReachable(target);
+                }
             }
 
             var anchoredEntities = _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, tile).ToList();
@@ -404,17 +424,20 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 var docking = EntityManager.GetComponent<DockingComponent>(ent);
                 var otherDock = docking.DockedWith!.Value;
-                var pipesOther = GetDockConnectingPipe(otherDock).Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored).ToList();
+                var pipesOther = GetDockConnectingPipe(otherDock)
+                    .Where(p => EntityManager.GetComponent<TransformComponent>(p.Owner).Anchored && ShouldDockPipeType(p))
+                    .ToList();
+                foreach (var node in nodesToConnect)
                 foreach (var pipeB in pipesOther)
                 {
-                    if (CanConnect(closestNode, pipeB) && closestNode.CurrentPipeLayer == pipeB.CurrentPipeLayer)
+                    if (CanConnect(node, pipeB) && node.CurrentPipeLayer == pipeB.CurrentPipeLayer)
                     {
-                        var reachableA = closestNode.GetAlwaysReachable();
+                        var reachableA = node.GetAlwaysReachable();
                         var reachableB = pipeB.GetAlwaysReachable();
                         if (reachableA == null || !reachableA.Contains(pipeB))
-                            closestNode.AddAlwaysReachable(pipeB);
-                        if (reachableB == null || !reachableB.Contains(closestNode))
-                            pipeB.AddAlwaysReachable(closestNode);
+                            node.AddAlwaysReachable(pipeB);
+                        if (reachableB == null || !reachableB.Contains(node))
+                            pipeB.AddAlwaysReachable(node);
                     }
                 }
             }
@@ -453,7 +476,6 @@ namespace Content.Server.Atmos.EntitySystems
                     var pipeBType = pipeB.GetType().Name;
                     var pipeBDir = pipeB.CurrentPipeDirection;
                     var pipeBLayer = pipeB.CurrentPipeLayer;
-                    _sawmill.Info($"CheckForDockConnections: {pipeNode.Owner}({pipeNode.GetType().Name}) <-> {pipeB.Owner}({pipeBType}) | LayerA={pipeNode.CurrentPipeLayer} LayerB={pipeBLayer} DirA={pipeNode.CurrentPipeDirection} DirB={pipeBDir}");
                     if (CanConnect(pipeNode, pipeB) && pipeNode.CurrentPipeLayer == pipeB.CurrentPipeLayer)
                     {
                         var reachableA = pipeNode.GetAlwaysReachable();
@@ -461,12 +483,10 @@ namespace Content.Server.Atmos.EntitySystems
                         if (reachableA == null || !reachableA.Contains(pipeB))
                         {
                             pipeNode.AddAlwaysReachable(pipeB);
-                            _sawmill.Info($"CheckForDockConnections: Added always reachable {pipeNode.Owner} -> {pipeB.Owner}");
                         }
                         if (reachableB == null || !reachableB.Contains(pipeNode))
                         {
                             pipeB.AddAlwaysReachable(pipeNode);
-                            _sawmill.Info($"CheckForDockConnections: Added always reachable {pipeB.Owner} -> {pipeNode.Owner}");
                         }
                     }
                 }
@@ -617,6 +637,49 @@ namespace Content.Server.Atmos.EntitySystems
 
         #endregion
 
+        /// <summary>
+        /// The great switch statement!
+        /// </summary>
+        public bool ShouldDockPipeType(PipeNode node)
+        {
+            if (!EntityManager.TryGetComponent(node.Owner, out MetaDataComponent? meta))
+                return false;
+
+            var proto = meta.EntityPrototype?.ID ?? string.Empty;
+            return proto switch
+            {
+                "GasPipeStraight" => DockPipeStraight,
+                "GasPipeHalf" => DockPipeHalf,
+                "GasPipeBend" => DockPipeBend,
+                "GasPipeTJunction" => DockPipeTJunction,
+                "GasPipeFourway" => DockPipeFourway,
+                "GasPipeManifold" => DockPipeManifold,
+                "GasPressurePump" => DockPressurePump,
+                "GasVolumePump" => DockVolumePump,
+                "GasPassiveGate" => DockPassiveGate,
+                "GasValve" => DockValve,
+                "SignalControlledValve" => DockSignalValve,
+                "GasPressureRegulator" => DockPressureRegulator,
+                "GasPipeSensor" => DockPipeSensor,
+                "GasFilter" => DockFilter,
+                "GasMixer" => DockMixer,
+                "PressureControlledValve" => DockPneumaticValve,
+                "HeatExchanger" => DockHeatExchanger,
+                "HeatExchangerBend" => DockHeatExchangerBend,
+                "GasRecycler" => DockRecycler,
+                "GasVentPump" => DockVentPump,
+                "GasPassiveVent" => DockPassiveVent,
+                "GasVentScrubber" => DockVentScrubber,
+                "GasOutletInjector" => DockOutletInjector,
+                "GasThermoMachineFreezer" => DockThermoMachineFreezer,
+                "GasThermoMachineHeater" => DockThermoMachineHeater,
+                "GasThermoMachineHellfireFreezer" => DockThermoMachineHellfireFreezer,
+                "GasThermoMachineHellfireHeater" => DockThermoMachineHellfireHeater,
+                "GasCondenser" => DockCondenser,
+                "GasPort" => DockPort,
+                _ => false
+            };
+        }
         public bool DockPipes { get; private set; } = true;
     }
 }
