@@ -50,7 +50,6 @@ namespace Content.Server.Power.EntitySystems
             _configurationManager.OnValueChanged(StarlightCCVars.DockHV, v => DockHV = v, true);
             _configurationManager.OnValueChanged(StarlightCCVars.DockMV, v => DockMV = v, true);
             _configurationManager.OnValueChanged(StarlightCCVars.DockLV, v => DockLV = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockCableConnectors, v => DockCableConnectors = v, true);
         }
 
         #endregion
