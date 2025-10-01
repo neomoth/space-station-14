@@ -3,7 +3,7 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Shared.NodeContainer;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-// Starlight Start
+// Starlight Start: DockCableSystem
 using System.Collections.Generic;
 using Robust.Shared.Utility;
 // Starlight End
@@ -13,7 +13,7 @@ namespace Content.Server.Power.Nodes
     [DataDefinition]
     public sealed partial class CableNode : Node
     {
-        // Starlight Start
+        // Starlight Start: DockCableSystem
         private HashSet<CableNode>? _alwaysReachable;
 
         public void AddAlwaysReachable(CableNode node)
@@ -37,7 +37,7 @@ namespace Content.Server.Power.Nodes
             MapGridComponent? grid,
             IEntityManager entMan)
         {
-            // Starlight Start
+            // Starlight Start: DockCableSystem
             if (_alwaysReachable != null)
             {
                 var remQ = new RemQueue<CableNode>();
@@ -109,7 +109,7 @@ namespace Content.Server.Power.Nodes
                 yield return node;
             }
         }
-        // Starlight Start
+        // Starlight Start: DockCableSystem
         public override void OnAnchorStateChanged(IEntityManager entityManager, bool anchored)
         {
             base.OnAnchorStateChanged(entityManager, anchored);
