@@ -10,6 +10,7 @@
   - RoboticistShoes
   - Survival
   - Trinkets
+  - Scarves
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -19,6 +20,7 @@
   - MagistrateShoes
   - Survival
   - Trinkets
+  - Scarves
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -36,6 +38,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Scarves
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -47,6 +50,7 @@
   - CommonBackpack
   - NanotrasenRepresentativeShoes
   - Trinkets
+  - Scarves
   - Survival
   - GroupSpeciesBreathTool
 
@@ -58,6 +62,7 @@
   - CommonBackpack
   - LawyerShoes
   - Trinkets
+  - Scarves
   - Survival
   - GroupSpeciesBreathTool
 
@@ -71,6 +76,7 @@
   - BlueShieldNeck
   - BlueShieldEyewear
   - Trinkets
+  - Scarves
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
 
@@ -79,12 +85,13 @@
   groups:
   - GroupTankHarness
   - SalvageSpecialistBackpack
-  - SalvageSpecialistJumpsuit # afterlight
+  - MiningSpecialistJumpsuit
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
   - Survival
   - Trinkets
+  - Scarves
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -99,6 +106,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Scarves
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -118,3 +126,16 @@
     - Trinkets
     - SecurityStar
     - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobSalvageLead
+  groups:
+    - GroupTankHarness
+    - SalvageSpecialistBackpack
+    - SalvageLeadJumpsuit
+    - SalvageSpecialistOuterClothing
+    - SalvageSpecialistShoes
+    - Glasses
+    - Survival
+    - Trinkets
+    - GroupSpeciesBreathTool
