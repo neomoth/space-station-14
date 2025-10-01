@@ -374,7 +374,6 @@ namespace Content.Server.NodeContainer.EntitySystems
             EntityQuery<TransformComponent> xformQuery,
             MapGridComponent? grid)
         {
-            // Fix: Use TryGetComponent to avoid KeyNotFoundException
             if (!xformQuery.TryGetComponent(node.Owner, out var xform))
                 yield break;
 
