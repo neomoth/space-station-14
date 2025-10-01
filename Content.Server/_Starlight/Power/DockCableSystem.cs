@@ -33,9 +33,8 @@ namespace Content.Server.Power.EntitySystems
         #region CVar
 
         public bool DockHV = true;
-        public bool DockMV = true;
+        public bool DockMV = false;
         public bool DockLV = false;
-        public bool DockCableConnectors = false;
 
         #endregion
 
