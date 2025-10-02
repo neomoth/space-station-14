@@ -17,6 +17,23 @@
     {
       "name": "equipped-HELMET-vox",
       "directions": 4
+    },
+    {
+        "name": "icon-unshaded"
+    },
+    {
+        "name": "icon-flash"
+    },
+    {
+        "name": "light-overlay"
+    },
+    {
+        "name": "equipped-head-light",
+        "directions": 4
+    },
+    {
+        "name": "equipped-head-unshaded",
+        "directions": 4
     }
   ]
 }

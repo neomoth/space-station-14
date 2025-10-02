@@ -305,7 +305,7 @@
       lowPressureMultiplier: 1000
 
 #Advanced Mining Hardsuit
-- type: entity
+- type: entity # MIKEY - update the sprite attribution! give credit to itsmaitake, used the base salvage suit (originally mining as a base)
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAdvancedMining
   categories: [ HideSpawnMenu ]
@@ -314,8 +314,29 @@
   components:
   - type: Sprite
     sprite: _Starlight/Clothing/Head/Hardsuits/advmining.rsi
+    layers: # MIKEY - unfuck these lighting things. what is actually necessary??
+      - state: icon
+      - state: icon-unshaded
+        shader: unshaded
+      - state: light-overlay
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+      - type: HandheldLight
+        addPrefix: false
+      - type: ToggleableVisuals
+        clothingVisuals:
+          head:
+            - state: equipped-head-light
+              shader: unshaded
   - type: Clothing
-    sprite: _Starlight/Clothing/Head/Hardsuits/advmining.rsi
+    clothingVisuals:
+      head:
+        - state: equipped-head
+        - state: equipped-head-unshaded
+          shader: unshaded
+  - type: PointLight
+    radius: 6 # MIKEY - play with the light strength. Mining should have good light probably. Take values from the mining hardsuit below?
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -328,7 +349,7 @@
         Heat: 0.9
 
 #Mining Hardsuit
-- type: entity
+- type: entity # MIKEY - i dont think the light works on this suit either? Or it does, cause of ClothingHeadSuitWithLightBase?????
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitMining
   name: mining hardsuit helmet
