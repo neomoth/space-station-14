@@ -55,3 +55,12 @@
   - type: TextToSpeech
   - type: BorgSwitchableType
     selectedBorgType: SyndicateStealth
+    
+- type: entity
+  id: BorgChassisPurrfus
+  parent: BorgChassisSelectable
+  name: purrfus cyborg
+  components:
+  - type: TextToSpeech
+  - type: BorgSwitchableType
+    selectedBorgType: purrfus

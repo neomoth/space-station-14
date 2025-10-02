@@ -22,3 +22,7 @@ borg-type-SyndicateSaboteur-transponder = syndicate saboteur cyborg
 borg-type-SyndicateStealth-name = Syndicate Stealth
 borg-type-SyndicateStealth-desc = A stealth-oriented cyborg designed for infiltration, vent crawling and covert operations.
 borg-type-SyndicateStealth-transponder = syndicate stealth cyborg
+
+borg-type-purrfus-name = Purrfus
+borg-type-purrfus-desc = Serve as a personal aid for those who require assistance with paperwork, especially members of command and the law department.
+borg-type-purrfus-transponder = purrfus cyborg

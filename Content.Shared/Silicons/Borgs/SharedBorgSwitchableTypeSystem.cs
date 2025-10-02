@@ -126,8 +126,8 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
     protected void UpdateEntityAppearance(Entity<BorgSwitchableTypeComponent> entity)
     {
-        if (!Prototypes.TryIndex(entity.Comp.SelectedBorgType, out var proto)
-            || !Prototypes.TryIndex(entity.Comp.SelectedBorgPaint, out var paint)) // Starlight-edit
+        if (!Prototypes.Resolve(entity.Comp.SelectedBorgType, out var proto)
+            || !Prototypes.Resolve(entity.Comp.SelectedBorgPaint, out var paint)) // Starlight-edit
             return;
 
         UpdateEntityAppearance(entity, proto, paint); // Starlight-edit

@@ -1,3 +1,4 @@
+borg-slot-uppies-empty = Small Personnel
 borg-slot-flash-empty = Flash
 borg-slot-zipties-empty = Handcuffs
 borg-slot-stunbaton-empty = Stun Baton

@@ -180,3 +180,34 @@
   - type: StealthOnMove
     passiveVisibilityRate: -0.37
     movementVisibilityRate: 0.20
+
+- type: borgType
+  id: purrfus
+
+  # Description
+  dummyPrototype: BorgChassisPurrfus
+
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModulePurrfus
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModulePaperwork
+
+  radioChannels:
+  - Common
+  - Command
+  - Science
+  - Law
+
+  # Visual
+  inventoryTemplateId: borgTall
+  spritePath: _Starlight/Mobs/Silicon/Chassis/purrfus.rsi
+
+  # Pet
+  petSuccessString: petting-success-generic-cyborg
+  petFailureString: petting-failure-generic-cyborg# Purrfus borg
