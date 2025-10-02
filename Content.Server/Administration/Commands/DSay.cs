@@ -1,15 +1,20 @@
+using Content.Server.Administration.Managers;
 using Content.Server.Chat.Systems;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Content.Shared.Chat; // Starlight
+using Content.Shared.Chat;
+using Content.Shared.Ghost; // Starlight
 
 namespace Content.Server.Administration.Commands;
 
-[AdminCommand(AdminFlags.Moderator)]
+// [AdminCommand(AdminFlags.Moderator)] // Starlight
+[AnyCommand]
 public sealed class DsayCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly ChatSystem _chatSystem = default!;
-
+    [Dependency] private readonly IEntityManager _entityManager = default!; // Starlight
+    [Dependency] private readonly IAdminManager _adminMgr = default!; // Starlight
+    
     public override string Command => "dsay";
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -25,6 +30,8 @@ public sealed class DsayCommand : LocalizedEntityCommands
             shell.WriteError(Loc.GetString("shell-must-be-attached-to-entity"));
             return;
         }
+
+        if (!_adminMgr.IsAdmin(player) && !_entityManager.HasComponent<GhostComponent>(entity)) return; // Starlight
 
         if (args.Length < 1)
             return;

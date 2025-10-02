@@ -44,6 +44,8 @@ namespace Content.Client.Ghost
         public GhostComponent? Player => CompOrNull<GhostComponent>(_playerManager.LocalEntity);
         public bool IsGhost => Player != null;
 
+        public bool LocalAllowed => IsGhost && Player is { LocalChatEnabled: true }; // Starlight
+
         public event Action<GhostComponent>? PlayerRemoved;
         public event Action<GhostComponent>? PlayerUpdated;
         public event Action<GhostComponent>? PlayerAttached;

@@ -183,7 +183,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         LanguagePrototype? languageOverride = null // Starlight
         )
     {
-        if (HasComp<GhostComponent>(source))
+        if (TryComp<GhostComponent>(source, out var comp) && !comp.LocalChatEnabled) // Starlight
         {
             // Ghosts can only send dead chat messages, so we'll forward it to InGame OOC.
             TrySendInGameOOCMessage(source, message, InGameOOCChatType.Dead, range == ChatTransmitRange.HideChat, shell, player);

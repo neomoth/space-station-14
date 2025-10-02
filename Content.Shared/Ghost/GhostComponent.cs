@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Robust.Shared.Console;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -8,7 +9,7 @@ namespace Content.Shared.Ghost;
 /// Represents an observer ghost.
 /// Handles limiting interactions, using ghost abilities, ghost visibility, and ghost warping.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedGhostSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedGhostSystem), typeof(LocalizedEntityCommands))] // Starlight
 [AutoGenerateComponentState(true), AutoGenerateComponentPause]
 public sealed partial class GhostComponent : Component
 {
@@ -42,6 +43,8 @@ public sealed partial class GhostComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? BooActionEntity;
+
+    [DataField, AutoNetworkedField] public bool LocalChatEnabled; // Starlight
 
     // End actions
 
