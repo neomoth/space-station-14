@@ -73,7 +73,7 @@
   parent: [ ClothingUniformBase, BaseCommandContraband ]
   id: ClothingUniformJumpsuitNtrepOriental
   name: nt representive's oriental jumpsuit
-  description: A more classical and elegant style of clothing, designed to emulate the fashion styles of old earth nobility.
+  description: A more classical and elegant style of clothing, designed to emulate the fashion of old earth nobility.
   components:
   - type: Sprite
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntreporiential.rsi
