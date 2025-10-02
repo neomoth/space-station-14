@@ -14,9 +14,6 @@ using Robust.Shared.Log;
 using Content.Shared.Starlight.CCVar;
 using Robust.Shared.Configuration;
 
-/// <summary>
-/// Allows pipes to connect over docks
-/// </summary>
 namespace Content.Server.Atmos.EntitySystems
 {
     /// <summary>
@@ -30,37 +27,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private IConfigurationManager _configurationManager = default!;
         private readonly HashSet<EntityUid> _dockConnectionsChecked = new();
 
-        // Theres definetly a better way to do this
-        public bool DockPipeStraight = true;
-        public bool DockPipeHalf = true;
-        public bool DockPipeBend = true;
-        public bool DockPipeTJunction = true;
-        public bool DockPipeFourway = true;
-        public bool DockPipeManifold = true;
-        public bool DockPressurePump = true;
-        public bool DockVolumePump = true;
-        public bool DockPassiveGate = true;
-        public bool DockValve = true;
-        public bool DockSignalValve = true;
-        public bool DockPressureRegulator = true;
-        public bool DockPipeSensor = true;
-        public bool DockFilter = true;
-        public bool DockMixer = true;
-        public bool DockPneumaticValve = true;
-        public bool DockHeatExchanger = true;
-        public bool DockHeatExchangerBend = true;
-        public bool DockRecycler = true;
-        public bool DockVentPump = true;
-        public bool DockPassiveVent = true;
-        public bool DockVentScrubber = true;
-        public bool DockOutletInjector = true;
-        public bool DockThermoMachineFreezer = true;
-        public bool DockThermoMachineHeater = true;
-        public bool DockThermoMachineHellfireFreezer = true;
-        public bool DockThermoMachineHellfireHeater = true;
-        public bool DockCondenser = true;
-        public bool DockPort = true;
-        // Im missing some arent I?
+        public bool DockPipes { get; private set; } = true;
 
         #endregion
 
@@ -72,36 +39,8 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<DockEvent>(OnDocked);
             SubscribeLocalEvent<UndockEvent>(OnUndocked);
 
-            // Yup. Definetly has to be a better way.
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeStraight, v => DockPipeStraight = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeHalf, v => DockPipeHalf = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeBend, v => DockPipeBend = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeTJunction, v => DockPipeTJunction = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeFourway, v => DockPipeFourway = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeManifold, v => DockPipeManifold = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPressurePump, v => DockPressurePump = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockVolumePump, v => DockVolumePump = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPassiveGate, v => DockPassiveGate = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockValve, v => DockValve = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockSignalValve, v => DockSignalValve = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPressureRegulator, v => DockPressureRegulator = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPipeSensor, v => DockPipeSensor = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockFilter, v => DockFilter = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockMixer, v => DockMixer = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPneumaticValve, v => DockPneumaticValve = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockHeatExchanger, v => DockHeatExchanger = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockHeatExchangerBend, v => DockHeatExchangerBend = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockRecycler, v => DockRecycler = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockVentPump, v => DockVentPump = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPassiveVent, v => DockPassiveVent = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockVentScrubber, v => DockVentScrubber = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockOutletInjector, v => DockOutletInjector = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockThermoMachineFreezer, v => DockThermoMachineFreezer = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockThermoMachineHeater, v => DockThermoMachineHeater = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockThermoMachineHellfireFreezer, v => DockThermoMachineHellfireFreezer = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockThermoMachineHellfireHeater, v => DockThermoMachineHellfireHeater = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockCondenser, v => DockCondenser = v, true);
-            _configurationManager.OnValueChanged(StarlightCCVars.DockPort, v => DockPort = v, true);
+            // CVar
+            _configurationManager.OnValueChanged(StarlightCCVars.DockPipes, v => DockPipes = v, true);
         }
 
         #endregion
@@ -137,7 +76,7 @@ namespace Content.Server.Atmos.EntitySystems
                     var pipeBDir = pipeB.CurrentPipeDirection;
                     var pipeBLayer = pipeB.CurrentPipeLayer;
                     var pipeBAnchored = EntityManager.GetComponent<TransformComponent>(pipeB.Owner).Anchored;
-   
+
                     if (!anchoredB.Contains(pipeB.Owner) || !pipeBAnchored) continue;
                     var canConnect = CanConnect(pipeA, pipeB) && pipeA.CurrentPipeLayer == pipeB.CurrentPipeLayer;
                     if (canConnect)
@@ -265,6 +204,11 @@ namespace Content.Server.Atmos.EntitySystems
         #endregion
 
         #region Pipe Query
+
+        public bool ShouldDockPipeType(PipeNode node)
+        {
+            return DockPipes;
+        }
 
         private List<(PipeNode pipe, int visualLayer)> GetTilePipesWithRotation(EntityUid dock, out int gridRotation)
         {
@@ -636,50 +580,5 @@ namespace Content.Server.Atmos.EntitySystems
         }
 
         #endregion
-
-        /// <summary>
-        /// The great switch statement!
-        /// </summary>
-        public bool ShouldDockPipeType(PipeNode node)
-        {
-            if (!EntityManager.TryGetComponent(node.Owner, out MetaDataComponent? meta))
-                return false;
-
-            var proto = meta.EntityPrototype?.ID ?? string.Empty;
-            return proto switch
-            {
-                "GasPipeStraight" => DockPipeStraight,
-                "GasPipeHalf" => DockPipeHalf,
-                "GasPipeBend" => DockPipeBend,
-                "GasPipeTJunction" => DockPipeTJunction,
-                "GasPipeFourway" => DockPipeFourway,
-                "GasPipeManifold" => DockPipeManifold,
-                "GasPressurePump" => DockPressurePump,
-                "GasVolumePump" => DockVolumePump,
-                "GasPassiveGate" => DockPassiveGate,
-                "GasValve" => DockValve,
-                "SignalControlledValve" => DockSignalValve,
-                "GasPressureRegulator" => DockPressureRegulator,
-                "GasPipeSensor" => DockPipeSensor,
-                "GasFilter" => DockFilter,
-                "GasMixer" => DockMixer,
-                "PressureControlledValve" => DockPneumaticValve,
-                "HeatExchanger" => DockHeatExchanger,
-                "HeatExchangerBend" => DockHeatExchangerBend,
-                "GasRecycler" => DockRecycler,
-                "GasVentPump" => DockVentPump,
-                "GasPassiveVent" => DockPassiveVent,
-                "GasVentScrubber" => DockVentScrubber,
-                "GasOutletInjector" => DockOutletInjector,
-                "GasThermoMachineFreezer" => DockThermoMachineFreezer,
-                "GasThermoMachineHeater" => DockThermoMachineHeater,
-                "GasThermoMachineHellfireFreezer" => DockThermoMachineHellfireFreezer,
-                "GasThermoMachineHellfireHeater" => DockThermoMachineHellfireHeater,
-                "GasCondenser" => DockCondenser,
-                "GasPort" => DockPort,
-                _ => false
-            };
-        }
-        public bool DockPipes { get; private set; } = true;
     }
 }
