@@ -34,11 +34,11 @@
 - type: alarmThreshold
   id: stationOxygen
   lowerBound: !type:AlarmThresholdSetting
-    threshold: 0.10
+    threshold: 0.17 # Starlight: Was 0.10, now 0.17. Danger triggers <=17% oxygenation.
   upperBound: !type:AlarmThresholdSetting
     threshold: 0.3
   lowerWarnAround: !type:AlarmThresholdSetting
-    threshold: 1.5
+    threshold: 1.179 # Starlight: Was 1.5x, now 1.179x. Warning triggers <=20% oxygenation.
   upperWarnAround: !type:AlarmThresholdSetting
     threshold: 0.8
 
