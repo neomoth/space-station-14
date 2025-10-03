@@ -160,6 +160,11 @@ public sealed partial class BorgTypePrototype : IPrototype
     [DataField]
     public SoundSpecifier FootstepCollection { get; set; } = new SoundCollectionSpecifier(DefaultFootsteps);
 
+    // Starlight-start
+    [DataField]
+    public string? DefaultSubtype;
+    
     [DataField]
     public HashSet<JobRequirement> Requirements = new (); // Starlight-edit
+    // Starlight-end
 }
