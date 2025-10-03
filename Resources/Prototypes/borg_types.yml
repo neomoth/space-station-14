@@ -22,14 +22,7 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  # Starlight-start: Borg Paints
-  paints:
-  - GenericBasic
-  - GenericStandard
-  - GenericDroid
-  - GenericNoble
-  basicPaint: GenericStandard
-  # Starlight-end
+  spritePath: Mobs/Silicon/Chassis/generic.rsi
 
   # Pet
   petSuccessString: petting-success-generic-cyborg
@@ -62,16 +55,7 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  # Starlight-start: Borg Paints
-  paints:
-  - EngineeringBasic
-  - EngineeringAntique
-  - EngineeringLandmate
-  - EngineeringStandard
-  - EngineeringNoble
-  - EngineeringCricket
-  basicPaint: EngineeringLandmate
-  # Starlight-end
+  spritePath: Mobs/Silicon/Chassis/engineer.rsi
 
   # Pet
   petSuccessString: petting-success-engineer-cyborg
@@ -111,16 +95,8 @@
 
   # Visual
   inventoryTemplateId: borgTall
-  # Starlight-start: Borg Paints
-  paints:
-  - MiningBasic
-  - MiningDroid
-  - MiningThreadhead
-  - MiningStandard
-  - MiningNoble
-  - MiningCricket
-  basicPaint: MiningThreadhead
-  # Starlight-end
+  spritePath: Mobs/Silicon/Chassis/miner.rsi
+  spriteBodyMovementState: borg_moving
 
   # Pet
   petSuccessString: petting-success-salvage-cyborg
@@ -159,16 +135,8 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  # Starlight-start: Borg Paints
-  paints:
-  - JanitorBasic
-  - JanitorMopbot
-  - JanitorRex
-  - JanitorStandard
-  - JanitorNoble
-  - JanitorCricket
-  basicPaint: JanitorRex
-  # Starlight-end
+  spritePath: Mobs/Silicon/Chassis/janitor.rsi
+  spriteBodyMovementState: borg_moving
 
   # Pet
   petSuccessString: petting-success-janitor-cyborg
@@ -210,17 +178,8 @@
 
   # Visual
   inventoryTemplateId: borgDutch
-  # Starlight-start: Borg Paints
-  paints:
-  - MedicalBasic
-  - MedicalSurgeon
-  - MedicalDroid
-  - MedicalNeedles
-  - MedicalStandard
-  - MedicalNoble
-  - MedicalCricket
-  basicPaint: MedicalSurgeon
-  # Starlight-end
+  spritePath: Mobs/Silicon/Chassis/medical.rsi
+  spriteBodyMovementState: borg_moving
 
   # Pet
   petSuccessString: petting-success-medical-cyborg
@@ -265,17 +224,7 @@
 
   # Visual
   inventoryTemplateId: borgTall
-  # Starlight-start: Borg Paints
-  paints:
-  - ServiceDefault
-  - ServiceWaitress
-  - ServiceBrobot
-  - ServiceMaximillion
-  - ServiceStandard
-  - ServiceNoble
-  - ServiceCricket
-  basicPaint: ServiceDefault
-  # Starlight-end
+  spritePath: Mobs/Silicon/Chassis/service.rsi
 
   # Pet
   petSuccessString: petting-success-service-cyborg

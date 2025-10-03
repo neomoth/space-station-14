@@ -22,15 +22,7 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  paints:
-  - SecurityBasic
-  - SecurityRedKnight
-  - SecurityBlackKnight
-  - SecurityStandard
-  - SecurityNoble
-  - SecurityCricket
-  - SecurityHeavy
-  basicPaint: SecurityBlackKnight
+  spritePath: _Starlight/Mobs/Silicon/Chassis/security.rsi
 
   # Pet
   petSuccessString: petting-success-security-cyborg
@@ -68,9 +60,7 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  paints:
-  - SyndicateAssault
-  basicPaint: SyndicateAssault
+  spritePath: Mobs/Silicon/Chassis/synd_sec.rsi
 
   # Pet
   petSuccessString: petting-success-syndicate-cyborg
@@ -101,9 +91,7 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  paints:
-  - SyndicateMedical
-  basicPaint: SyndicateMedical
+  spritePath: Mobs/Silicon/Chassis/synd_medical.rsi
 
   # Pet
   petSuccessString: petting-success-syndicate-cyborg
@@ -134,9 +122,7 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  paints:
-  - SyndicateSaboteur
-  basicPaint: SyndicateSaboteur
+  spritePath: Mobs/Silicon/Chassis/synd_eng.rsi
 
   # Pet
   petSuccessString: petting-success-syndicate-cyborg
@@ -164,9 +150,7 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  paints:
-  - SyndicateStealth
-  basicPaint: SyndicateStealth
+  spritePath: _Starlight/Mobs/Silicon/Chassis/synd_stealth.rsi
 
   # Pet
   petSuccessString: petting-success-syndicate-cyborg
