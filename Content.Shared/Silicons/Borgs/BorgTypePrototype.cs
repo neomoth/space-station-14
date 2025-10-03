@@ -1,5 +1,4 @@
-﻿using Content.Shared._Starlight.Silicons.Borgs; // Starlight-edit
-using Content.Shared.Interaction.Components;
+﻿using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Content.Shared.Roles;
@@ -96,20 +95,6 @@ public sealed partial class BorgTypePrototype : IPrototype
     //
 
     /// <summary>
-    /// A list of available borg paints.
-    /// </summary>
-    [DataField]
-    public List<ProtoId<BorgPaintPrototype>> Paints = new(); // Starlight-edit
-
-    /// <summary>
-    /// A basic borg paint, if null -> first in Paints List. If Paints list null or empty, this used as default.
-    /// </summary>
-    [DataField]
-    public ProtoId<BorgPaintPrototype>? BasicPaint = new(); // Starlight-edit
-
-    /* Starlight-edit: Removed, added silicons paints
-
-    /// <summary>
     /// The path to the borg type's sprites.
     /// </summary>
     [DataField]
@@ -146,8 +131,6 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// </summary>
     [DataField]
     public string SpriteToggleLightState { get; set; } = "borg_l";
-
-    */
 
     //
     // Minor information

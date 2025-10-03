@@ -40,27 +40,26 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
 
     protected override void UpdateEntityAppearance(
         Entity<BorgSwitchableTypeComponent> entity,
-        BorgTypePrototype prototype, // Starlight-edit
-        BorgPaintPrototype paint) // Starlight-edit
+        BorgTypePrototype prototype)
     {
         if (TryComp(entity, out SpriteComponent? sprite))
         {
             if (_resourceCache.TryGetResource<RSIResource>(
-                    SpriteSpecifierSerializer.TextureRoot / paint.SpritePath, // Starlight-edit
+                    SpriteSpecifierSerializer.TextureRoot / prototype.SpritePath,
                     out var res))
             {
                 sprite.BaseRSI = res.RSI;
             }
-            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, paint.SpriteBodyState); // Starlight-edit
-            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.LightStatus, paint.SpriteToggleLightState); // Starlight-edit
+            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
+            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);
         }
 
         if (TryComp(entity, out BorgChassisComponent? chassis))
         {
             _borgSystem.SetMindStates(
                 (entity.Owner, chassis),
-                paint.SpriteHasMindState, // Starlight-edit
-                paint.SpriteNoMindState); // Starlight-edit
+                prototype.SpriteHasMindState,
+                prototype.SpriteNoMindState);
 
             if (TryComp(entity, out AppearanceComponent? appearance))
             {
@@ -69,6 +68,6 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
             }
         }
 
-        base.UpdateEntityAppearance(entity, prototype, paint); // Starlight-edit
+        base.UpdateEntityAppearance(entity, prototype);
     }
 }

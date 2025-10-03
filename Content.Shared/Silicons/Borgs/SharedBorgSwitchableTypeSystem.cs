@@ -1,6 +1,4 @@
 using System.Linq; // Starlight-edit
-using Content.Shared._Starlight.Silicons.Borgs; // Starlight-edit
-using Content.Shared.Starlight; // Starlight-edit
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
@@ -23,7 +21,6 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
     [Dependency] protected readonly IPrototypeManager Prototypes = default!;
     [Dependency] private readonly InteractionPopupSystem _interactionPopup = default!;
-    [Dependency] private readonly ISharedPlayersRoleManager _playerRoles = default!; // Starlight-edit
 
     public static readonly EntProtoId ActionId = "ActionSelectBorgType";
 
@@ -51,16 +48,8 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         _actionsSystem.AddAction(ent, ref ent.Comp.SelectTypeAction, ActionId);
         Dirty(ent);
 
-        // Starlight-start: Borg paints
-        if (ent.Comp.SelectedBorgType != null
-            && Prototypes.TryIndex<BorgTypePrototype>(ent.Comp.SelectedBorgType, out var borgTypePrototype))
-        {
-            if (borgTypePrototype.BasicPaint != null)
-                SelectBorgModule(ent, ent.Comp.SelectedBorgType.Value, borgTypePrototype.BasicPaint.Value);
-            else if (borgTypePrototype.Paints.Count > 0)
-                SelectBorgModule(ent, ent.Comp.SelectedBorgType.Value, borgTypePrototype.Paints.First());
-        }
-        // Starlight-end
+        if (ent.Comp.SelectedBorgType != null)
+            SelectBorgModule(ent, ent.Comp.SelectedBorgType.Value);
     }
 
     private void OnShutdown(Entity<BorgSwitchableTypeComponent> ent, ref ComponentShutdown args)
@@ -86,21 +75,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         if (!Prototypes.HasIndex(args.Prototype))
             return;
 
-        // Starlight-start: Handle paint cost
-        if (!Prototypes.TryIndex(args.Paint, out var paint))
-            return;
-
-        if (paint.Price is not null and > 0)
-        {
-            if (_playerRoles.GetPlayerData(ent.Owner) is not PlayerData playerData
-                || playerData.Balance < paint.Price)
-                return;
-
-            playerData.Balance -= paint.Price.Value;
-        }
-        // Starlight-end
-
-        SelectBorgModule(ent, args.Prototype, args.Paint); // Starlight-edit
+        SelectBorgModule(ent, args.Prototype);
     }
 
     //
@@ -109,11 +84,9 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
     protected virtual void SelectBorgModule(
         Entity<BorgSwitchableTypeComponent> ent,
-        ProtoId<BorgTypePrototype> borgType, // Starlight-edit
-        ProtoId<BorgPaintPrototype> borgPaint) // Starlight-edit
+        ProtoId<BorgTypePrototype> borgType)
     {
         ent.Comp.SelectedBorgType = borgType;
-        ent.Comp.SelectedBorgPaint = borgPaint; // Starlight-edit
 
         _actionsSystem.RemoveAction(ent.Owner, ent.Comp.SelectTypeAction);
         ent.Comp.SelectTypeAction = null;
@@ -126,17 +99,15 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
     protected void UpdateEntityAppearance(Entity<BorgSwitchableTypeComponent> entity)
     {
-        if (!Prototypes.Resolve(entity.Comp.SelectedBorgType, out var proto)
-            || !Prototypes.Resolve(entity.Comp.SelectedBorgPaint, out var paint)) // Starlight-edit
+        if (!Prototypes.Resolve(entity.Comp.SelectedBorgType, out var proto))
             return;
 
-        UpdateEntityAppearance(entity, proto, paint); // Starlight-edit
+        UpdateEntityAppearance(entity, proto);
     }
 
     protected virtual void UpdateEntityAppearance(
         Entity<BorgSwitchableTypeComponent> entity,
-        BorgTypePrototype prototype, // Starlight-edit
-        BorgPaintPrototype paint) // Starlight-edit
+        BorgTypePrototype prototype)
     {
         if (TryComp(entity, out InteractionPopupComponent? popup))
         {
@@ -151,13 +122,13 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
         // Starlight-start: Movement sprite state
 
-        if (paint.SpriteBodyMovementState is { } movementState)
+        if (prototype.SpriteBodyMovementState is { } movementState)
         {
             var spriteMovement = EnsureComp<SpriteMovementComponent>(entity);
             spriteMovement.NoMovementLayers.Clear();
             spriteMovement.NoMovementLayers["movement"] = new PrototypeLayerData
             {
-                State = paint.SpriteBodyState,
+                State = prototype.SpriteBodyState,
             };
             spriteMovement.MovementLayers.Clear();
             spriteMovement.MovementLayers["movement"] = new PrototypeLayerData
