@@ -31,16 +31,23 @@ public sealed class TTSManager : ITTSManager
         new HistogramConfiguration()
         {
             LabelNames = ["type"],
-            Buckets = Histogram.LinearBuckets(0, .3, 24),
+            Buckets = Histogram.ExponentialBuckets(.1, 1.5, 10),
         });
-
     private static readonly Counter RequestedCount = Metrics.CreateCounter(
        "tts_count",
-       "Number of all requested TTS audio.",
-       new CounterConfiguration
-       {
-           LabelNames = ["type", "voice"],
-       });
+       "Number of all requested TTS audio.");
+
+    private static readonly Counter RequestedStandardCount = Metrics.CreateCounter(
+        "tts_standard_count",
+        "Number of requested TTS standard audio.");
+
+    private static readonly Counter RequestedRadioCount = Metrics.CreateCounter(
+        "tts_radio_count",
+        "Number of requested TTS radio audio.");
+
+    private static readonly Counter RequestedAnnounceCount = Metrics.CreateCounter(
+        "tts_announce_count",
+        "Number of requested TTS announce audio.");
 
     private readonly HttpClient _httpClient = new();
     private ISawmill _sawmill = default!;
@@ -58,17 +65,17 @@ public sealed class TTSManager : ITTSManager
 
     public async Task<byte[]?> ConvertTextToSpeechStandard(int voice, string text)
     {
-        RequestedCount.WithLabels("Speech", voice + "").Inc();
+        RequestedStandardCount.Inc();
         return await ConvertTextToSpeech(voice, text);
     }
     public async Task<byte[]?> ConvertTextToSpeechRadio(int voice, string text)
     {
-        RequestedCount.WithLabels("Radio", voice + "").Inc();
+        RequestedRadioCount.Inc();
         return await ConvertTextToSpeech(voice, text, true);
     }
     public async Task<byte[]?> ConvertTextToSpeechAnnounce(int voice, string text)
     {
-        RequestedCount.WithLabels("Announce", voice + "").Inc();
+        RequestedAnnounceCount.Inc();
         return await ConvertTextToSpeech(voice, text, true);
     }
     private async Task<byte[]?> ConvertTextToSpeech(int voiceId, string text, bool isRadio = false)
