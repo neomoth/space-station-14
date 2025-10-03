@@ -12,18 +12,6 @@
             "directions": 4
         },
         {
-            "name": "borg_e",
-            "directions": 4
-        },
-        {
-            "name": "borg_e_r",
-            "directions": 4
-        },
-        {
-            "name": "borg_l",
-            "directions": 4
-        },
-        {
             "name": "borg_moving",
             "directions": 4,
             "delays": [
@@ -52,6 +40,18 @@
                     0.1
                 ]
             ]
+        },
+        {
+            "name": "borg_e",
+            "directions": 4
+        },
+        {
+            "name": "borg_e_r",
+            "directions": 4
+        },
+        {
+            "name": "borg_l",
+            "directions": 4
         }
     ]
 }
