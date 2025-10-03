@@ -76,9 +76,9 @@
   description: A more classical and elegant style of clothing, designed to emulate the fashion of old earth nobility.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntreporiential.rsi
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrepnoble.rsi
   - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntreporiential.rsi
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrepnoble.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
