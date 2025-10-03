@@ -170,18 +170,6 @@
       - neck
 
 - type: entity
-  parent: [ ClothingNeckBase, BaseCommandContraband ]
-  id: ClothingNeckCloakBsoPoncho
-  name: blueshield officer's poncho
-  description: This type of poncho was the signature garment of a legendary BSO with no name, or so it is said.
-  components:
-  - type: Sprite
-    sprite: _Starlight/Clothing/Neck/Cloaks/bso_poncho
-  - type: Clothing
-    slots:
-      - neck
-
-- type: entity
   parent: ClothingNeckBase
   id: ClothingNeckOldMantle
   name: old wrap
@@ -306,7 +294,7 @@
   parent: [ ClothingNeckBase, BaseSalvageContraband ]
   id: ClothingNeckMantleDecoratedSalvager
   name: ceremonial salvage mantle
-  description: A ceremonial mantle worn by salvagers that have distinguished themselves.
+  description: A ceremonial purple mantle worn by salvagers that have distinguished themselves.
   components:
     - type: Sprite
       sprite: _Starlight/Clothing/Neck/Mantles/salvagemantle.rsi

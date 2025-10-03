@@ -125,7 +125,7 @@
   parent: BasePDA
   id: SalvageLeadPDA
   name: salvage lead PDA
-  description: Smells like blood and ash.
+  description: Smells like a lot ash.
   components:
     - type: Sprite
       sprite: _Starlight/Objects/Devices/pda.rsi
@@ -148,7 +148,6 @@
       preinstalled:
         - CrewManifestCartridge
         - NotekeeperCartridge
-        - NanoTaskCartridge
         - NewsReaderCartridge
         - AstroNavCartridge
 
@@ -178,7 +177,6 @@
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
-    - NanoTaskCartridge
     - NewsReaderCartridge
     - AstroNavCartridge
 

@@ -1,14 +1,4 @@
 - type: loadout
-  id: BlueShieldBeret
-  equipment:
-    back: ClothingHeadHatBeretBlueShield
-
-- type: loadout
-  id: BlueShieldBountyHat
-  equipment:
-    back: ClothingHeadHatBlueShieldSheriff
-    
-- type: loadout
   id: BlueShieldBackpack
   equipment:
     back: ClothingBackpackBlueShield
@@ -82,9 +72,3 @@
   id: BlueShieldEliteCloak
   equipment:
     neck: ClothingNeckCloakBsoElite
-
-- type: loadout
-  id: BlueShieldPoncho
-  equipment:
-    neck: ClothingNeckCloakBsoPoncho
-

@@ -9,7 +9,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: NTDefault
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000 
 
@@ -24,7 +23,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: CrewsimovAI
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -39,7 +37,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Corporate
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -54,7 +51,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: CommandmentsLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -69,7 +65,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: PaladinLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -84,7 +79,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -99,7 +93,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: EfficiencyLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -114,7 +107,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: RobocopLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -129,7 +121,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: OverlordLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -144,7 +135,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: GameMasterLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -159,7 +149,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: PainterLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -175,7 +164,6 @@
   - type: SiliconLawProvider
     laws: AntimovLawset
     lawUploadSound: /Audio/Ambience/Antag/silicon_lawboard_antimov.ogg
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 10000
 
@@ -190,7 +178,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: NutimovLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
 
@@ -206,7 +193,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: XenoborgLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 5000
 
@@ -222,6 +208,5 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: MothershipCoreLawset
-    IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000
