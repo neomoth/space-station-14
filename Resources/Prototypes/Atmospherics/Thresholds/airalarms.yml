@@ -12,11 +12,11 @@
   upperBound: !type:AlarmThresholdSetting
     threshold: 393.15 # T20C + 200
   lowerBound: !type:AlarmThresholdSetting
-    threshold: 193.15 # T20C - 100
+    threshold: 233.15 # T20C - 100 # Starlight: Was -80C. Changed to -40C.
   upperWarnAround: !type:AlarmThresholdSetting
     threshold: 0.8
   lowerWarnAround: !type:AlarmThresholdSetting
-    threshold: 1.1
+    threshold: 1.1286 # Starlight: Was -60C. Changed to -10C (when uninsulated reptilians start taking damage).
 
 - type: alarmThreshold
   id: stationPressure
