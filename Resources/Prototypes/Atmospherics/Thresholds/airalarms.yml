@@ -36,11 +36,11 @@
   lowerBound: !type:AlarmThresholdSetting
     threshold: 0.10
   upperBound: !type:AlarmThresholdSetting
-    threshold: 0.7 # Starlight: Was 30% o2, now 70% o2. Excluding Vox, zero species are negatively affected until >85%.
+    threshold: 0.45 # Starlight: Was 30% o2, now 45% o2.
   lowerWarnAround: !type:AlarmThresholdSetting
     threshold: 1.5
   upperWarnAround: !type:AlarmThresholdSetting
-    threshold: 0.858 # Starlight: Was 0.8x, now 0.858x. Warning triggers >60.1% oxygenation.
+    threshold: 0.8 # Starlight: Was 0.8x, now 0.8x. Warning triggers >=36% oxygenation.
 
 - type: alarmThreshold
   id: stationNitrogen
