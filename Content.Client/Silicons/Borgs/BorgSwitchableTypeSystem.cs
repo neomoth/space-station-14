@@ -1,7 +1,6 @@
 ﻿using Content.Shared.Movement.Components;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared._Starlight.Silicons.Borgs; // Starlight-edit
 using Robust.Client.GameObjects;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
