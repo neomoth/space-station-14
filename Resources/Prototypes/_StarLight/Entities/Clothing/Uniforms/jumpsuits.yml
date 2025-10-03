@@ -71,8 +71,8 @@
 
 - type: entity
   parent: [ ClothingUniformBase, BaseCommandContraband ]
-  id: ClothingUniformJumpsuitNtrepOriental
-  name: nt representive's oriental jumpsuit
+  id: ClothingUniformJumpsuitNtrepNoble
+  name: nt representive's noble jumpsuit
   description: A more classical and elegant style of clothing, designed to emulate the fashion of old earth nobility.
   components:
   - type: Sprite
