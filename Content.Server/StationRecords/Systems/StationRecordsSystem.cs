@@ -333,41 +333,25 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     /// </summary>
     public bool IsSkipped(StationRecordsFilter? filter, GeneralStationRecord someRecord)
     {
-        if (filter == null)
+        if (StationRecordFilterHelper.IsFilterEmpty(filter, out var filterText))
             return false;
 
-        var filterText = filter.Value?.Trim() ?? string.Empty;
-        if (filterText.Length == 0)
-            return false;
+        var filterType = filter!.Type;
 
-        return filter.Type switch
+        return filterType switch
         {
             StationRecordFilterType.Name =>
-                !ContainsFilterText(someRecord.Name, filterText),
+                !StationRecordFilterHelper.ContainsText(someRecord.Name, filterText),
             StationRecordFilterType.Job =>
-                !ContainsFilterText(someRecord.JobTitle, filterText),
+                !StationRecordFilterHelper.ContainsText(someRecord.JobTitle, filterText),
             StationRecordFilterType.Species =>
-                !ContainsFilterText(someRecord.Species, filterText),
+                !StationRecordFilterHelper.ContainsText(someRecord.Species, filterText),
             StationRecordFilterType.Prints => someRecord.Fingerprint != null
-                && !MatchesCodePrefix(someRecord.Fingerprint, filterText),
+                && !StationRecordFilterHelper.MatchesCodePrefix(someRecord.Fingerprint, filterText),
             StationRecordFilterType.DNA => someRecord.DNA != null
-                && !MatchesCodePrefix(someRecord.DNA, filterText),
+                && !StationRecordFilterHelper.MatchesCodePrefix(someRecord.DNA, filterText),
             _ => throw new IndexOutOfRangeException(nameof(filter.Type)),
         };
-    }
-
-    private static bool ContainsFilterText(string? value, string filter)
-    {
-        if (string.IsNullOrEmpty(value))
-            return false;
-
-        return value.Contains(filter, StringComparison.CurrentCultureIgnoreCase);
-    }
-
-    private static bool MatchesCodePrefix(string? value, string filter)
-    {
-        return !string.IsNullOrEmpty(value)
-               && value.StartsWith(filter, StringComparison.CurrentCultureIgnoreCase);
     }
 
     /// <summary>

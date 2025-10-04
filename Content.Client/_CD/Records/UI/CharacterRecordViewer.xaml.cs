@@ -577,7 +577,6 @@ public sealed partial class CharacterRecordViewer : FancyWindow
         var entry = new QuickDialogEntry(field, QuickDialogEntryType.LongText, prompt, placeholder);
         var entries = new List<QuickDialogEntry>() { entry };
         _wantedReasonDialog = new DialogWindow(title, entries);
-
         _wantedReasonDialog.OnConfirmed += responses =>
         {
             var reason = responses[field].Trim();
@@ -586,8 +585,9 @@ public sealed partial class CharacterRecordViewer : FancyWindow
 
             if (SecurityWantedStatusMaxLength is { } max && reason.Length > max)
                 return;
-            OnSetSecurityStatus?.Invoke(status, reason);
 
+            OnSetSecurityStatus?.Invoke(status, reason);
+        };
 
         _wantedReasonDialog.OnClose += () => { _wantedReasonDialog = null; };
     }

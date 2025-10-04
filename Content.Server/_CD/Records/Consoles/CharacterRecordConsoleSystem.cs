@@ -129,36 +129,22 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
 
     private static bool IsSkippedRecord(StationRecordsFilter filter, FullCharacterRecords record, string nameJob)
     {
-        var filterText = filter.Value?.Trim() ?? string.Empty;
-        if (filterText.Length == 0)
+        if (StationRecordFilterHelper.IsFilterEmpty(filter, out var filterText))
             return false;
 
         return filter.Type switch
         {
             StationRecordFilterType.Name =>
-                !nameJob.Contains(filterText, StringComparison.CurrentCultureIgnoreCase),
+                !StationRecordFilterHelper.ContainsText(nameJob, filterText),
             StationRecordFilterType.Job =>
-                !ContainsFilter(record.JobTitle, filterText),
+                !StationRecordFilterHelper.ContainsText(record.JobTitle, filterText),
             StationRecordFilterType.Species =>
-                !ContainsFilter(record.Species, filterText),
+                !StationRecordFilterHelper.ContainsText(record.Species, filterText),
             StationRecordFilterType.Prints => record.Fingerprint != null
-                && !MatchesCodePrefix(record.Fingerprint, filterText),
+                && !StationRecordFilterHelper.MatchesCodePrefix(record.Fingerprint, filterText),
             StationRecordFilterType.DNA => record.DNA != null
-                && !MatchesCodePrefix(record.DNA, filterText),
+                && !StationRecordFilterHelper.MatchesCodePrefix(record.DNA, filterText),
             _ => throw new ArgumentOutOfRangeException(nameof(filter), "Invalid Character Record filter type"),
         };
     }
-
-    private static bool ContainsFilter(string? value, string filter)
-    {
-        return !string.IsNullOrEmpty(value)
-               && value.Contains(filter, StringComparison.CurrentCultureIgnoreCase);
-    }
-
-    private static bool MatchesCodePrefix(string? value, string filter)
-    {
-        return !string.IsNullOrEmpty(value)
-               && value.StartsWith(filter, StringComparison.CurrentCultureIgnoreCase);
-    }
-
 }
