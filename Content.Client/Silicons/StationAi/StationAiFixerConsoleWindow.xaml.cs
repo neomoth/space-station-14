@@ -21,8 +21,8 @@ public sealed partial class StationAiFixerConsoleWindow : FancyWindow
 
     private EntityUid? _owner;
 
-    private readonly SpriteSpecifier.Rsi _emptyPortrait = new(new("Mobs/Silicon/station_ai.rsi"), "ai_empty");
-    private readonly SpriteSpecifier.Rsi _rebootingPortrait = new(new("Mobs/Silicon/station_ai.rsi"), "ai_fuzz");
+    private readonly SpriteSpecifier.Rsi _emptyPortrait = new(new("_Starlight/Mobs/Silicon/station_ai.rsi"), "ai_empty");
+    private readonly SpriteSpecifier.Rsi _rebootingPortrait = new(new("_Starlight/Mobs/Silicon/station_ai.rsi"), "ai_fuzz");
     private SpriteSpecifier? _currentPortrait;
 
     public event Action<StationAiFixerConsoleAction>? SendStationAiFixerConsoleMessageAction;

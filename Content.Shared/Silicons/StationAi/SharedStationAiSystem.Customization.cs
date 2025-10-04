@@ -2,6 +2,7 @@ using Content.Shared.Holopad;
 using Content.Shared.Mobs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.Intellicard;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 
@@ -12,7 +13,7 @@ public abstract partial class SharedStationAiSystem
     private ProtoId<StationAiCustomizationGroupPrototype> _stationAiCoreCustomGroupProtoId = "StationAiCoreIconography";
     private ProtoId<StationAiCustomizationGroupPrototype> _stationAiHologramCustomGroupProtoId = "StationAiHolograms";
 
-    private readonly SpriteSpecifier.Rsi _stationAiRebooting = new(new ResPath("Mobs/Silicon/station_ai.rsi"), "ai_fuzz");
+    private readonly SpriteSpecifier.Rsi _stationAiRebooting = new(new ResPath("_Starlight/Mobs/Silicon/station_ai.rsi"), "ai_fuzz");
 
     private void InitializeCustomization()
     {
@@ -139,5 +140,28 @@ public abstract partial class SharedStationAiSystem
         layerData = prototype.LayerData;
 
         return true;
+    }
+
+    private void CustomizeIntellicardAppearance(Entity<IntellicardComponent> entity)
+    {
+        if (!TryComp<StationAiHolderComponent>(entity.Owner, out var stationAi))
+            return;
+
+        if (!stationAi.Slot.Item.HasValue)
+        {
+            _appearance.RemoveData(entity.Owner, StationAiVisualLayers.Icon);
+            return;
+        }
+
+        if (!TryComp<StationAiCustomizationComponent>(stationAi.Slot.Item, out var stationAiCustomization) ||
+            !stationAiCustomization.ProtoIds.TryGetValue(_stationAiCoreCustomGroupProtoId, out var protoId) ||
+            !_protoManager.Resolve(protoId, out var prototype) ||
+            !prototype.LayerData.TryGetValue("Intellicard", out var layerData))
+        {
+            return;
+        }
+
+        // This data is handled manually in the client StationAiSystem
+        _appearance.SetData(entity.Owner, StationAiVisualLayers.Icon, layerData);
     }
 }

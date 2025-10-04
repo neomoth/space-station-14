@@ -150,16 +150,18 @@
     sprite: Objects/Devices/ai_card.rsi
     layers:
     - state: base
-    - state: full
+    - state: empty
       map: ["unshaded"]
+      shader: unshaded
+    - state: full
+      map: ["enum.StationAiVisualLayers.Icon"]
       shader: unshaded
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.StationAiVisualLayers.Icon:
+      enum.StationAiVisualLayers.Base:
         unshaded:
           Empty: { state: empty }
-          Occupied: { state: full }
           Rebooting: { state: dead }
           Dead: { state: dead }
   - type: Intellicard
@@ -169,7 +171,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: _Starlight/Mobs/Silicon/station_ai.rsi
     layers:
     - state: base
     - state: ai
@@ -261,7 +263,7 @@
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: _Starlight/Mobs/Silicon/station_ai.rsi
     layers:
     - state: base
     - state: ai_empty
@@ -348,7 +350,7 @@
   - type: Rotatable
   - type: Sprite
     snapCardinals: true
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: _Starlight/Mobs/Silicon/station_ai.rsi
     layers:
     - state: frame_0
       map: [ "enum.ConstructionVisuals.Layer" ]
@@ -466,6 +468,7 @@
   - type: NameIdentifier
     group: StationAi
     #region Starlight
+  - type: ContentEye
   - type: IonStormTarget
     chance: 0.6 # lets just try it at 3/4th the chance of a borg and see how bad it gets
     #endregion

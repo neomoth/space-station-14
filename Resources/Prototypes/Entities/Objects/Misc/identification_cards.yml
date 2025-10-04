@@ -904,6 +904,7 @@
     - Misc
     - CentralCommand
     - Syndicate
+    - Xenoborg
     # Starlight-edit: End
   - type: Tag #  Ignore Chameleon tags
     tags:
