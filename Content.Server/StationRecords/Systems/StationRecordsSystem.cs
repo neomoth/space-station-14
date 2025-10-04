@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Access.Systems;
 using Content.Server.Forensics;
@@ -332,33 +333,41 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     /// </summary>
     public bool IsSkipped(StationRecordsFilter? filter, GeneralStationRecord someRecord)
     {
-        // if nothing is being filtered, show everything
         if (filter == null)
             return false;
-        if (filter.Value.Length == 0)
-            return false;
 
-        var filterLowerCaseValue = filter.Value.ToLower();
+        var filterText = filter.Value?.Trim() ?? string.Empty;
+        if (filterText.Length == 0)
+            return false;
 
         return filter.Type switch
         {
             StationRecordFilterType.Name =>
-                !someRecord.Name.ToLower().Contains(filterLowerCaseValue),
+                !ContainsFilterText(someRecord.Name, filterText),
             StationRecordFilterType.Job =>
-                !someRecord.JobTitle.ToLower().Contains(filterLowerCaseValue),
+                !ContainsFilterText(someRecord.JobTitle, filterText),
             StationRecordFilterType.Species =>
-                !someRecord.Species.ToLower().Contains(filterLowerCaseValue),
+                !ContainsFilterText(someRecord.Species, filterText),
             StationRecordFilterType.Prints => someRecord.Fingerprint != null
-                && IsFilterWithSomeCodeValue(someRecord.Fingerprint, filterLowerCaseValue),
+                && !MatchesCodePrefix(someRecord.Fingerprint, filterText),
             StationRecordFilterType.DNA => someRecord.DNA != null
-                && IsFilterWithSomeCodeValue(someRecord.DNA, filterLowerCaseValue),
+                && !MatchesCodePrefix(someRecord.DNA, filterText),
             _ => throw new IndexOutOfRangeException(nameof(filter.Type)),
         };
     }
 
-    private bool IsFilterWithSomeCodeValue(string value, string filter)
+    private static bool ContainsFilterText(string? value, string filter)
     {
-        return !value.ToLower().StartsWith(filter);
+        if (string.IsNullOrEmpty(value))
+            return false;
+
+        return value.Contains(filter, StringComparison.CurrentCultureIgnoreCase);
+    }
+
+    private static bool MatchesCodePrefix(string? value, string filter)
+    {
+        return !string.IsNullOrEmpty(value)
+               && value.StartsWith(filter, StringComparison.CurrentCultureIgnoreCase);
     }
 
     /// <summary>
@@ -445,3 +454,4 @@ public sealed class RecordModifiedEvent : StationRecordEvent
     {
     }
 }
+

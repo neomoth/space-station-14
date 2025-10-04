@@ -129,27 +129,36 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
 
     private static bool IsSkippedRecord(StationRecordsFilter filter, FullCharacterRecords record, string nameJob)
     {
-        // Each console type exposes a slightly different search surface; bail out early when nothing was typed.
-        var isFilter = filter.Value.Length > 0;
-        if (!isFilter)
+        var filterText = filter.Value?.Trim() ?? string.Empty;
+        if (filterText.Length == 0)
             return false;
 
-        var filterLowerCaseValue = filter.Value.ToLower();
         return filter.Type switch
         {
             StationRecordFilterType.Name =>
-                !nameJob.Contains(filterLowerCaseValue, StringComparison.CurrentCultureIgnoreCase),
+                !nameJob.Contains(filterText, StringComparison.CurrentCultureIgnoreCase),
+            StationRecordFilterType.Job =>
+                !ContainsFilter(record.JobTitle, filterText),
+            StationRecordFilterType.Species =>
+                !ContainsFilter(record.Species, filterText),
             StationRecordFilterType.Prints => record.Fingerprint != null
-                && IsFilterWithSomeCodeValue(record.Fingerprint, filterLowerCaseValue),
+                && !MatchesCodePrefix(record.Fingerprint, filterText),
             StationRecordFilterType.DNA => record.DNA != null
-                && IsFilterWithSomeCodeValue(record.DNA, filterLowerCaseValue),
+                && !MatchesCodePrefix(record.DNA, filterText),
             _ => throw new ArgumentOutOfRangeException(nameof(filter), "Invalid Character Record filter type"),
         };
     }
 
-    private static bool IsFilterWithSomeCodeValue(string value, string filter)
+    private static bool ContainsFilter(string? value, string filter)
     {
-        // DNA / fingerprint filters only care about the prefix, mirroring the console UI expectations.
-        return !value.StartsWith(filter, StringComparison.CurrentCultureIgnoreCase);
+        return !string.IsNullOrEmpty(value)
+               && value.Contains(filter, StringComparison.CurrentCultureIgnoreCase);
     }
+
+    private static bool MatchesCodePrefix(string? value, string filter)
+    {
+        return !string.IsNullOrEmpty(value)
+               && value.StartsWith(filter, StringComparison.CurrentCultureIgnoreCase);
+    }
+
 }
