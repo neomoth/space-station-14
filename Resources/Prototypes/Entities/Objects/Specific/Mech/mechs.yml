@@ -208,7 +208,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -269,7 +268,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -337,7 +335,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
     siren: true
   - type: MeleeWeapon
     hidden: true
@@ -403,7 +400,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -631,7 +627,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -689,7 +684,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -755,7 +749,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -825,7 +818,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -898,7 +890,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -974,7 +965,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis
   - type: MeleeWeapon
     hidden: true
     attackRate: 1

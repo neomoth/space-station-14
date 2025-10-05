@@ -1,0 +1,25 @@
+- type: entity
+  id: MechEquipmentBorgPilot
+  parent: [ BaseMechEquipment ]
+  name: positronic interface
+  description: Allows borgs to interface with, and pilot, the mech.
+  components:
+  - type: Sprite
+    state: mecha_clamp
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-big
+      right:
+      - state: inhand-right-big
+  - type: MultiHandedItem
+  - type: PilotSupportModule
+    pilotWhitelist:
+      components:
+        - BorgChassis
+        - BorgBrain
+  - type: Tag
+    tags:
+    - CombatMech
+    - IndustrialMech
+    - SpecialMech
