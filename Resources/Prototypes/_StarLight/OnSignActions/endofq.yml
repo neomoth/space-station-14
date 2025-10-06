@@ -35,12 +35,12 @@
       targetPaper: true
       actions:
         - ActionVoidApplause
-    - !type:ActionAddGamerule
+    - !type:ActionAddGamerules
       rules:
         - AnomalySpawn
     - !type:ActionSetCharges
       charges: 3
-    - !type:ActionSetTarget
+    - !type:ActionChangeActionSet
       actions: EndOfQHighpop6
 
 - type: onSignActions
@@ -54,7 +54,7 @@
     targetPaper: true
     actions:
       - ActionPolymorphJauntIII
-  - !type:ActionAddGamerule
+  - !type:ActionAddGamerules
     targetPaper: true
     rules:
       - ParadoxCloneSpawn
@@ -64,7 +64,7 @@
       - AbductorsSpawn
   - !type:ActionSetCharges
     charges: 3
-  - !type:ActionSetTarget
+  - !type:ActionChangeActionSet
     actions: EndOfQHighpopFinale
 
 - type: onSignActions
@@ -74,7 +74,7 @@
     whitelist: 
       components:
         - MindShield
-  - !type:ActionAddGamerule
+  - !type:ActionAddGamerules
     targetPaper: true
     rules:
         - AnomalySpawn

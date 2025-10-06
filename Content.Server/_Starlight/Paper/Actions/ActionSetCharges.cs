@@ -14,8 +14,5 @@ public sealed partial class ActionSetCharges : OnSignAction
         return false;
     }
 
-    public override void ResolveIoC()
-    {
-        
-    }
+    public override void ResolveIoC(){}
 }

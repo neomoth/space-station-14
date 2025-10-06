@@ -5,7 +5,7 @@ namespace Content.Server._Starlight.Paper.Actions;
 public sealed partial class ActionAddComponent : OnSignAction
 {
     /// <summary>
-    /// list of component names to be deleted.
+    /// list of component names to be added.
     /// </summary>
     [DataField]
     public ComponentRegistry Components = [];

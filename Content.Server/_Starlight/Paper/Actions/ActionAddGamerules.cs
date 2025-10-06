@@ -4,10 +4,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Starlight.Paper.Actions;
 
-public sealed partial class ActionAddGamerule : OnSignAction
+public sealed partial class ActionAddGamerules : OnSignAction
 {
     /// <summary>
-    /// What game rules are added once signatures are collected and with a bit of luck.
+    /// What game rules are added.
     /// </summary>
     [DataField]
     public List<EntProtoId<GameRuleComponent>> Rules = [];

@@ -1,7 +1,7 @@
 - type: onSignActions
   id: IonStormInfinite
   actions:
-    - !type:ActionAddGamerule
+    - !type:ActionAddGamerules
       rules: 
         - IonStorm
     - !type:ActionSetCharges
@@ -11,6 +11,6 @@
 - type: onSignActions
   id: AddSecretRule
   actions:
-    - !type:ActionAddGamerule
+    - !type:ActionAddGamerules
       rules: 
         - Secret

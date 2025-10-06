@@ -22,7 +22,7 @@ public sealed partial class ActionWhitelistCheck : OnSignAction
     {
         if (!_whitelistSystem.CheckBoth(target, Blacklist, Whitelist))
         {
-            component.Signers.Remove(target);
+            component.Signers.Remove(target); //if they cant sign it we remove them from the list and refund the charge they used.
             component.Charges += 1;
             return true;
         }

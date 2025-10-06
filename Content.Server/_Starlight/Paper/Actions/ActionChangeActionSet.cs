@@ -2,10 +2,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Starlight.Paper.Actions;
 
-public sealed partial class ActionSetTarget : OnSignAction
+public sealed partial class ActionChangeActionSet : OnSignAction
 {
     /// <summary>
-    /// how many charges should the paper have?
+    /// what action set should this paper switch to.
     /// </summary>
     [DataField(required: true)]
     public ProtoId<OnSignActionsPrototype> Actions = default;
@@ -16,7 +16,5 @@ public sealed partial class ActionSetTarget : OnSignAction
         return false;
     }
 
-    public override void ResolveIoC()
-    {
-    }
+    public override void ResolveIoC(){}
 }
