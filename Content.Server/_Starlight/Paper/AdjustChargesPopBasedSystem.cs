@@ -10,10 +10,10 @@ public sealed class AdjustChargesPopBasedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AdjustChargesPopBasedComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<AdjustChargesPopBasedComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnComponentInit(EntityUid uid, AdjustChargesPopBasedComponent comp, ComponentInit init)
+    private void OnMapInit(EntityUid uid, AdjustChargesPopBasedComponent comp, MapInitEvent init)
     {
         if (!TryComp<ActionsOnSignComponent>(uid, out var actions))
             return;
