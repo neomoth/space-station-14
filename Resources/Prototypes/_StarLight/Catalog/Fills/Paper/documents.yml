@@ -458,7 +458,7 @@
 
 #greenshift alert
 
-  - type: entity
+- type: entity
   parent: PrintedDocument
   id: PrintedDocumentGreenshiftAlert
   name: Notice of Station Location
