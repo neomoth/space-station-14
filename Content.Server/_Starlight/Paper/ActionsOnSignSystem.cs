@@ -13,10 +13,10 @@ public sealed class ActionsOnSignSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<ActionsOnSignComponent, PaperSignedEvent>(OnPaperSigned);
-        SubscribeLocalEvent<ActionsOnSignComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<ActionsOnSignComponent, MapInitEvent>(OnMapInit);
     }
     
-    private void OnComponentInit(EntityUid uid, ActionsOnSignComponent comp, ComponentInit init)
+    private void OnMapInit(EntityUid uid, ActionsOnSignComponent comp, MapInitEvent init)
     {
         if (comp.KeepFaxable) 
             return;
