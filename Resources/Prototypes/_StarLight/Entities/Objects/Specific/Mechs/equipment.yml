@@ -17,7 +17,6 @@
     pilotWhitelist:
       components:
         - BorgChassis
-        - BorgBrain
   - type: Tag
     tags:
     - CombatMech
