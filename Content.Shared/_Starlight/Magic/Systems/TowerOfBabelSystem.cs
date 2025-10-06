@@ -27,7 +27,7 @@ public sealed partial class TowerOfBabelSystem : EntitySystem
 
     private void ShuffleLanguages(Entity<LanguageKnowledgeComponent> languageKnower, List<ProtoId<LanguagePrototype>>? allLangs = null)
     {
-        if (MetaData(languageKnower).EntityLifeStage < EntityLifeStage.Terminating)
+        if (TerminatingOrDeleted(languageKnower))
             return; // Entity is terminating caching can cause it to testfail/crash
         if (HasComp<UniversalLanguageSpeakerComponent>(languageKnower))
             return; // One who knows the knowledge of all things cannot know less.
