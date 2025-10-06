@@ -25,6 +25,8 @@
     - id: RadioHandheldExpedition #starlight
     - id: ClothingOuterHardsuitLuxmax #starlight
     - id: SalvageShuttleConsoleCircuitboard #starlight
+    - id: MiningShuttleConsoleCircuitboard #starlight
+    - id: EncryptionKeySalvage #starlight
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -61,6 +63,7 @@
     - id: ClothingEyesGlassesCommand
     - id: ClothingEyesHudCommand
     - id: HeadSkeleton # A skull to accompany your skeleton crew
+    - id: EncryptionKeyExpedition #starlight
       conditions:
       - !type:PlayerCountCondition
         max: 15
@@ -92,6 +95,7 @@
     - id: ClothingMaskGasCaptain
     - id: JetpackCaptainFilled
     - id: OxygenTankFilled
+    - id: NitrogenTankFilled # Starlight - vox gang
 
 # No laser locker, used when the antique laser is placed in the special display crate
 - type: entity
@@ -203,6 +207,7 @@
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled
+    - id: NitrogenTankFilled # Starlight - vox gang
 
 # No hardsuit locker
 - type: entity
@@ -264,6 +269,7 @@
     - id: ClothingMaskBreathMedical
     - id: ClothingOuterHardsuitMedical
     - id: OxygenTankFilled
+    - id: NitrogenTankFilled # Starlight - vox gang
 
 # No hardsuit locker
 - type: entity
@@ -307,6 +313,7 @@
     - id: ProtolatheMachineCircuitboard
     - id: ResearchComputerCircuitboard
     - id: CargoRequestScienceComputerCircuitboard
+    - id: StationAiFixerCircuitboard
     - id: RubberStampRd
     #region Starlight
     - id: RDDiploma
@@ -322,6 +329,7 @@
     - id: ClothingMaskBreath
     - id: ClothingOuterHardsuitRd
     - id: OxygenTankFilled
+    - id: NitrogenTankFilled # Starlight - vox gang
 
 # No hardsuit locker
 - type: entity
@@ -385,6 +393,7 @@
     - id: ClothingOuterHardsuitSecurityRed
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
+    - id: NitrogenTankFilled # Starlight - vox gang
     - id: ClothingShoesBootsMagSec
 
 # No hardsuit locker
