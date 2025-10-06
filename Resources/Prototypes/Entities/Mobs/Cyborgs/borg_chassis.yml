@@ -40,7 +40,7 @@
     - janitor
     - medical
     - service
-    - security
+ #   - security Currently admeme only
   # Starlight-end
 
 - type: entity
