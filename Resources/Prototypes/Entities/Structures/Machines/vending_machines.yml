@@ -878,7 +878,7 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     ejectDelay: 0.6
-    showPrices: false # Starlight-edit: Vending Machines Prices
+    showPrices: True # Starlight-edit: Vending Machines Prices
   - type: DatasetVocalizer
     dataset: NanoMedAds
   - type: SpeakOnUIClosed
@@ -909,6 +909,7 @@
   - type: VendingMachine
     pack: NanoMedPlusInventory
     offState: off
+    showPrices: false  # Starlight-edit: Vending Machines Prices
   - type: Sprite
     layers:
     - state: "off"
@@ -2262,7 +2263,7 @@
   - type: VendingMachine
     pack: NanoMedCivilianWallInventory
     offState: off-civilian
-    showPrices: false # Starlight-edit: Vending Machines Prices
+    showPrices: True # Starlight-edit: Vending Machines Prices
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
@@ -2292,6 +2293,7 @@
   - type: VendingMachine
     pack: NanoMedInventory
     offState: off
+    showPrices: false # Starlight-edit: Vending Machines Prices
   - type: Sprite
     layers:
     - state: "off"

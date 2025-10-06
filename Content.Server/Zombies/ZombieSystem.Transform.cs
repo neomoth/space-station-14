@@ -122,9 +122,11 @@ public sealed partial class ZombieSystem
         RemComp<SentienceTargetComponent>(target);
 
         // Starlight-start: Add Zombie Language - Starlight
-        RemComp<UniversalLanguageSpeakerComponent>(target);
         EnsureComp<LanguageKnowledgeComponent>(target, out var knowledge);
+        _language.CaptureCache((target, knowledge));
+        RemComp<UniversalLanguageSpeakerComponent>(target);
         EnsureComp<LanguageSpeakerComponent>(target, out var speaker);
+        EnsureComp<RestoreLanguageCacheOnCloneComponent>(target);
 
         knowledge.SpokenLanguages.Clear();
         knowledge.UnderstoodLanguages.Clear();

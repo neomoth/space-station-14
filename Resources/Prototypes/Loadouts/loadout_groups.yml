@@ -1153,6 +1153,7 @@
   name: loadout-group-head-of-security-neck
   minLimit: 0
   loadouts:
+  - ClothingNeckCloakHosVar #STARLIGHT
   - HeadofSecurityCloak
   - HeadofSecurityMantle
 

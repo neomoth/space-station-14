@@ -104,6 +104,10 @@
   - type: Tag
     tags:
     - SiliconEmotes
+  # Starlight Start
+  - type: Blindable
+  - type: ParentCanBlockVision
+  # Starlight End
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
