@@ -17225,5 +17225,12 @@ Entries:
   id: 187100
   time: '2025-10-06T17:22:22.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1871
+- author: CrazyPhantom
+  changes:
+  - message: Borgs are no longer blinded when welding!
+    type: Fix
+  id: 187800
+  time: '2025-10-07T09:06:19.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1878
 Order: -1
 
