@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"license": "CC-BY-NC-SA-3.0",
-	"copyright": "Made by Killer Tamashi (Discord)",
+	"copyright": "Made by Zeyria (Discord)",
 	"size": {
 		"x": 64,
 		"y": 64
@@ -27,6 +27,7 @@
 			"name": "nanite-deconstructing",
             "delays": [
               [
+                0.4,
                 0.3,
                 0.3,
                 0.3,
@@ -34,8 +35,7 @@
                 0.3,
                 0.3,
                 0.3,
-                0.3,
-                0.4
+                0.2
               ]
             ]
 		},
