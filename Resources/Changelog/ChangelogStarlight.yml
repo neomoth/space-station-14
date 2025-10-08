@@ -17232,5 +17232,15 @@ Entries:
   id: 187800
   time: '2025-10-07T09:06:19.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1878
+- author: Conflee
+  changes:
+  - message: Changed Barozine in Space Medipens to Barozine Plus, a new chemical only
+      found in Space Medipens for now. This makes Space Medipens heal less Heat, but
+      also require more pens to OD someone, and requires 6-7 pens to crit someone,
+      bringing them in line with Medipen OD damages.
+    type: Tweak
+  id: 170900
+  time: '2025-10-08T18:19:45.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1709
 Order: -1
 
