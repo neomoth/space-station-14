@@ -124,7 +124,7 @@
     suffix: false
 
 - type: entity
-  parent: BaseGrenade
+  parent: [ BaseGrenade, BaseJaniContraband] # starlight edit: major -> jani contra
   id: GrenadeCleanade
   name: cleanade grenade round
   components:

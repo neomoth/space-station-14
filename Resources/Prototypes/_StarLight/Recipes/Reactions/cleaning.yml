@@ -1,0 +1,9 @@
+- type: reaction
+  id: SyndicateSpaceCleaner
+  reactants:
+    SpaceCleaner:
+      amount: 1
+    Vestine:
+      amount: 1
+  products:
+    SyndicateSpaceCleaner: 2

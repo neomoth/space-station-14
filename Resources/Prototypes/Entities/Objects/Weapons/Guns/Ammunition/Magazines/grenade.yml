@@ -35,7 +35,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 5
+    steps: 6 # starlight change: 5 -> 6 to fit the hydra
     zeroVisible: false
   - type: Appearance
 

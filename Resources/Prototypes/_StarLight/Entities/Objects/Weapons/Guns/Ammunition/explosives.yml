@@ -1,0 +1,16 @@
+- type: entity
+  parent: [ GrenadeCleanade, BaseSyndicateContraband ]
+  id: GrenadeCleanadeSyndicate
+  name: '"cleanade" grenade round'
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeCleanadeSyndicate
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: cleanade
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+    suffix: false
