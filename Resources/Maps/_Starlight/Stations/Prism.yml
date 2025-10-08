@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/07/2025 01:02:35
-  entityCount: 25025
+  time: 10/08/2025 01:34:17
+  entityCount: 25023
 maps:
 - 1
 grids:
@@ -659,6 +659,7 @@ entities:
             7729: -6,15
             7730: -7,15
             7848: 45,38
+            8071: 46,39
         - node:
             angle: 1.5707963267948966 rad
             color: '#FFFFFFFF'
@@ -749,7 +750,6 @@ entities:
             4413: 46,40
             4419: 46,42
             7859: 45,43
-            8070: 46,39
         - node:
             color: '#DE3A3A96'
             id: BrickBoxOverlay
@@ -13062,7 +13062,7 @@ entities:
       pos: 19.5,52.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -95673.78
+      secondsUntilStateChange: -95725.2
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -13136,7 +13136,7 @@ entities:
       pos: 72.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -179749.27
+      secondsUntilStateChange: -179800.69
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -13376,7 +13376,7 @@ entities:
       pos: 9.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -138785.67
+      secondsUntilStateChange: -138837.1
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -13386,7 +13386,7 @@ entities:
       pos: -2.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -295276.5
+      secondsUntilStateChange: -295327.9
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -13432,7 +13432,7 @@ entities:
       pos: 3.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -316265.22
+      secondsUntilStateChange: -316316.62
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -13534,7 +13534,7 @@ entities:
       pos: -8.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -289438.7
+      secondsUntilStateChange: -289490.1
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -13948,7 +13948,7 @@ entities:
       pos: -60.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -268901.56
+      secondsUntilStateChange: -268952.97
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
@@ -14070,7 +14070,7 @@ entities:
       pos: 86.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -220479.16
+      secondsUntilStateChange: -220530.58
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
@@ -14523,7 +14523,7 @@ entities:
       pos: 53.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -21236.87
+      secondsUntilStateChange: -21288.29
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14534,7 +14534,7 @@ entities:
       pos: 53.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -21237.068
+      secondsUntilStateChange: -21288.488
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14898,7 +14898,7 @@ entities:
       pos: 2.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305620.66
+      secondsUntilStateChange: -305672.06
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -15076,7 +15076,7 @@ entities:
       pos: 10.5,-2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -124740.52
+      secondsUntilStateChange: -124791.945
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -15449,7 +15449,7 @@ entities:
       pos: 32.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -248607.05
+      secondsUntilStateChange: -248658.47
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -15596,7 +15596,7 @@ entities:
       pos: 10.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -59696.85
+      secondsUntilStateChange: -59748.273
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -20189,20 +20189,6 @@ entities:
       parent: 2
 - proto: Bola
   entities:
-  - uid: 1249
-    components:
-    - type: Transform
-      parent: 19984
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1250
-    components:
-    - type: Transform
-      parent: 19984
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 8969
     components:
     - type: Transform
@@ -59731,24 +59717,24 @@ entities:
       parent: 2
 - proto: ClothingHeadHelmetBulletProof
   entities:
+  - uid: 1250
+    components:
+    - type: Transform
+      parent: 18872
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 1251
     components:
     - type: Transform
-      parent: 19984
+      parent: 18872
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 1252
+  - uid: 8993
     components:
     - type: Transform
-      parent: 19984
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1253
-    components:
-    - type: Transform
-      parent: 19984
+      parent: 18872
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -59951,24 +59937,24 @@ entities:
       parent: 2
 - proto: ClothingOuterArmorBulletproof
   entities:
+  - uid: 1252
+    components:
+    - type: Transform
+      parent: 18872
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 1253
+    components:
+    - type: Transform
+      parent: 18872
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 8992
     components:
     - type: Transform
-      parent: 19984
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 8993
-    components:
-    - type: Transform
-      parent: 19984
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 8994
-    components:
-    - type: Transform
-      parent: 19984
+      parent: 18872
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -72751,7 +72737,7 @@ entities:
       pos: 16.5,4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -16868.84
+      secondsUntilStateChange: -16920.26
       state: Opening
 - proto: FenceMetalStraight
   entities:
@@ -75072,7 +75058,7 @@ entities:
       pos: 76.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -123754.95
+      secondsUntilStateChange: -123806.375
       state: Closing
   - uid: 11252
     components:
@@ -76728,7 +76714,7 @@ entities:
       pos: 68.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -56147.426
+      secondsUntilStateChange: -56198.848
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -120126,6 +120112,13 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+- proto: GunSafeHeavyWeapons
+  entities:
+  - uid: 1249
+    components:
+    - type: Transform
+      pos: 46.5,39.5
+      parent: 2
 - proto: GunSafeLaserCarbine
   entities:
   - uid: 17238
@@ -122895,43 +122888,18 @@ entities:
           occludes: True
           ents:
           - 8969
-          - 1254
           - 19983
+          - 8993
+          - 8992
+          - 1253
+          - 1252
           - 8997
-          - 8995
           - 8996
+          - 8995
           - 1255
           - 1256
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 19984
-    components:
-    - type: Transform
-      pos: 46.5,39.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-          Oxygen: 1.734816
-          Nitrogen: 6.5262127
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1249
+          - 1254
           - 1250
-          - 1253
-          - 8994
-          - 8993
-          - 1252
-          - 8992
           - 1251
         paper_label: !type:ContainerSlot
           showEnts: False
@@ -169806,7 +169774,7 @@ entities:
       pos: 38.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -185119.45
+      secondsUntilStateChange: -185170.88
   - uid: 24954
     components:
     - type: Transform
