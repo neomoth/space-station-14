@@ -74,7 +74,7 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
                 : $"{record.Name} ({netEntity}, {record.JobTitle})";
 
             // Allow local filtering before the entry shows up in the UI list.
-            if (console.Filter != null && IsSkippedRecord(console.Filter, record, displayName))
+            if (console.Filter != null && IsSkippedRecord(console.Filter, record))
                 continue;
 
             if (names.ContainsKey(key))
@@ -127,7 +127,7 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
         _ui.SetUiState(entity, CharacterRecordConsoleKey.Key, state);
     }
 
-    private static bool IsSkippedRecord(StationRecordsFilter filter, FullCharacterRecords record, string nameJob)
+    private static bool IsSkippedRecord(StationRecordsFilter filter, FullCharacterRecords record)
     {
         if (StationRecordFilterHelper.IsFilterEmpty(filter, out var filterText))
             return false;
@@ -135,7 +135,7 @@ public sealed class CharacterRecordConsoleSystem : EntitySystem
         return filter.Type switch
         {
             StationRecordFilterType.Name =>
-                !StationRecordFilterHelper.ContainsText(nameJob, filterText),
+                !StationRecordFilterHelper.ContainsText(record.Name, filterText),
             StationRecordFilterType.Job =>
                 !StationRecordFilterHelper.ContainsText(record.JobTitle, filterText),
             StationRecordFilterType.Species =>
