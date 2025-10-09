@@ -17,6 +17,7 @@ namespace Content.Server.NodeContainer.EntitySystems
     public sealed class NodeContainerSystem : SharedNodeContainerSystem
     {
         [Dependency] private readonly NodeGroupSystem _nodeGroupSystem = default!;
+        [Dependency] private readonly DockPipeSystem _dockPipeSystem = default!; // Starlight: DockPipeSystem
         private EntityQuery<NodeContainerComponent> _query;
 
         public override void Initialize()
@@ -169,8 +170,7 @@ namespace Content.Server.NodeContainer.EntitySystems
             // Starlight Start: DockPipeSystem
             if (args.Anchored)
             {
-                var dockPipeSystem = EntitySystem.Get<DockPipeSystem>();
-                dockPipeSystem.TryConnectDockedPipe(uid);
+                _dockPipeSystem.TryConnectDockedPipe(uid);
             }
             // Starlight End
         }

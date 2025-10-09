@@ -148,7 +148,7 @@ namespace Content.Server.NodeContainer.Nodes
                 {
                     _alwaysReachable.Clear();
                     if (NodeGroup != null)
-                        IoCManager.Resolve<IEntityManager>().System<NodeGroupSystem>().QueueRemakeGroup((BaseNodeGroup) NodeGroup);
+                        entityManager.System<NodeGroupSystem>().QueueRemakeGroup((BaseNodeGroup) NodeGroup);
                 }
                 return;
             }

@@ -114,21 +114,14 @@ namespace Content.Server.Power.Nodes
         {
             base.OnAnchorStateChanged(entityManager, anchored);
 
+            var dockCableSystem = entityManager.System<Content.Server.Power.EntitySystems.DockCableSystem>();
             if (anchored)
             {
-                if (entityManager.EntitySysManager.TryGetEntitySystem(typeof(Content.Server.Power.EntitySystems.DockCableSystem), out var sys)
-                    && sys is Content.Server.Power.EntitySystems.DockCableSystem dockCableSystem)
-                {
-                    dockCableSystem.TryConnectDockedCable(this);
-                }
+                dockCableSystem.TryConnectDockedCable(this);
             }
             else
             {
-                if (entityManager.EntitySysManager.TryGetEntitySystem(typeof(Content.Server.Power.EntitySystems.DockCableSystem), out var sys)
-                    && sys is Content.Server.Power.EntitySystems.DockCableSystem dockCableSystem)
-                {
-                    dockCableSystem.RemoveDockConnections(this);
-                }
+                dockCableSystem.RemoveDockConnections(this);
             }
         }
         // Starlight End
