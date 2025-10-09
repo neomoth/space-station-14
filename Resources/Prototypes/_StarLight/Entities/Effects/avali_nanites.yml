@@ -34,6 +34,10 @@
     - HeadTop
     - HeadSide
     - Head
+  - type: PointLight
+    color: "#FFCBB8"
+    radius: 2.0
+    energy: 2.0
 
 - type: entity
   id: EffectNanitesExit
