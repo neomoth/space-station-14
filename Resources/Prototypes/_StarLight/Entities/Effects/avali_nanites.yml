@@ -38,6 +38,18 @@
     color: "#FFCBB8"
     radius: 2.0
     energy: 2.0
+    blinkingBehaviourId: blinking
+  - type: LightBehaviour
+    behaviours:
+      - !type:PulseBehaviour
+        id: blinking
+        enabled: true
+        interpolate: Cubic
+        startValue: 1.7
+        endValue: 2.0
+        isLooped: true
+        maxDuration: 2
+        minDuration: -0.7
 
 - type: entity
   id: EffectNanitesExit
