@@ -5,5 +5,7 @@
       amount: 1
     Vestine:
       amount: 1
+    PolytrinicAcid:
+      amount: 2
   products:
     SyndicateSpaceCleaner: 2
