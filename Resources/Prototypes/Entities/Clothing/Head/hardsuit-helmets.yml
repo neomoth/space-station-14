@@ -184,6 +184,9 @@
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
+      head-resomi: # Starlight
+      - state: equipped-head-light-resomi
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -205,6 +208,10 @@
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
+        shader: unshaded
+      head-resomi: # Starlight
+      - state: equipped-head-resomi
+      - state: equipped-head-unshaded-resomi
         shader: unshaded
   - type: PointLight
     radius: 6

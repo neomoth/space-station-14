@@ -292,17 +292,55 @@
         head:
           - state: equipped-head-light
             shader: unshaded
+        head-vox:
+          - state: equipped-head-light-vox
+            shader: unshaded
+        head-vulpkanin:
+          - state: equipped-head-light-vulpkanin
+            shader: unshaded
+        head-reptilian:
+          - state: equipped-head-light-reptilian
+            shader: unshaded
+        head-dog:
+          - state: equipped-head-light-dog
+            shader: unshaded
+        head-resomi:
+          - state: equipped-head-light-resomi
+            shader: unshaded
     - type: Clothing
       clothingVisuals:
         head:
           - state: equipped-head
           - state: equipped-head-unshaded
             shader: unshaded
+        head-vox:
+          - state: equipped-head-vox
+          - state: equipped-head-unshaded-vox
+            shader: unshaded
+        head-vulpkanin:
+          - state: equipped-head-vulpkanin
+          - state: equipped-head-unshaded-vulpkanin
+            shader: unshaded
+        head-reptilian:
+          - state: equipped-head-reptilian
+          - state: equipped-head-unshaded-reptilian
+            shader: unshaded
+        head-dog:
+          - state: equipped-head-dog
+          - state: equipped-head-unshaded-dog
+            shader: unshaded
+        head-resomi:
+          - state: equipped-head-resomi
+          - state: equipped-head-unshaded-resomi
+            shader: unshaded
     - type: PointLight
       radius: 6
     - type: PressureProtection
       highPressureMultiplier: 0.72
       lowPressureMultiplier: 1000
+    - type: Tag
+      tags:
+        - CorgiWearable
 
 #Advanced Mining Hardsuit
 - type: entity # MIKEY - update the sprite attribution! give credit to itsmaitake, used the base salvage suit (originally mining as a base)
