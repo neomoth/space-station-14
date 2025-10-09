@@ -2,6 +2,7 @@
   id: BaseSiliconLanguages
   abstract: true
   components:
+    - type: LanguageSpeaker
     - type: LanguageKnowledge
       speaks:
       - GalacticCommon
@@ -28,6 +29,7 @@
   id: BaseBorgiLanguages
   abstract: true
   components:
+    - type: LanguageSpeaker
     - type: LanguageKnowledge
       speaks:
       - GalacticCommon
@@ -56,6 +58,7 @@
   id: BaseSiliconBrainLanguages
   abstract: true
   components:
+  - type: LanguageSpeaker
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
