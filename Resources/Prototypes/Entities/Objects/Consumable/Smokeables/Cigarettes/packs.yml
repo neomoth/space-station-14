@@ -235,6 +235,8 @@
   id: RandomSoakedSmokeTable
   table: !type:GroupSelector
     children:
+    - id: CigaretteLead
+      weight: 1
     - id: CigaretteLicoxide
       weight: 1
     - id: CigaretteFrezon
