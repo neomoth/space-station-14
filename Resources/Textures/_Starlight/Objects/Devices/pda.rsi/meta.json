@@ -52,6 +52,15 @@
     },
     {
       "name": "pda-salvagelead"
+    },
+    {
+      "name": "pda-veteransalvagelead"
+    },
+    {
+      "name": "pda-veteransalvage"
+    },
+    {
+      "name": "pda-veteranmining"
     }
   ]
 }
