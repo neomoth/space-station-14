@@ -458,3 +458,29 @@
           Quantity: 10
         - ReagentId: Blackpepper
           Quantity: 10
+
+
+### SL start
+
+- type: entity
+  id: CigaretteBub
+  parent: Cigarette
+  name: Bub's special mix
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 10
+          - ReagentId: Tricordrazine
+            Quantity: 2.5
+          - ReagentId: Nutriment
+            Quantity: 2.5
+          - ReagentId: Vitamin
+            Quantity: 2.5
+          - ReagentId: Water
+            Quantity: 2.5
+
+### SL end
