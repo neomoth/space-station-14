@@ -343,7 +343,7 @@
         - CorgiWearable
 
 #Advanced Mining Hardsuit
-- type: entity # MIKEY - update the sprite attribution! give credit to itsmaitake, used the base salvage suit (originally mining as a base)
+- type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAdvancedMining
   categories: [ HideSpawnMenu ]
