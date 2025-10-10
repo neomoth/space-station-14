@@ -254,6 +254,7 @@
   - type: BorgSwitchableSubtype # Afterlight change
   - type: Crawler
   - type: Blindable
+  - type: EyeProtection
   #endregion
 
 - type: entity
