@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/10/2025 07:21:47
+  time: 10/10/2025 10:51:05
   entityCount: 29259
 maps:
 - 1
@@ -5741,6 +5741,16 @@ entities:
           decals:
             7669: -30,-41
             7670: -26,-41
+        - node:
+            color: '#D4D4D4FF'
+            id: MiniTileSteelInnerNe
+          decals:
+            7741: -5,-3
+        - node:
+            color: '#D4D4D4FF'
+            id: MiniTileSteelInnerNw
+          decals:
+            7742: 3,-3
         - node:
             color: '#D4D4D4FF'
             id: MiniTileSteelInnerSe
@@ -188964,7 +188974,7 @@ entities:
       pos: 73.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2100.0771
+      secondsUntilStateChange: -2181.6199
       state: Opening
   - uid: 29241
     components:
