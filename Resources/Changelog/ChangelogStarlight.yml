@@ -17263,5 +17263,13 @@ Entries:
   id: 191500
   time: '2025-10-11T13:46:54.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1915
+- author: CawsForConcern
+  changes:
+  - message: (Lobster) Windoor in the north section Botany had a window accidentally
+      placed under it
+    type: Fix
+  id: 190900
+  time: '2025-10-11T13:47:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1909
 Order: -1
 
