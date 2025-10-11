@@ -17313,5 +17313,16 @@ Entries:
   id: 189103
   time: '2025-10-11T14:01:41.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1891
+- author: Conflee
+  changes:
+  - message: Resprited all of the new placeholder Borg Paint sprites, to match the
+      modern SS14/Starlight art style. Updated the shading, changed metal and department
+      color palettes for consistency with base borgs and some uniformity within each
+      department, and swapped out old clothing sprites to use our clothing sprites
+      where applicable.
+    type: Tweak
+  id: 190100
+  time: '2025-10-11T14:01:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1901
 Order: -1
 
