@@ -17242,5 +17242,162 @@ Entries:
   id: 170900
   time: '2025-10-08T18:19:45.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1709
+- author: Fractalflower
+  changes:
+  - message: '!! SALE !!  Scurrets are now permanently 70% off.'
+    type: Add
+  id: 191800
+  time: '2025-10-11T13:33:42.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1918
+- author: Arkanic
+  changes:
+  - message: Fix Vulpkanin hugging
+    type: Fix
+  id: 191600
+  time: '2025-10-11T13:41:23.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1916
+- author: Arkanic
+  changes:
+  - message: Fix changelings not copying TTS when they switch disguise
+    type: Fix
+  id: 191500
+  time: '2025-10-11T13:46:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1915
+- author: CawsForConcern
+  changes:
+  - message: (Lobster) Windoor in the north section Botany had a window accidentally
+      placed under it
+    type: Fix
+  id: 190900
+  time: '2025-10-11T13:47:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1909
+- author: Zeyria
+  changes:
+  - message: Surgical scissors sprites for better readability
+    type: Tweak
+  id: 190700
+  time: '2025-10-11T13:58:07.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1907
+- author: walksanatora
+  changes:
+  - message: Tower of Babel actually works now.
+    type: Fix
+  id: 187500
+  time: '2025-10-06T20:21:48.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1875
+- author: mikeysaurus
+  changes:
+  - message: NT jobs have mining and salvage lead access now
+    type: Fix
+  id: 189100
+  time: '2025-10-11T14:01:41.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1891
+- author: mikeysaurus
+  changes:
+  - message: Gives the cargo jobs extended access to mining/salvage now
+    type: Add
+  id: 189101
+  time: '2025-10-11T14:01:41.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1891
+- author: mikeysaurus
+  changes:
+  - message: Reduces Magistrate access to security+command+law
+    type: Tweak
+  id: 189102
+  time: '2025-10-11T14:01:41.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1891
+- author: mikeysaurus
+  changes:
+  - message: Reduces IAA access to brig+law
+    type: Tweak
+  id: 189103
+  time: '2025-10-11T14:01:41.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1891
+- author: Conflee
+  changes:
+  - message: Resprited all of the new placeholder Borg Paint sprites, to match the
+      modern SS14/Starlight art style. Updated the shading, changed metal and department
+      color palettes for consistency with base borgs and some uniformity within each
+      department, and swapped out old clothing sprites to use our clothing sprites
+      where applicable.
+    type: Tweak
+  id: 190100
+  time: '2025-10-11T14:01:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1901
+- author: CawsForConcern
+  changes:
+  - message: Updated Moth Guidebook entry to mention that moths can jump
+    type: Tweak
+  id: 189800
+  time: '2025-10-11T13:58:57.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1898
+- author: CawsForConcern
+  changes:
+  - message: Updated Moth Guidebook entry to list the correct heat vulnerability as
+      of an upstream merge (20% extra heat, down from 30%)
+    type: Fix
+  id: 189801
+  time: '2025-10-11T13:58:57.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1898
+- author: CawsForConcern
+  changes:
+  - message: Felionoids and Avali now take exactly half the stamina damage from large
+      firearms that Resomi do (instead of like, close-ish to half)
+    type: Tweak
+  id: 189700
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: CawsForConcern
+  changes:
+  - message: Avali now take half the stamina damage from snipers that Resomi do (instead
+      of full damage)
+    type: Fix
+  id: 189701
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: CawsForConcern
+  changes:
+  - message: Felionoids' guidebook entry now mentions they take stamina damage from
+      firearms
+    type: Fix
+  id: 189702
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: CawsForConcern
+  changes:
+  - message: Felionoids' guidebook entry now lists the correct speedbonus (25%, was
+      mistakenly listed as 30% before)
+    type: Fix
+  id: 189703
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: CawsForConcern
+  changes:
+  - message: Felionoids actually take stamina damage from Rifles and LMGs now
+    type: Fix
+  id: 189704
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: Zeyria
+  changes:
+  - message: Resprite of nanite shell.
+    type: Tweak
+  id: 188100
+  time: '2025-10-11T14:10:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1881
+- author: Zeyria
+  changes:
+  - message: Light to the nanite shell.
+    type: Add
+  id: 188101
+  time: '2025-10-11T14:10:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1881
+- author: Zeyria
+  changes:
+  - message: Fixed Avali displacement textures.
+    type: Fix
+  id: 188102
+  time: '2025-10-11T14:10:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1881
 Order: -1
 
