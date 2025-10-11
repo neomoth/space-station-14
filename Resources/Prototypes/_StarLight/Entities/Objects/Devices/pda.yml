@@ -153,11 +153,13 @@
       - AstroNavCartridge
 
 - type: entity
-  parent: SalvagePDA
+  parent: SalvageLeadPDA
   id: VeteranSalvageLeadPDA
   name: veteran salvage lead PDA
   description: looks like this was patched up with a bunch of scrap. barely.
   components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Devices/pda.rsi
   - type: Pda
     id: SalvageLeadIDCard
   - type: Appearance
@@ -168,7 +170,7 @@
   - type: PdaBorderColor
     borderColor: "#af9366"
     accentHColor: "#8900c9"
-    accentVColor: "#8900c9"
+    accentVColor: "#8f36c6"
   - type: Icon
     sprite: _Starlight/Objects/Devices/pda.rsi
     state: pda-veteransalvagelead
@@ -179,6 +181,8 @@
   name: veteran salvage PDA
   description: looks like this was patched up with a bunch of scrap. barely.
   components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Devices/pda.rsi
   - type: Pda
     id: SalvageIDCard
   - type: Appearance
@@ -188,7 +192,7 @@
         pda-veteransalvage
   - type: PdaBorderColor
     borderColor: "#af9366"
-    accentVColor: "#8900c9"
+    accentVColor: "#8f36c6"
   - type: Icon
     sprite: _Starlight/Objects/Devices/pda.rsi
     state: pda-veteransalvage
@@ -229,6 +233,8 @@
   name: veteran mining PDA
   description: the screen is cracked, and the buttons barely work.
   components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Devices/pda.rsi
   - type: Pda
     id: MiningIDCard
   - type: Appearance
@@ -238,7 +244,7 @@
         pda-veteranmining
   - type: PdaBorderColor
     borderColor: "#af9366"
-    accentVColor: "#3e3ac3"
+    accentVColor: "#6e63be"
   - type: Icon
     sprite: _Starlight/Objects/Devices/pda.rsi
     state: pda-veteranmining
