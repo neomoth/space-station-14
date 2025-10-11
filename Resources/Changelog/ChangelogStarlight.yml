@@ -17324,5 +17324,20 @@ Entries:
   id: 190100
   time: '2025-10-11T14:01:54.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1901
+- author: CawsForConcern
+  changes:
+  - message: Updated Moth Guidebook entry to mention that moths can jump
+    type: Tweak
+  id: 189800
+  time: '2025-10-11T13:58:57.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1898
+- author: CawsForConcern
+  changes:
+  - message: Updated Moth Guidebook entry to list the correct heat vulnerability as
+      of an upstream merge (20% extra heat, down from 30%)
+    type: Fix
+  id: 189801
+  time: '2025-10-11T13:58:57.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1898
 Order: -1
 
