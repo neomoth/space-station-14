@@ -17339,5 +17339,44 @@ Entries:
   id: 189801
   time: '2025-10-11T13:58:57.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1898
+- author: CawsForConcern
+  changes:
+  - message: Felionoids and Avali now take exactly half the stamina damage from large
+      firearms that Resomi do (instead of like, close-ish to half)
+    type: Tweak
+  id: 189700
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: CawsForConcern
+  changes:
+  - message: Avali now take half the stamina damage from snipers that Resomi do (instead
+      of full damage)
+    type: Fix
+  id: 189701
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: CawsForConcern
+  changes:
+  - message: Felionoids' guidebook entry now mentions they take stamina damage from
+      firearms
+    type: Fix
+  id: 189702
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: CawsForConcern
+  changes:
+  - message: Felionoids' guidebook entry now lists the correct speedbonus (25%, was
+      mistakenly listed as 30% before)
+    type: Fix
+  id: 189703
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: CawsForConcern
+  changes:
+  - message: Felionoids actually take stamina damage from Rifles and LMGs now
+    type: Fix
+  id: 189704
+  time: '2025-10-11T14:02:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1897
 Order: -1
 
