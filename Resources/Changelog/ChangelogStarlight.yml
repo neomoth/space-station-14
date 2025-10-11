@@ -17378,5 +17378,26 @@ Entries:
   id: 189704
   time: '2025-10-11T14:02:13.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1897
+- author: Zeyria
+  changes:
+  - message: Resprite of nanite shell.
+    type: Tweak
+  id: 188100
+  time: '2025-10-11T14:10:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1881
+- author: Zeyria
+  changes:
+  - message: Light to the nanite shell.
+    type: Add
+  id: 188101
+  time: '2025-10-11T14:10:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1881
+- author: Zeyria
+  changes:
+  - message: Fixed Avali displacement textures.
+    type: Fix
+  id: 188102
+  time: '2025-10-11T14:10:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1881
 Order: -1
 
