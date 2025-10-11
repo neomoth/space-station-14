@@ -326,7 +326,7 @@
 
 # Salvage Specialist
 - type: loadoutGroup
-  id: SalvagePDA
+  id: SalvageSpecialistPDA
   name: loadout-group-salvage-id
   loadouts:
     - SalvagePDA
