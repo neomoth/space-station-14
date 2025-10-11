@@ -184,7 +184,7 @@
   parent: [BoxFolderClipboardEmpty]
   id: BoxFolderClipboardSalvageLead
   name: salvage lead clipboard
-  description: Looks like its been taped back together. Covered in space-dust.
+  description: Looks like its been taped back together. Covered in space dust.
   components:
   - type: StorageFill
     contents:
