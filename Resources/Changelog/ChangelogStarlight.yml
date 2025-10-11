@@ -17249,5 +17249,12 @@ Entries:
   id: 191800
   time: '2025-10-11T13:33:42.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1918
+- author: Arkanic
+  changes:
+  - message: Fix Vulpkanin hugging
+    type: Fix
+  id: 191600
+  time: '2025-10-11T13:41:23.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1916
 Order: -1
 
