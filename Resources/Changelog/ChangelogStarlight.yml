@@ -17256,5 +17256,12 @@ Entries:
   id: 191600
   time: '2025-10-11T13:41:23.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1916
+- author: Arkanic
+  changes:
+  - message: Fix changelings not copying TTS when they switch disguise
+    type: Fix
+  id: 191500
+  time: '2025-10-11T13:46:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1915
 Order: -1
 
