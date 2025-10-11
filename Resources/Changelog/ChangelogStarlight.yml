@@ -17271,5 +17271,12 @@ Entries:
   id: 190900
   time: '2025-10-11T13:47:30.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1909
+- author: Zeyria
+  changes:
+  - message: Surgical scissors sprites for better readability
+    type: Tweak
+  id: 190700
+  time: '2025-10-11T13:58:07.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1907
 Order: -1
 
