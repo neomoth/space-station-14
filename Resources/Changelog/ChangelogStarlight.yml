@@ -17242,5 +17242,12 @@ Entries:
   id: 170900
   time: '2025-10-08T18:19:45.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1709
+- author: Fractalflower
+  changes:
+  - message: '!! SALE !!  Scurrets are now permanently 70% off.'
+    type: Add
+  id: 191800
+  time: '2025-10-11T13:33:42.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1918
 Order: -1
 
