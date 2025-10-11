@@ -17278,5 +17278,12 @@ Entries:
   id: 190700
   time: '2025-10-11T13:58:07.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1907
+- author: walksanatora
+  changes:
+  - message: Tower of Babel actually works now.
+    type: Fix
+  id: 187500
+  time: '2025-10-06T20:21:48.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1875
 Order: -1
 
