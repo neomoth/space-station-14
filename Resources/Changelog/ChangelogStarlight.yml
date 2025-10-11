@@ -17285,5 +17285,33 @@ Entries:
   id: 187500
   time: '2025-10-06T20:21:48.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1875
+- author: mikeysaurus
+  changes:
+  - message: NT jobs have mining and salvage lead access now
+    type: Fix
+  id: 189100
+  time: '2025-10-11T14:01:41.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1891
+- author: mikeysaurus
+  changes:
+  - message: Gives the cargo jobs extended access to mining/salvage now
+    type: Add
+  id: 189101
+  time: '2025-10-11T14:01:41.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1891
+- author: mikeysaurus
+  changes:
+  - message: Reduces Magistrate access to security+command+law
+    type: Tweak
+  id: 189102
+  time: '2025-10-11T14:01:41.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1891
+- author: mikeysaurus
+  changes:
+  - message: Reduces IAA access to brig+law
+    type: Tweak
+  id: 189103
+  time: '2025-10-11T14:01:41.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1891
 Order: -1
 
