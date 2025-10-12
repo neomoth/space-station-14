@@ -17415,5 +17415,27 @@ Entries:
   id: 95500
   time: '2025-10-12T21:31:06.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/955
+- author: Conflee
+  changes:
+  - message: Added 'Cloning Systems' as a Tier 3 Medical Research for 25000 points.
+      Grants the station access to the Cloning Console, Cloning Pod, and Medical Scanner
+      boards more consistently rather than relying on RNG, but makes it still very
+      expensive. Allows for revival of Zombified Crew on rounds where Zombies wipe
+      early and CBURN/EVAC isn't needed.
+    type: Add
+  id: 191700
+  time: '2025-10-12T22:28:25.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1917
+- author: Conflee
+  changes:
+  - message: Added 'Point Defense Weaponry' as a Tier 2 Industrial Research for 10000
+      points. Grants the station access to Point Defense Batteries, which can be built
+      in sensitive areas (outside Tesla/Singulo, Bridge, Arrivals, Evac) to automatically
+      shoot down meteors. Gives Engineers counterplay to meteors that still requires
+      them to engage with their job.
+    type: Add
+  id: 191701
+  time: '2025-10-12T22:28:25.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1917
 Order: -1
 
