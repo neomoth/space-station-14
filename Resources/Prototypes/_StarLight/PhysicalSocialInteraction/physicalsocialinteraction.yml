@@ -1,5 +1,9 @@
 - type: physicalsocialinteraction
   id: Pet
+  interactString: petting-success
+  messagePerceivedByOthers: petting-success-others
 
 - type: physicalsocialinteraction
   id: Boop
+  interactString: booping-success
+  messagePerceivedByOthers: booping-success
