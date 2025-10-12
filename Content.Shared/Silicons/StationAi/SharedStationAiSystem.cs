@@ -251,17 +251,10 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         if (!TryComp(args.Args.Target, out StationAiHolderComponent? targetHolder))
             return;
 
-        //#region Starlight
-        // basically if the AI is off shunting we wanna force them BACK. simplest way to do that is to fake the event to send them back.
-        var item = ent.Comp.Slot.Item;
-        if (item.HasValue && TryComp<StationAIShuntableComponent>(item.Value, out var shuntable))
-            if (shuntable.Inhabited.HasValue)
-            {
-                var returnEvent = new AIUnShuntActionEvent();
-                RaiseLocalEvent(shuntable.Inhabited.Value, returnEvent);
-            }
-        //#endregion Starlight
-        
+        // Starlight - basically if the AI is off shunting we wanna force them BACK. simplest way to do that is to fake the event to send them back.
+        if (ent.Comp.Slot.Item.HasValue && TryComp<StationAIShuntableComponent>(ent.Comp.Slot.Item.Value, out var shuntable))
+            Unshunt(shuntable);
+
         // Try to insert our thing into them
         if (_slots.CanEject(ent.Owner, args.User, ent.Comp.Slot))
         {
@@ -348,12 +341,30 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnHolderConInsert(Entity<StationAiHolderComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
+        if (_timing.ApplyingState)
+            return;
+
+        if (args.Container.ID != ent.Comp.Slot.ID)
+            return;
+
         UpdateAppearance((ent.Owner, ent.Comp));
+
+        if (ent.Comp.RenameOnInsert)
+            _metadata.SetEntityName(ent.Owner, MetaData(args.Entity).EntityName);
     }
 
     private void OnHolderConRemove(Entity<StationAiHolderComponent> ent, ref EntRemovedFromContainerMessage args)
     {
+        if (_timing.ApplyingState)
+            return;
+
+        if (args.Container.ID != ent.Comp.Slot.ID)
+            return;
+
         UpdateAppearance((ent.Owner, ent.Comp));
+
+        if (ent.Comp.RenameOnInsert)
+            _metadata.SetEntityName(ent.Owner, Prototype(ent.Owner)?.Name ?? string.Empty);
     }
 
     private void OnHolderMapInit(Entity<StationAiHolderComponent> ent, ref MapInitEvent args)
@@ -397,7 +408,19 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     {
         if (TryGetHeld((ent.Owner, ent.Comp), out var held))
         {
+            if (TryComp<StationAIShuntableComponent>(held.Value, out var holder))
+                Unshunt(holder);
+
             _mobState.ChangeMobState(held.Value, MobState.Dead);
+        }
+    }
+
+    public void Unshunt(StationAIShuntableComponent shuntable)
+    {
+        if (shuntable.Inhabited.HasValue)
+        {
+            var returnEvent = new AIUnShuntActionEvent();
+            RaiseLocalEvent(shuntable.Inhabited.Value, returnEvent);
         }
     }
 
@@ -528,9 +551,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         ClearEye(ent);
         ent.Comp.Remote = true;
 
-        // Just so text and the likes works properly
-        _metadata.SetEntityName(ent.Owner, MetaData(args.Entity).EntityName);
-
         if (SetupEye(ent))
             AttachEye(ent);
     }
@@ -544,9 +564,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             return;
 
         ent.Comp.Remote = true;
-
-        // Reset name to whatever
-        _metadata.SetEntityName(ent.Owner, Prototype(ent.Owner)?.Name ?? string.Empty);
 
         // Remove eye relay
         RemCompDeferred<RelayInputMoverComponent>(args.Entity);
@@ -577,20 +594,31 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             //Load voice from mind 🌟Starlight🌟
             //Because APPARENTLY this is the best place to do it
             //Station AIs will have to update their picture at least once for this to be called
-			if (TryComp<TextToSpeechComponent>(stationAi, out var ttscomp) &&
+            if (TryComp<TextToSpeechComponent>(stationAi, out var ttscomp) &&
                 _mind.TryGetMind(stationAi.Value, out var _, out var mindcomp))
-			{
+            {
                 ttscomp.VoicePrototypeId = mindcomp.SiliconVoice;
-			}
+            }
         }
 
-        // If the entity is not an AI core, let generic visualizers handle the appearance update
-        if (!TryComp<StationAiCoreComponent>(entity, out var stationAiCore))
+        if (TryComp<StationAiCoreComponent>(entity, out var stationAiCore))
         {
-            _appearance.SetData(entity.Owner, StationAiVisualLayers.Icon, state);
+            UpdateAICoreAppearance(entity, state, stationAiCore);
+            return;
+        }
+        if (TryComp<IntellicardComponent>(entity, out var intellicard))
+        {
+            UpdateIntellicardAppearance(entity, state, intellicard);
             return;
         }
 
+        // let generic visualizers handle the appearance update
+        _appearance.SetData(entity.Owner, StationAiVisualLayers.Icon, state);
+        return;
+    }
+
+    private void UpdateAICoreAppearance(Entity<StationAiHolderComponent?> entity, StationAiState state, StationAiCoreComponent stationAiCore)
+    {
         // The AI core is empty
         if (state == StationAiState.Empty)
         {
@@ -613,6 +641,18 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
         // Otherwise attempt to set the AI core's appearance
         CustomizeAppearance((entity, stationAiCore), state);
+    }
+
+    private void UpdateIntellicardAppearance(Entity<StationAiHolderComponent?> entity, StationAiState state, IntellicardComponent intellicard)
+    {
+        if (state == StationAiState.Occupied)
+        {
+            CustomizeIntellicardAppearance((entity, intellicard));
+            return;
+        }
+
+        _appearance.RemoveData(entity.Owner, StationAiVisualLayers.Icon);
+        _appearance.SetData(entity.Owner, StationAiVisualLayers.Base, state);
     }
 
     public virtual bool SetVisionEnabled(Entity<StationAiVisionComponent> entity, bool enabled, bool announce = false)
@@ -653,7 +693,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     // Starlight
     private void OnCoreGetVisMask(Entity<StationAiHeldComponent> ent, ref GetVisMaskEvent args)
     {
-        if (!TryGetCore(ent.Owner, out var core) 
+        if (!TryGetCore(ent.Owner, out var core)
             || core.Comp?.RemoteEntity is not { Valid: true } eye
             || !TryComp<VisibilityComponent>(eye, out var visibility))
             return;
