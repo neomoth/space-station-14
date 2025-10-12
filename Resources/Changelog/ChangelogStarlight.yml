@@ -17437,5 +17437,26 @@ Entries:
   id: 191701
   time: '2025-10-12T22:28:25.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1917
+- author: OrksAreDaBest, Gensy, Happyrobot33
+  changes:
+  - message: roller skates are now much faster
+    type: Tweak
+  id: 192000
+  time: '2025-10-12T23:41:49.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1920
+- author: OrksAreDaBest, Gensy, Happyrobot33
+  changes:
+  - message: firing weapons while skating now deals knockback and stamina damage
+    type: Tweak
+  id: 192001
+  time: '2025-10-12T23:41:49.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1920
+- author: OrksAreDaBest, Gensy, Happyrobot33
+  changes:
+  - message: Knockback system now adds all knockback sources together
+    type: Fix
+  id: 192002
+  time: '2025-10-12T23:41:49.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1920
 Order: -1
 
