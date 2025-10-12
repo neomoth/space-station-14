@@ -460,3 +460,9 @@
     back: 
       - CigPackBub
   groupBy: "smokeables"
+
+- type: loadout
+  id: PillCanisterPsicodine
+  storage:
+    back:
+    - PillCanisterPsicodine
