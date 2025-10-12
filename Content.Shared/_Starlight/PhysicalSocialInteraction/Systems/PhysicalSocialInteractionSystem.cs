@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Starlight.PhysicalSocialInteraction.Systems;
 
-public abstract class SharedPhysicalSocialInteractionSystem : EntitySystem
+public class PhysicalSocialInteractionSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -35,7 +35,7 @@ public abstract class SharedPhysicalSocialInteractionSystem : EntitySystem
             //make a verb for each one
             Verb verb = new()
             {
-                Text = proto.ID,
+                Text = proto.Name,
                 Category = category,
                 Act = () =>
                 {

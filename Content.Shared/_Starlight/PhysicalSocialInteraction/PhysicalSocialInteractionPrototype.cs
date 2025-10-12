@@ -9,6 +9,9 @@ public sealed partial class PhysicalSocialInteractionPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
+    [DataField(required: true)]
+    public string Name { get; private set; } = default!;
+
     //ripped mostly from InteractionPopup component
 
     /// <summary>
