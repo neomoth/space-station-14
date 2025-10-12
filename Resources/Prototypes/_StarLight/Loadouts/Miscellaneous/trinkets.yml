@@ -453,9 +453,9 @@
   effects:
     - !type:JobRequirementLoadoutEffect
       requirement:
-        !type:RoleTimeRequirement
-        role: JobSurgeon
-        time: 36000 # 10 hours of turning her into a papa johns
+        !type:DepartmentTimeRequirement
+        department: Medical
+        time: 72000 # 20hrs of treating patients as Dr. House
   storage:
     back: 
       - CigPackBub
