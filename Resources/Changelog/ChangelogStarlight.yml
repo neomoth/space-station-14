@@ -17407,5 +17407,13 @@ Entries:
   id: 190000
   time: '2025-10-12T17:40:52.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1900
+- author: walksanatora
+  changes:
+  - message: Nothing playerfacing but a ton of stuff with the signing system was changes.
+      expect cool signable things to come.
+    type: Tweak
+  id: 95500
+  time: '2025-10-12T21:31:06.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/955
 Order: -1
 
