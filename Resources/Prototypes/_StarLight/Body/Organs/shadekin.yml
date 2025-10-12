@@ -10,6 +10,7 @@
 - type: entity
   id: OrganShadekinEyes
   parent: OrganHumanEyes
+  suffix: Shadekin
   description: "Eyes of a BlackEye shadekin that can never see their home reality again."
   components:
   - type: Sprite
@@ -26,6 +27,7 @@
 - type: entity
   id: OrganShadekinTongue
   parent: OrganHumanTongue
+  suffix: Shadekin
   components:
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Shadekin/organs.rsi
@@ -35,6 +37,7 @@
 - type: entity
   id: OrganShadekinAppendix
   parent: OrganHumanAppendix
+  suffix: Shadekin
   components:
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Shadekin/organs.rsi
@@ -45,6 +48,7 @@
 - type: entity
   id: OrganShadekinHeart
   parent: OrganHumanHeart
+  suffix: Shadekin
   components:
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Shadekin/organs.rsi
@@ -53,6 +57,7 @@
 - type: entity
   id: OrganShadekinStomach
   parent: OrganHumanStomach
+  suffix: Shadekin
   components:
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Shadekin/organs.rsi
@@ -70,6 +75,7 @@
 - type: entity
   id: OrganShadekinLiver
   parent: OrganHumanLiver
+  suffix: Shadekin
   components:
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Shadekin/organs.rsi
@@ -78,6 +84,7 @@
 - type: entity
   id: OrganShadekinKidneys
   parent: OrganHumanKidneys
+  suffix: Shadekin
   components:
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Shadekin/organs.rsi

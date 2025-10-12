@@ -30,6 +30,7 @@
 - type: entity
   id: BaseCycloriteOrgan
   parent: BaseCycloriteOrganUnGibbable
+  suffix: Cyclorite
   abstract: true
   components:
   - type: Gibbable
