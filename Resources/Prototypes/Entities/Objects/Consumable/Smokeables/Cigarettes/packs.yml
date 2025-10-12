@@ -325,8 +325,8 @@
 - type: entity
   id: CigPackBub
   parent: PackPaperRolling
-  name: bub's specials pack
-  description: An old rolling paper packet full of Bub's special cigarettes. You feel more surgically inclined while smoking them.
+  name: greyman's specials pack
+  description: An old rolling paper packet full of Greyman's special cigarettes. You feel more surgically inclined while smoking them.
   components:
   - type: StorageFill
     contents:
