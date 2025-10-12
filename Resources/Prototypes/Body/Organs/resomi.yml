@@ -1,8 +1,8 @@
 - type: entity
   id: OrganResomiEyes
   parent: OrganHumanEyes
-  name: eye
-  description: "I see you!"
+  name: eyes
+  description: "Resomi eyes have great nightvision for hunting prey in maintenance tunnels."
   components:
   - type: FunctionalOrgan
     comps: 
@@ -14,6 +14,7 @@
   id: OrganResomiHeart
   parent: OrganHumanHeart
   categories: [ HideSpawnMenu ]
+  description: "The heart of a resomi."
   components:
   - type: Metabolizer
     maxReagents: 2

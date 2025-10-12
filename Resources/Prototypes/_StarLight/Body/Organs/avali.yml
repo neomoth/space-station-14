@@ -2,6 +2,7 @@
   id: OrganAvaliStomach
   parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]
+  description: "The stomach of an avali, on closer inspection, actually consists of two stomachs." 
   components:
   - type: Stomach
     specialDigestible:
@@ -25,6 +26,7 @@
   id: OrganAvaliHeart
   parent: OrganHumanHeart
   categories: [ HideSpawnMenu ]
+  description: "The heart of an avali."
   components:
   - type: Metabolizer
     maxReagents: 2
