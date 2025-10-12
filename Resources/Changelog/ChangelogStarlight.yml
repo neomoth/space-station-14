@@ -17458,5 +17458,13 @@ Entries:
   id: 192002
   time: '2025-10-12T23:41:49.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1920
+- author: CawsForConcern
+  changes:
+  - message: Made amoxla, chronexaline, and barozine plus' names lowercase for consistency
+      with other chemical names
+    type: Tweak
+  id: 189500
+  time: '2025-10-12T23:45:51.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1895
 Order: -1
 
