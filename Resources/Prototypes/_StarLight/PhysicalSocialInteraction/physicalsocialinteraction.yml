@@ -1,10 +1,12 @@
-- type: physicalsocialinteraction
+# MUST be added to the InteractionPrototypes list of a PhysicalSocialInteractionReceiver component to be usable
+
+- type: physicalSocialInteraction
   id: Pet
   name: Pet
   interactString: petting-success
   messagePerceivedByOthers: petting-success-others
 
-- type: physicalsocialinteraction
+- type: physicalSocialInteraction
   id: Boop
   name: Boop
   interactString: booping-success

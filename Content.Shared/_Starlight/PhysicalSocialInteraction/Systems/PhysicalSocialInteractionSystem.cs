@@ -30,8 +30,12 @@ public class PhysicalSocialInteractionSystem : EntitySystem
         var category = new VerbCategory("Physical Social Interaction", null);
 
         //enumerate all the physical social interaction prototypes
-        foreach (var proto in _protoMan.EnumeratePrototypes<PhysicalSocialInteractionPrototype>())
+        foreach (var protoid in component.InteractionPrototypes)
         {
+            //resolve the proto itself
+            if (!_protoMan.TryIndex<PhysicalSocialInteractionPrototype>(protoid, out var proto))
+                continue;
+            
             //make a verb for each one
             Verb verb = new()
             {
@@ -39,37 +43,42 @@ public class PhysicalSocialInteractionSystem : EntitySystem
                 Category = category,
                 Act = () =>
                 {
-                    var msg = ""; // Stores the text to be shown in the popup message
-                    SoundSpecifier? sfx = null; // Stores the filepath of the sound to be played
-
-                    if (proto.InteractString != null)
-                        msg = Loc.GetString(proto.InteractString, ("target", Identity.Entity(args.Target, EntityManager)));
-
-                    if (proto.InteractSound != null)
-                        sfx = proto.InteractSound;
-
-                    if (!string.IsNullOrEmpty(proto.MessagePerceivedByOthers))
-                    {
-                        var msgOthers = Loc.GetString(proto.MessagePerceivedByOthers,
-                            ("user", Identity.Entity(args.User, EntityManager)), ("target", Identity.Entity(args.Target, EntityManager)));
-                        _popupSystem.PopupEntity(msgOthers, uid, Filter.PvsExcept(args.User, entityManager: EntityManager), true);
-                    }
-
-                    //now popup filtered to user
-                    _popupSystem.PopupClient(msg, uid, args.User);
-
-                    if (proto.SoundPerceivedByOthers)
-                    {
-                        _audio.PlayPvs(sfx, args.Target);
-                    }
-                    else
-                    {
-                        _audio.PlayEntity(sfx, Filter.Entities(args.User, args.Target), args.Target, false);
-                    }
+                    InteractionPopupAction(uid, args, proto);
                 }
             };
 
             args.Verbs.Add(verb);
+        }
+    }
+
+    private void InteractionPopupAction(EntityUid uid, GetVerbsEvent<Verb> args, PhysicalSocialInteractionPrototype proto)
+    {
+        var msg = ""; // Stores the text to be shown in the popup message
+        SoundSpecifier? sfx = null; // Stores the filepath of the sound to be played
+
+        if (proto.InteractString != null)
+            msg = Loc.GetString(proto.InteractString, ("target", Identity.Entity(args.Target, EntityManager)));
+
+        if (proto.InteractSound != null)
+            sfx = proto.InteractSound;
+
+        if (!string.IsNullOrEmpty(proto.MessagePerceivedByOthers))
+        {
+            var msgOthers = Loc.GetString(proto.MessagePerceivedByOthers,
+                ("user", Identity.Entity(args.User, EntityManager)), ("target", Identity.Entity(args.Target, EntityManager)));
+            _popupSystem.PopupEntity(msgOthers, uid, Filter.PvsExcept(args.User, entityManager: EntityManager), true);
+        }
+
+        //now popup filtered to user
+        _popupSystem.PopupClient(msg, uid, args.User);
+
+        if (proto.SoundPerceivedByOthers)
+        {
+            _audio.PlayPvs(sfx, args.Target);
+        }
+        else
+        {
+            _audio.PlayEntity(sfx, Filter.Entities(args.User, args.Target), args.Target, false);
         }
     }
 }

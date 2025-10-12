@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Starlight.PhysicalSocialInteraction;
 
-[Prototype("physicalsocialinteraction")]
+[Prototype]
 public sealed partial class PhysicalSocialInteractionPrototype : IPrototype
 {
     [IdDataField]
