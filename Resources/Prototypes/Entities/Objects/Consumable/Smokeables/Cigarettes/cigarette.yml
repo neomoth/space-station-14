@@ -465,7 +465,7 @@
 - type: entity
   id: CigaretteBub
   parent: Cigarette
-  name: Bub's special mix
+  name: Greyman's Special
   components:
   - type: SolutionContainerManager
     solutions:
