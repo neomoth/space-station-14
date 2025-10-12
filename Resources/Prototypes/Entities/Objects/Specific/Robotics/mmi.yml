@@ -53,6 +53,10 @@
     whitelist:
       components:
       - SecretStash
+  # Starlight Start
+  - type: Blindable
+  - type: ParentCanBlockVision
+  # Starlight End
 
 - type: entity
   parent: MMI
@@ -139,3 +143,7 @@
       whitelist:
         components:
         - SecretStash
+    # Starlight Start
+    - type: Blindable
+    - type: ParentCanBlockVision
+    # Starlight End
