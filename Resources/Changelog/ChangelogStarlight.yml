@@ -17595,5 +17595,13 @@ Entries:
   id: 191000
   time: '2025-10-13T03:26:16.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1910
+- author: Way
+  changes:
+  - message: New Asian/European style jumpsuit for the NTR, obtainable in the loadout
+      menu.
+    type: Add
+  id: 180800
+  time: '2025-10-13T03:29:40.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1808
 Order: -1
 
