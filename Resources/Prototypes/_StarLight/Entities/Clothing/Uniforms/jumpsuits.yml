@@ -430,7 +430,7 @@
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/centcom_official.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseRestrictedContraband]
+  parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformSecurityTshirt
   name: t-shirt security uniform
   description: Light and unrestrictive uniform, so that nothing can stop you from swinging a stunbaton.
