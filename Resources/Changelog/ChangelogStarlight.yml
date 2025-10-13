@@ -17581,5 +17581,12 @@ Entries:
   id: 181900
   time: '2025-10-13T03:06:47.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1819
+- author: Happyrobot33
+  changes:
+  - message: Added Physical Interaction system. You can now boop and pet people!
+    type: Add
+  id: 193200
+  time: '2025-10-13T03:20:02.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1932
 Order: -1
 
