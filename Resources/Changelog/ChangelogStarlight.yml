@@ -17588,5 +17588,12 @@ Entries:
   id: 193200
   time: '2025-10-13T03:20:02.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1932
+- author: CawsForConcern
+  changes:
+  - message: (Elkridge) Two reinforced stacked on the same tile by Engineering Front
+    type: Fix
+  id: 191000
+  time: '2025-10-13T03:26:16.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1910
 Order: -1
 
