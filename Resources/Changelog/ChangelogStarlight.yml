@@ -17499,5 +17499,16 @@ Entries:
   id: 171201
   time: '2025-10-13T01:52:15.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1712
+- author: Conflee
+  changes:
+  - message: 'Changed the earliest start time and minimum population needed for some
+      events. Most impactfully: Dragons need 40 players because they will wipe a 30
+      pop station. Revenants can spawn at 30 minutes instead of 45. Clown Spiders
+      only spawn after 45 minutes instead of 20, to be consistent with other hostile
+      vent creature events.'
+    type: Tweak
+  id: 171400
+  time: '2025-10-13T01:55:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1714
 Order: -1
 
