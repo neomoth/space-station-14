@@ -20,25 +20,8 @@ paper-too-quiet-need-chaos-few = Do you feel like this shift has been way too qu
   
                                  For the glory of NanoTrasen
 
-doc-text-printer-station-location = [head=1][color=#009100]────────────────────[/color][/head]
-[color=#009100]█▀▀ █▀▀[/color] [head=3]  [color=#009100]CENTRAL COMMAND [/color][/head]
-[color=#009100]█░░ █░░[/color][bolditalic]   [color=#009100]Oversight over all gives everyone a peace of mind[/color][/bolditalic]
-[color=#009100]▀▀▀ ▀▀▀[/color]   [color=#aaaaaa][italic]OFFICIAL CENTRAL COMMAND OFFICE DOCUMENT[/italic][/color]
-[head=1][color=#009100]────────────────────[/color][/head]     
- [mono][bold]INCOMING TRANSMISSION FROM CENTRAL COMMAND[/bold][/mono]
-
-[italic][mono]Greetings, station, we write bearing good news
-It seems that we have accidentally sent you
-to a station deep in NT aligned space, and as 
-such, you are unlikely to face any threats for
-the duration of this shift.
-
-We have sent you the credits for a pizza party 
-to celebrate this happy accident![/mono][/italic]
-
-[italic]Warning. Failure to acknowledge an official Central Command communication message may lead to immediate termination of your contract.[/italic]
-[head=1]────────────────────[/head]
-                                                 [italic]Stamps[/italic]
+doc-text-printer-station-location = Hello, I am not supposed to be telling you this, but we accidentally bluespaced your station into NT aligned space. We have left enough spesos in your QM's locker for a nice Pizza party.                                                                                                             [color=white].[/color]                                   - NTCC Corrections Officer "Envy"
+                                    
 paper-ionstorm-borgs = {"[color=green][bold]Robots Too Orderly?[/bold][/color]"}
                        
                        Is your robotics department feeling a bit... predictable?
