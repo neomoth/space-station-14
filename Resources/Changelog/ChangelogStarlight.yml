@@ -17787,5 +17787,19 @@ Entries:
   id: 193400
   time: '2025-10-13T04:35:50.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1934
+- author: Dimyell
+  changes:
+  - message: Reverted HoS trenchcoat Revert
+    type: Add
+  id: 152800
+  time: '2025-10-13T04:36:28.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1528
+- author: Dimyell
+  changes:
+  - message: Changed BSO Formal Cloak Sprite
+    type: Add
+  id: 152801
+  time: '2025-10-13T04:36:28.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1528
 Order: -1
 
