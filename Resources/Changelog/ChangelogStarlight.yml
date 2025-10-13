@@ -17603,5 +17603,12 @@ Entries:
   id: 180800
   time: '2025-10-13T03:29:40.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1808
+- author: Rinary
+  changes:
+  - message: Thermite is now destroying structures.(Again)
+    type: Tweak
+  id: 115300
+  time: '2025-10-13T04:35:08.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1153
 Order: -1
 
