@@ -17758,5 +17758,19 @@ Entries:
   id: 191101
   time: '2025-10-13T04:36:20.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1911
+- author: Fractalflower
+  changes:
+  - message: Expedition key no longer requires a maximum of 15 players
+    type: Fix
+  id: 193800
+  time: '2025-10-13T04:58:28.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1938
+- author: Fractalflower
+  changes:
+  - message: Skeleton Head now only spawns on ultralowpop
+    type: Fix
+  id: 193801
+  time: '2025-10-13T04:58:28.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1938
 Order: -1
 
