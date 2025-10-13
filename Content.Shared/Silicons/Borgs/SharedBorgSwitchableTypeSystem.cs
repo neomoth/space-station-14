@@ -111,9 +111,10 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
         UpdateEntityAppearance(ent);
 
-        // AL - event for subtype system, always runs at end of borg type code
+        // Afterlight-start: event for subtype system, always runs at end of borg type code
         var ev = new AfterBorgTypeSelectEvent();
         RaiseLocalEvent(ent, ref ev);
+        // Afterlight-end
     }
 
     protected void UpdateEntityAppearance(Entity<BorgSwitchableTypeComponent> entity)
