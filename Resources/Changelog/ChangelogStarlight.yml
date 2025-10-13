@@ -17707,5 +17707,42 @@ Entries:
   id: 181800
   time: '2025-10-13T04:35:58.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1818
+- author: Rinary
+  changes:
+  - message: Now when you trying to generate reagents, but don't have enough energy,
+      you'll take popup.
+    type: Tweak
+  id: 172000
+  time: '2025-10-13T04:36:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1720
+- author: Rinary
+  changes:
+  - message: Added energy bar at chem. dispenser ui.
+    type: Add
+  id: 172001
+  time: '2025-10-13T04:36:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1720
+- author: Rinary
+  changes:
+  - message: 'All reagents now consume 2 energy intead of 1(exclude: Oxygen, Silicon,
+      Phosphorus) per 1u.'
+    type: Tweak
+  id: 172002
+  time: '2025-10-13T04:36:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1720
+- author: Rinary
+  changes:
+  - message: Now Silicon and Phosphorus consume 5 energy instead of 10 per 1u.
+    type: Tweak
+  id: 172003
+  time: '2025-10-13T04:36:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1720
+- author: Rinary
+  changes:
+  - message: Now Iron generatable instead of Aluminium.
+    type: Tweak
+  id: 172004
+  time: '2025-10-13T04:36:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1720
 Order: -1
 
