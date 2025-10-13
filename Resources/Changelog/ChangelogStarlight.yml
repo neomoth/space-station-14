@@ -17458,5 +17458,57 @@ Entries:
   id: 192002
   time: '2025-10-12T23:41:49.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1920
+- author: CawsForConcern
+  changes:
+  - message: Made amoxla, chronexaline, and barozine plus' names lowercase for consistency
+      with other chemical names
+    type: Tweak
+  id: 189500
+  time: '2025-10-12T23:45:51.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1895
+- author: mikeysaurus
+  changes:
+  - message: Fixed broken github tests
+    type: Fix
+  id: 193500
+  time: '2025-10-13T00:54:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1935
+- author: Penguinwizzard
+  changes:
+  - message: Added some more variety to Kessler
+    type: Add
+  id: 192100
+  time: '2025-10-13T01:48:50.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1921
+- author: Conflee
+  changes:
+  - message: Added the Homerun Bat to the Traitor Uplink for 7TC (rare discount to
+      4TC). A slightly stronger Baseball Bat with a knockback effect to send your
+      enemies flying. Very obvious and visually valid.
+    type: Add
+  id: 171200
+  time: '2025-10-13T01:52:15.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1712
+- author: Conflee
+  changes:
+  - message: Added the Cleaner Kit to the Traitor Uplink for 3TC. An Artistic Toolbox
+      with 1 Syndie Soaplet, 2 Cleanades, 2 Space Cleaner Spray Bottles, a Purple
+      Cap, and Rubber Gloves. Useful for cleaning up your crime scenes and hiding
+      the evidence.
+    type: Add
+  id: 171201
+  time: '2025-10-13T01:52:15.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1712
+- author: Conflee
+  changes:
+  - message: 'Changed the earliest start time and minimum population needed for some
+      events. Most impactfully: Dragons need 40 players because they will wipe a 30
+      pop station. Revenants can spawn at 30 minutes instead of 45. Clown Spiders
+      only spawn after 45 minutes instead of 20, to be consistent with other hostile
+      vent creature events.'
+    type: Tweak
+  id: 171400
+  time: '2025-10-13T01:55:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1714
 Order: -1
 
