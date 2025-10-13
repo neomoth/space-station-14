@@ -17772,5 +17772,12 @@ Entries:
   id: 193801
   time: '2025-10-13T04:58:28.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1938
+- author: redmushie
+  changes:
+  - message: Air Alarms now actually warn about dangerously low oxygen levels
+    type: Fix
+  id: 180300
+  time: '2025-10-13T04:35:36.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1803
 Order: -1
 
