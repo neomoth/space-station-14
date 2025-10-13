@@ -17779,5 +17779,13 @@ Entries:
   id: 180300
   time: '2025-10-13T04:35:36.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1803
+- author: stickycheZ101
+  changes:
+  - message: NT now leaves a message in each head's locker if they determine that
+      the station is deep in NT territory
+    type: Add
+  id: 193400
+  time: '2025-10-13T04:35:50.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1934
 Order: -1
 
