@@ -17700,5 +17700,12 @@ Entries:
   id: 173202
   time: '2025-10-13T04:35:44.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1732
+- author: CawsForConcern
+  changes:
+  - message: Stuttering due to bloodloss
+    type: Remove
+  id: 181800
+  time: '2025-10-13T04:35:58.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1818
 Order: -1
 
