@@ -17525,5 +17525,47 @@ Entries:
   id: 193600
   time: '2025-10-13T02:14:18.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1936
+- author: Fractalflower
+  changes:
+  - message: The Hydra is now purchasable at Cargo. Janitors rejoice.
+    type: Add
+  id: 189300
+  time: '2025-10-13T02:26:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1893
+- author: Fractalflower
+  changes:
+  - message: Traitor Janitors can now buy a Syndicate Hydra for 20 TC.
+    type: Add
+  id: 189301
+  time: '2025-10-13T02:26:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1893
+- author: Fractalflower
+  changes:
+  - message: Syndicate Space Cleaner, functions like normal but also does caustic.
+    type: Add
+  id: 189302
+  time: '2025-10-13T02:26:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1893
+- author: Fractalflower
+  changes:
+  - message: Security Techfab can now make non-lethal grenade cartridges.
+    type: Add
+  id: 189303
+  time: '2025-10-13T02:26:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1893
+- author: Fractalflower
+  changes:
+  - message: Emagged SecFab can now make lethal grenade cartridges.
+    type: Add
+  id: 189304
+  time: '2025-10-13T02:26:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1893
+- author: Fractalflower
+  changes:
+  - message: Grenade cartridges now have six grenades instead of five.
+    type: Tweak
+  id: 189305
+  time: '2025-10-13T02:26:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1893
 Order: -1
 
