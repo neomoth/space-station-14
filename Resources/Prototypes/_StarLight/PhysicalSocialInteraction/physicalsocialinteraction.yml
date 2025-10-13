@@ -2,12 +2,12 @@
 
 - type: physicalSocialInteraction
   id: Pet
-  name: Pet
+  verbName: pet-verb
   interactString: petting-success
   messagePerceivedByOthers: petting-success-others
 
 - type: physicalSocialInteraction
   id: Boop
-  name: Boop
+  verbName: boop-verb
   interactString: booping-success
   messagePerceivedByOthers: booping-success

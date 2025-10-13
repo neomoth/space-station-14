@@ -10,7 +10,7 @@ public sealed partial class PhysicalSocialInteractionPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     [DataField(required: true)]
-    public string Name { get; private set; } = default!;
+    public string VerbName { get; private set; } = default!;
 
     //ripped mostly from InteractionPopup component
 

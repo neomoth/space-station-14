@@ -39,7 +39,7 @@ public class PhysicalSocialInteractionSystem : EntitySystem
             //make a verb for each one
             Verb verb = new()
             {
-                Text = proto.Name,
+                Text = Loc.GetString(proto.VerbName),
                 Category = category,
                 Act = () =>
                 {
