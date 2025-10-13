@@ -172,6 +172,9 @@
   id: ShowWires
 
 - type: Tag
+  id: Skating
+  
+- type: Tag
   id: SovietDungeon
 
 - type: Tag
