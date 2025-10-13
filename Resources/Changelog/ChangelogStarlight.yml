@@ -17567,5 +17567,12 @@ Entries:
   id: 189305
   time: '2025-10-13T02:26:30.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1893
+- author: redmushie
+  changes:
+  - message: Increased Air Alarm tolerances for high oxygen levels
+    type: Tweak
+  id: 182200
+  time: '2025-10-13T03:00:48.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1822
 Order: -1
 
