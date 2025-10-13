@@ -17678,5 +17678,27 @@ Entries:
   id: 192604
   time: '2025-10-13T04:35:29.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1926
+- author: Conflee, KommissarRed, PatoGrone
+  changes:
+  - message: Added Security Bomber Jacket and Security Tshirt to Loadouts and SecDrobe
+      (KommissarRed)
+    type: Add
+  id: 173200
+  time: '2025-10-13T04:35:44.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1732
+- author: Conflee, KommissarRed, PatoGrone
+  changes:
+  - message: Added Cargo Overalls to Loadouts and CargoDrobe (Conflee)
+    type: Add
+  id: 173201
+  time: '2025-10-13T04:35:44.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1732
+- author: Conflee, KommissarRed, PatoGrone
+  changes:
+  - message: Added Daredevil's Helmet and Jumpsuit (PatoGrone)
+    type: Add
+  id: 173202
+  time: '2025-10-13T04:35:44.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1732
 Order: -1
 
