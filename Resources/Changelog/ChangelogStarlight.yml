@@ -17639,5 +17639,44 @@ Entries:
   id: 172702
   time: '2025-10-13T04:35:21.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1727
+- author: stickycheZ101
+  changes:
+  - message: NT has decided to start manufacturing cigs from a recipe by everyone’s
+      favourite mute surgeon (greyman’s specials are a loadout option behind 20 hours
+      of med)
+    type: Add
+  id: 192600
+  time: '2025-10-13T04:35:29.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1926
+- author: stickycheZ101
+  changes:
+  - message: the magic crayon is now locked behind 100 hours of general playtime,
+      to make it harder for randoms to paint the whole station black (yes it has happened)
+    type: Tweak
+  id: 192601
+  time: '2025-10-13T04:35:29.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1926
+- author: stickycheZ101
+  changes:
+  - message: tweaked a few loadout times
+    type: Tweak
+  id: 192602
+  time: '2025-10-13T04:35:29.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1926
+- author: stickycheZ101
+  changes:
+  - message: the magic crayon is now 10x harder to accidentally eat
+    type: Tweak
+  id: 192603
+  time: '2025-10-13T04:35:29.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1926
+- author: stickycheZ101
+  changes:
+  - message: added a bottle of psicodine pills to the loadout menu, for roleplaying
+      purposes
+    type: Add
+  id: 192604
+  time: '2025-10-13T04:35:29.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1926
 Order: -1
 
