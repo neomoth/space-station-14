@@ -36,10 +36,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
 
-- type: loadout
-  id: CargoTechnicianJumpskirtFormal
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCargoFormal
+#- type: loadout
+#  id: CargoTechnicianJumpskirtFormal
+#  equipment:
+#    jumpsuit: ClothingUniformJumpskirtCargoFormal
 
 - type: loadout #Starlight
   id: CargoTechnicianOveralls #Starlight
