@@ -17744,5 +17744,19 @@ Entries:
   id: 172004
   time: '2025-10-13T04:36:04.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1720
+- author: CawsForConcern
+  changes:
+  - message: (Box) Station beacon for Library
+    type: Add
+  id: 191100
+  time: '2025-10-13T04:36:20.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1911
+- author: CawsForConcern
+  changes:
+  - message: (Box) Misplaced corner-tile decal just north of bridge by the SS14 logo
+    type: Fix
+  id: 191101
+  time: '2025-10-13T04:36:20.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1911
 Order: -1
 
