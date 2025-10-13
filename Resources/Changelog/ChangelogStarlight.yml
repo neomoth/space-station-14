@@ -17480,5 +17480,24 @@ Entries:
   id: 192100
   time: '2025-10-13T01:48:50.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1921
+- author: Conflee
+  changes:
+  - message: Added the Homerun Bat to the Traitor Uplink for 7TC (rare discount to
+      4TC). A slightly stronger Baseball Bat with a knockback effect to send your
+      enemies flying. Very obvious and visually valid.
+    type: Add
+  id: 171200
+  time: '2025-10-13T01:52:15.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1712
+- author: Conflee
+  changes:
+  - message: Added the Cleaner Kit to the Traitor Uplink for 3TC. An Artistic Toolbox
+      with 1 Syndie Soaplet, 2 Cleanades, 2 Space Cleaner Spray Bottles, a Purple
+      Cap, and Rubber Gloves. Useful for cleaning up your crime scenes and hiding
+      the evidence.
+    type: Add
+  id: 171201
+  time: '2025-10-13T01:52:15.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1712
 Order: -1
 
