@@ -138,7 +138,7 @@
     - id: CheapLighter
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothing, BaseRestrictedContraband]
+  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothing, BaseSecurityContraband]
   id: ClothingOuterSecurityBomber
   name: security bomber
   description: A regular bomber, but with armored inserts.
