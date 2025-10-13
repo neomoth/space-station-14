@@ -17618,5 +17618,26 @@ Entries:
   id: 174100
   time: '2025-10-13T04:35:13.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1741
+- author: CrazyPhantom
+  changes:
+  - message: Gas Pipes can now connect over docks.
+    type: Add
+  id: 172700
+  time: '2025-10-13T04:35:21.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1727
+- author: CrazyPhantom
+  changes:
+  - message: HV Cables can now connect over docks.
+    type: Add
+  id: 172701
+  time: '2025-10-13T04:35:21.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1727
+- author: CrazyPhantom
+  changes:
+  - message: Centres HV cable sprite
+    type: Tweak
+  id: 172702
+  time: '2025-10-13T04:35:21.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1727
 Order: -1
 
