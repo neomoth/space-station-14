@@ -17610,5 +17610,13 @@ Entries:
   id: 115300
   time: '2025-10-13T04:35:08.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1153
+- author: mikeysaurus
+  changes:
+  - message: Replaces existing EVA doors with orange-painted doors, tied to Command
+      access only. Sprites by conf
+    type: Tweak
+  id: 174100
+  time: '2025-10-13T04:35:13.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1741
 Order: -1
 
