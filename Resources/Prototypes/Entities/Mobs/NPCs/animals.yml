@@ -944,6 +944,8 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
+  - type: Puller
+    needsHands: false
   - type: GuideHelp
     guides:
     - Chef
@@ -1012,6 +1014,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Puller
+    needsHands: false
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -2234,6 +2238,8 @@
     speechSounds: Parrot
     speechVerb: Parrot
   - type: Vocal
+  - type: Puller
+    needsHands: false
     sounds:
       Unsexed: Parrot
   - type: ActiveListener
@@ -2619,6 +2625,8 @@
     damage:
       types:
         Piercing: 6
+  - type: Puller
+    needsHands: false
 
 - type: entity
   parent:
@@ -2739,6 +2747,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: possum
@@ -2813,6 +2823,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: fox
@@ -2897,6 +2909,8 @@
     rootTask:
       task: RuminantHostileCompound
   - type: MessyDrinker
+  - type: Puller
+    needsHands: false
   - type: Tag
     tags:
     - VimPilot
@@ -2944,6 +2958,8 @@
   - type: MobPrice
     price: 200
   - type: MessyDrinker
+  - type: Puller
+    needsHands: false
 
 - type: entity
   parent: MobCorgiBase
@@ -3144,6 +3160,8 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: Puller
+    needsHands: false
   - type: Tag
     tags:
     - VimPilot
@@ -3378,6 +3396,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: ferret
@@ -3432,6 +3452,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: hamster
@@ -3577,6 +3599,8 @@
     baseResistTime: 3
   - type: MobPrice
     price: 60
+  - type: Puller
+    needsHands: false
   - type: NonSpreaderZombie
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -3666,6 +3690,8 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: diona nymph

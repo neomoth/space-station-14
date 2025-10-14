@@ -152,6 +152,8 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: blue slime
