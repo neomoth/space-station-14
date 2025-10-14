@@ -36,10 +36,6 @@ namespace Content.Server.Voting.Managers
         private RoleSystem? _roleSystem;
         private GameTicker? _gameTicker;
 
-        private RoundVotingChancesPrototype? _roundVotingChances; // Starlight-edit
-
-        private Dictionary<string, int> MemorizedRules = new(); // Starlight-edit
-
         private static readonly Dictionary<StandardVoteType, CVarDef<bool>> VoteTypesToEnableCVars = new()
         {
             {StandardVoteType.Restart, CCVars.VoteRestartEnabled},
@@ -268,14 +264,6 @@ namespace Content.Server.Voting.Managers
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-gamemode-win", ("winner", Loc.GetString(presets[picked]))));
                 }
-                // Starlight-start: Memorize Rules
-                if (_roundVotingChances != null)
-                {
-                    var chance = _roundVotingChances.Chances.FirstOrDefault(a => a.ID == picked);
-                    if (chance != null && chance.MemorizeCount > 0)
-                        MemorizedRules.Add(picked, chance.MemorizeCount);
-                }
-                // Starlight-end
                 _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Preset vote finished: {picked}");
                 var ticker = _entityManager.EntitySysManager.GetEntitySystem<GameTicker>();
                 ticker.SetGamePreset(picked);
@@ -619,7 +607,7 @@ namespace Content.Server.Voting.Managers
             
             var prototypeId = _cfg.GetCVar(StarlightCCVars.RoundVotingChancesPrototype);
 
-            if (!_prototypeManager.TryIndex<RoundVotingChancesPrototype>(prototypeId, out _roundVotingChances)) // Starlight-edit
+            if (!_prototypeManager.TryIndex<RoundVotingChancesPrototype>(prototypeId, out var chancesPrototype))
             {
                 Logger.Warning($"Failed to find a chance prototype with ID: {prototypeId}");
                 return presets;
@@ -638,23 +626,10 @@ namespace Content.Server.Voting.Managers
                 if (_playerManager.PlayerCount > (preset.MaxPlayers ?? int.MaxValue))
                     continue;
 
-                if (MemorizedRules.ContainsKey(preset.ID)) // Starlight-edit
+                if (chancesPrototype.Chances.TryGetValue(preset.ID, out var chance))
                 {
-                    // Starlight-start: Memorize Preset
-                    if (MemorizedRules[preset.ID] <= 1)
-                        MemorizedRules.Remove(preset.ID);
-                    else
-                        MemorizedRules[preset.ID] -= 1;
-                    continue;
-                    // Starlight-end
+                    validPresets.Add((preset, chance));
                 }
-
-                // Starlight-start: Memorize Presets
-                var chance = _roundVotingChances.Chances.FirstOrDefault(a => a.ID == preset.ID);
-
-                if (chance != null)
-                    validPresets.Add((preset, chance.Chance));
-                // Starlight-end
             }
 
             if (validPresets.Count == 0)
