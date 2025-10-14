@@ -297,7 +297,7 @@ namespace Content.Server.Voting.Managers
                 //add the key we picked to the cooldown list
                 _presetCooldown.Add(pickedPreset.ID, pickedPreset.VoteCooldown);
                 //starlight end
-                ticker.SetGamePreset(picked);
+                ticker.SetGamePreset(pickedPreset.ID);
             };
         }
 
