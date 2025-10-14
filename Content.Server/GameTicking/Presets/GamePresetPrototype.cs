@@ -42,6 +42,14 @@ namespace Content.Server.GameTicking.Presets
         public string? MapPool;
 
         //starlight start
+        /// <summary>
+        /// How many rounds before this preset can be voted for again.
+        /// For example, a value of 2 will mean
+        /// Picked this preset, cooldown set to 2
+        /// Next round, cooldown set to 1
+        /// Next round, cooldown set to 0
+        /// Now this preset can be voted for again.
+        /// </summary>
         [DataField("voteCooldown")]
         public int VoteCooldown = 2; // How many rounds before this preset can be voted for again.
         //starlight end

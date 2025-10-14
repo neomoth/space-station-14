@@ -269,14 +269,14 @@ namespace Content.Server.Voting.Managers
                 if (args.Winner == null)
                 {
                     picked = (string)_random.Pick(args.Winners);
-                    pickedPreset = presets.FirstOrDefault(p => p.Key.ID == picked).Key; //starlight
+                    pickedPreset = presets.FirstOrDefault(p => p.Value == picked).Key; //starlight
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-gamemode-tie", ("picked", Loc.GetString(pickedPreset.ModeTitle)))); //starlight edit
                 }
                 else
                 {
                     picked = (string)args.Winner;
-                    pickedPreset = presets.FirstOrDefault(p => p.Key.ID == picked).Key; //starlight
+                    pickedPreset = presets.FirstOrDefault(p => p.Value == picked).Key; //starlight
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-gamemode-win", ("winner", Loc.GetString(pickedPreset.ModeTitle)))); //starlight edit
                 }
@@ -286,7 +286,7 @@ namespace Content.Server.Voting.Managers
                 //subtract 1 from all keys EXCEPT the one we picked
                 foreach (var key in _presetCooldown.Keys.ToList())
                 {
-                    if (key != picked)
+                    if (key != pickedPreset.ID)
                     {
                         _presetCooldown[key]--;
                         if (_presetCooldown[key] <= 0)
@@ -295,7 +295,7 @@ namespace Content.Server.Voting.Managers
                 }
 
                 //add the key we picked to the cooldown list
-                _presetCooldown.Add(picked, pickedPreset.VoteCooldown);
+                _presetCooldown.Add(pickedPreset.ID, pickedPreset.VoteCooldown);
                 //starlight end
                 ticker.SetGamePreset(picked);
             };
