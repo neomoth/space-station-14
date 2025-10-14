@@ -234,8 +234,6 @@
     tags:
     - CannotSuicide
     - VimPilot
-  - type: Puller
-    needsHands: false
   - type: StealTarget
     stealGroup: AnimalNamedCat
   #region Starlight
@@ -271,8 +269,6 @@
     tags:
     - CannotSuicide
     - VimPilot
-  - type: Puller
-    needsHands: false
   - type: StealTarget
     stealGroup: AnimalNamedCat
   #region Starlight
@@ -403,8 +399,6 @@
     tags:
     - CannotSuicide
     - VimPilot
-  - type: Puller
-    needsHands: false
   - type: StealTarget
     stealGroup: AnimalNamedCat
 
@@ -488,8 +482,6 @@
     tags:
     - CannotSuicide
     - VimPilot
-  - type: Puller
-    needsHands: false
   - type: StealTarget
     stealGroup: AnimalMcGriff
   - type: MessyDrinker
@@ -592,8 +584,6 @@
     tags:
     - CannotSuicide
     - VimPilot
-  - type: Puller
-    needsHands: false
   - type: StealTarget
     stealGroup: AnimalWalter
   - type: Speech
