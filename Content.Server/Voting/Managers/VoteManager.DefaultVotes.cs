@@ -269,14 +269,14 @@ namespace Content.Server.Voting.Managers
                 if (args.Winner == null)
                 {
                     picked = (string)_random.Pick(args.Winners);
-                    pickedPreset = presets.FirstOrDefault(p => p.Value == picked).Key; //starlight
+                    pickedPreset = presets.FirstOrDefault(p => Loc.GetString(p.Value) == picked).Key; //starlight
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-gamemode-tie", ("picked", Loc.GetString(pickedPreset.ModeTitle)))); //starlight edit
                 }
                 else
                 {
                     picked = (string)args.Winner;
-                    pickedPreset = presets.FirstOrDefault(p => p.Value == picked).Key; //starlight
+                    pickedPreset = presets.FirstOrDefault(p => Loc.GetString(p.Value) == picked).Key; //starlight
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-gamemode-win", ("winner", Loc.GetString(pickedPreset.ModeTitle)))); //starlight edit
                 }
