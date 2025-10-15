@@ -119,6 +119,11 @@
       - !type:AlertLevelCondition
         alertLevels:
         - blue
+        - red
+        - gamma
+        - psi
+        - orange
+        - delta
   - type: MagazineVisuals
     magState: mag
     steps: 4
