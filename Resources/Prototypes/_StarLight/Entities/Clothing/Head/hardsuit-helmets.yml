@@ -344,9 +344,8 @@
 
 #Advanced Mining Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitAdvancedMining
-  categories: [ HideSpawnMenu ]
   name: advanced mining hardsuit helmet
   description: A specially designed helmet for mining operations.
   components:
@@ -379,9 +378,6 @@
       head-dog:
         - state: equipped-head-light-dog
           shader: unshaded
-#      head-resomi:
-#            - state: equipped-head-light-resomi
-#              shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -404,10 +400,6 @@
         - state: equipped-head-dog
         - state: equipped-head-unshaded-dog
           shader: unshaded
-#      head-resomi:
-#        - state: equipped-head-resomi
-#        - state: equipped-head-unshaded-resomi
-#          shader: unshaded
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -426,7 +418,7 @@
       - CorgiWearable
 
 #Mining Hardsuit
-- type: entity # MIKEY - i dont think the light works on this suit either? Or it does, cause of ClothingHeadSuitWithLightBase?????
+- type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitMining
   name: mining hardsuit helmet
@@ -461,9 +453,6 @@
       head-dog:
         - state: equipped-head-light-dog
           shader: unshaded
-#      head-resomi:
-#            - state: equipped-head-light-resomi
-#              shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -486,10 +475,6 @@
         - state: equipped-head-dog
         - state: equipped-head-unshaded-dog
           shader: unshaded
-#      head-resomi:
-#        - state: equipped-head-resomi
-#        - state: equipped-head-unshaded-resomi
-#          shader: unshaded
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -498,7 +483,7 @@
     energy: 3
   - type: Tag
     tags:
-    - CorgiWearable
+      - CorgiWearable
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitAtmos
