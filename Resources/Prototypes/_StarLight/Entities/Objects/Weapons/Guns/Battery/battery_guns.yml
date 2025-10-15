@@ -196,6 +196,7 @@
         - gamma
         - psi
         - orange
+        - delta
     - proto: RedLaserBeam
       fireCost: 66.6
       magState: lethal
@@ -208,6 +209,7 @@
         - gamma
         - psi
         - orange
+        - delta
 
 - type: entity
   name: X-01 multiphase energy gun
@@ -408,7 +410,7 @@
     availableModes:
     - SemiAuto
     - FullAuto #Just allows people to hold down left click
-  - type: Battery 
+  - type: Battery
     maxCharge: 1500 # ~2:30 minutes for recharge
     startingCharge: 1500
   - type: HitscanBatteryAmmoProvider
@@ -814,7 +816,7 @@
       steps: 5
       zeroVisible: true
     - type: Appearance
-    
+
 - type: entity
   name: proto-5x energy gun
   parent: [BaseWeaponBattery, BaseGrandTheftContraband]
