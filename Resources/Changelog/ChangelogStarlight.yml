@@ -18009,5 +18009,19 @@ Entries:
   id: 195100
   time: '2025-10-16T16:12:34.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1951
+- author: redmushie
+  changes:
+  - message: Moved moth's Flap Wings emote to General category
+    type: Tweak
+  id: 193000
+  time: '2025-10-16T16:13:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1930
+- author: redmushie
+  changes:
+  - message: Moth- and moproaches can now also flap their little wings!
+    type: Add
+  id: 193001
+  time: '2025-10-16T16:13:04.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1930
 Order: -1
 
