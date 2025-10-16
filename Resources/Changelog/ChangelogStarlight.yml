@@ -17936,5 +17936,41 @@ Entries:
   id: 165500
   time: '2025-10-16T15:27:52.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1655
+- author: CorruptOmega
+  changes:
+  - message: SuperSynth is now a Musician EXCLUSIVE Instrument - They are experienced
+      enough to handle this amazing instrument!
+    type: Tweak
+  id: 172800
+  time: '2025-10-16T15:38:35.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1728
+- author: CorruptOmega
+  changes:
+  - message: New Trinket - Harmonica - Requires 100 Hours of playtime on the server
+    type: Add
+  id: 172801
+  time: '2025-10-16T15:38:35.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1728
+- author: CorruptOmega
+  changes:
+  - message: New Trinket - Flute - Requires 10 Hours of Musician Playtime
+    type: Add
+  id: 172802
+  time: '2025-10-16T15:38:35.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1728
+- author: CorruptOmega
+  changes:
+  - message: New Trinket - Acoustic Guitar - Requires 15 Hours of Musician Playtime
+    type: Add
+  id: 172803
+  time: '2025-10-16T15:38:35.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1728
+- author: CorruptOmega
+  changes:
+  - message: New Trinket - Trumpet - Requires 20 Hours of Musician Playtime
+    type: Add
+  id: 172804
+  time: '2025-10-16T15:38:35.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1728
 Order: -1
 
