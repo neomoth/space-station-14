@@ -18038,5 +18038,13 @@ Entries:
   id: 197300
   time: '2025-10-16T16:39:30.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1973
+- author: CawsForConcern
+  changes:
+  - message: (Cog) Disposals routing issue where Chemistry couldn't send stuff to
+      Botany with mailing units
+    type: Fix
+  id: 197100
+  time: '2025-10-16T16:45:37.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1971
 Order: -1
 
