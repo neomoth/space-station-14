@@ -17972,5 +17972,35 @@ Entries:
   id: 172804
   time: '2025-10-16T15:38:35.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1728
+- author: mikeysaurus
+  changes:
+  - message: Added Veteran Mining, Salvage, and Salvage Lead PDAs, requiring 60 hours
+      in the corresponding job
+    type: Add
+  id: 191900
+  time: '2025-10-16T16:09:32.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1919
+- author: mikeysaurus
+  changes:
+  - message: Added a new Salvage Lead report document, printable from document printer
+    type: Add
+  id: 191901
+  time: '2025-10-16T16:09:32.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1919
+- author: mikeysaurus
+  changes:
+  - message: Replaced Salvage Lead's locker spawn clipboard with a 'salvage lead clipboard',
+      spawns with 7 Salvage Lead reports in it
+    type: Tweak
+  id: 191902
+  time: '2025-10-16T16:09:32.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1919
+- author: mikeysaurus
+  changes:
+  - message: Visually renames the Salvage Cyborg to Mining Cyborg
+    type: Tweak
+  id: 191903
+  time: '2025-10-16T16:09:32.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1919
 Order: -1
 
