@@ -17929,5 +17929,12 @@ Entries:
   id: 156005
   time: '2025-10-16T15:22:30.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1560
+- author: walksanatora
+  changes:
+  - message: the L6C in the exosuit fab emag has been replaced with c20r
+    type: Tweak
+  id: 165500
+  time: '2025-10-16T15:27:52.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1655
 Order: -1
 
