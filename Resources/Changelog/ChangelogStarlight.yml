@@ -17884,5 +17884,50 @@ Entries:
   id: 152110
   time: '2025-10-16T15:09:54.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: Added security unlethal module.
+    type: Add
+  id: 156000
+  time: '2025-10-16T15:22:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1560
+- author: Rinary
+  changes:
+  - message: Added security borg with unlethal security module.
+    type: Add
+  id: 156001
+  time: '2025-10-16T15:22:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1560
+- author: Rinary
+  changes:
+  - message: Added syndicate borg, replaced assault borg with it. So now when you
+      buy it. Player who played on it can choose chassis(assault/medi or saboteur).
+    type: Add
+  id: 156002
+  time: '2025-10-16T15:22:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1560
+- author: Rinary
+  changes:
+  - message: Added new syndicate borg - stealth spider.
+    type: Add
+  id: 156003
+  time: '2025-10-16T15:22:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1560
+- author: Rinary
+  changes:
+  - message: Changed L6 cyborg module, now it uses real L6 with one additional hand
+      for his using and one hand with ammo box and one hand with ammunition box.
+    type: Tweak
+  id: 156004
+  time: '2025-10-16T15:22:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1560
+- author: Rinary
+  changes:
+  - message: Changed borg types, now they require job hours to be open.(simillar to
+      job variants).
+    type: Tweak
+  id: 156005
+  time: '2025-10-16T15:22:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1560
 Order: -1
 
