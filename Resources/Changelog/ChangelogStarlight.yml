@@ -18030,5 +18030,13 @@ Entries:
   id: 195000
   time: '2025-10-16T16:14:44.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1950
+- author: CawsForConcern
+  changes:
+  - message: Massively reduced MessyDrinker chance on Vulpkanin from 33% to 5%. This
+      reduces a 91% (!!!) chance to spill in 30u of liquid drank down to 26%
+    type: Tweak
+  id: 197300
+  time: '2025-10-16T16:39:30.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1973
 Order: -1
 
