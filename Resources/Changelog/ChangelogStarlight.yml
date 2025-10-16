@@ -18090,5 +18090,35 @@ Entries:
   id: 196501
   time: '2025-10-16T17:03:16.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1965
+- author: CawsForConcern
+  changes:
+  - message: (Oasis) Sprinkled some NanoMed Civilian vending machines around the map
+    type: Add
+  id: 196700
+  time: '2025-10-16T17:03:28.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1967
+- author: CawsForConcern
+  changes:
+  - message: (Oasis) Disposals wiring, stuff shouldn't get stuck anymore
+    type: Fix
+  id: 196701
+  time: '2025-10-16T17:03:28.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1967
+- author: CawsForConcern
+  changes:
+  - message: (Oasis) Botany's mailing and disposal units are actually connected to
+      the disposals network now
+    type: Fix
+  id: 196702
+  time: '2025-10-16T17:03:28.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1967
+- author: CawsForConcern
+  changes:
+  - message: (Oasis) Disposals routing issue where Chemistry couldn't send stuff to
+      Botany with mailing units
+    type: Fix
+  id: 196703
+  time: '2025-10-16T17:03:28.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1967
 Order: -1
 
