@@ -121,10 +121,8 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         {
             idUid = idEntity;
         }
-        else
-        {
-            Sawmill.Warning($"No entity found in ID slot for {profile.Name} ({ToPrettyString(player)}); creating station record without assigning a key yet.");
-        }
+        // When players spawn without an ID (e.g. in tests or special scenarios) we still create the record, but the key
+        // will be assigned later once an ID exists.
 
         TryComp<FingerprintComponent>(player, out var fingerprintComponent);
         TryComp<DnaComponent>(player, out var dnaComponent);
