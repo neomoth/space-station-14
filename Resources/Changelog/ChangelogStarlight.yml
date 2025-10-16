@@ -18023,5 +18023,12 @@ Entries:
   id: 193001
   time: '2025-10-16T16:13:04.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1930
+- author: Happyrobot33
+  changes:
+  - message: Added newlift cooldown of 5 minutes after ghosting.
+    type: Add
+  id: 195000
+  time: '2025-10-16T16:14:44.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1950
 Order: -1
 
