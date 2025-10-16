@@ -18002,5 +18002,12 @@ Entries:
   id: 191903
   time: '2025-10-16T16:09:32.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1919
+- author: Happyrobot33
+  changes:
+  - message: Vote cooldown back again, this time fixed hopefully
+    type: Add
+  id: 195100
+  time: '2025-10-16T16:12:34.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1951
 Order: -1
 
