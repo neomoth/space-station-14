@@ -5,7 +5,7 @@
   description: A device used to transmit exosuit data. Also allows active AI units to take control of said exosuit.
   components:
   - type: Sprite
-    sprite: _StarLight/Objects/Specific/Mechs/equipment.rsi
+    sprite: _Starlight/Objects/Specific/Mechs/equipment.rsi
     state: exosuit_beacon
   - type: Item
   - type: MultiHandedItem
