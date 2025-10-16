@@ -18120,5 +18120,12 @@ Entries:
   id: 196703
   time: '2025-10-16T17:03:28.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1967
+- author: Fractalflower
+  changes:
+  - message: Borgs can now pilot mechs
+    type: Add
+  id: 170600
+  time: '2025-10-16T17:49:18.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1706
 Order: -1
 
