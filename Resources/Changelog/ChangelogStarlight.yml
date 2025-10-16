@@ -17801,5 +17801,88 @@ Entries:
   id: 152801
   time: '2025-10-13T04:36:28.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1528
+- author: Rinary
+  changes:
+  - message: Added bone gel reagent.
+    type: Add
+  id: 152100
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: Added bone gel reaction.
+    type: Add
+  id: 152101
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: Added bone gel dispenser.
+    type: Add
+  id: 152102
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: A bottle of bone gel now have a solution container, prefilled with bone
+      gel.
+    type: Tweak
+  id: 152103
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: Now all steps requires bottle of bone gel requires and uses bone gel
+      inside of it.
+    type: Tweak
+  id: 152104
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: Now you wakeup when someone doing surgery on you, it's don't work for
+      n2o or reagents like nocturine(i.e. forced sleeping)
+    type: Tweak
+  id: 152105
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: Resprited abductor bone gel bottle
+    type: Tweak
+  id: 152106
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: abductor bone gel bottle now has solution refill, so they have infinity
+      bone gel
+    type: Tweak
+  id: 152107
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: Resprited abductor bone setter
+    type: Tweak
+  id: 152108
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: Fixed issue, when you can't see tooltips while surgery button disabled,
+      so you can't see big descriptionl, like "you need xu of bone gel".
+    type: Fix
+  id: 152109
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
+- author: Rinary
+  changes:
+  - message: Fixed issue, when you screaming while sleeping when someone doing surgery
+      on you.
+    type: Fix
+  id: 152110
+  time: '2025-10-16T15:09:54.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1521
 Order: -1
 
