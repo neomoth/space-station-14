@@ -1,17 +1,13 @@
 - type: entity
   id: MechEquipmentBorgPilot
   parent: [ BaseMechEquipment ]
-  name: positronic interface
-  description: Allows borgs to interface with, and pilot, the mech.
+  name: exosuit AI control beacon
+  description: A device used to transmit exosuit data. Also allows active AI units to take control of said exosuit.
   components:
   - type: Sprite
-    state: mecha_clamp
+    sprite: _StarLight/Objects/Specific/Mechs/equipment.rsi
+    state: exosuit_beacon
   - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-big
-      right:
-      - state: inhand-right-big
   - type: MultiHandedItem
   - type: PilotSupportModule
     pilotWhitelist:
