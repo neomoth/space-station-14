@@ -18127,5 +18127,12 @@ Entries:
   id: 170600
   time: '2025-10-16T17:49:18.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1706
+- author: Fractalflower
+  changes:
+  - message: Un-nerfed L6C.
+    type: Tweak
+  id: 197600
+  time: '2025-10-16T18:44:27.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1976
 Order: -1
 
