@@ -18162,5 +18162,12 @@ Entries:
   id: 197900
   time: '2025-10-17T14:24:53.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1979
+- author: CawForConcern
+  changes:
+  - message: Updated Corporate Law to match the wiki
+    type: Tweak
+  id: 198300
+  time: '2025-10-17T14:25:01.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1983
 Order: -1
 
