@@ -18223,5 +18223,12 @@ Entries:
   id: 195302
   time: '2025-10-17T14:45:34.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1953
+- author: Fractalflower
+  changes:
+  - message: You can now use the Dominator's lethals on delta.
+    type: Add
+  id: 196000
+  time: '2025-10-17T14:39:44.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1960
 Order: -1
 
