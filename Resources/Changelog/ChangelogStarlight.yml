@@ -18280,5 +18280,12 @@ Entries:
   id: 196101
   time: '2025-10-17T14:57:55.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1961
+- author: aneyeforsecrets
+  changes:
+  - message: Record system search and desync issues
+    type: Fix
+  id: 192200
+  time: '2025-10-17T15:00:15.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1922
 Order: -1
 
