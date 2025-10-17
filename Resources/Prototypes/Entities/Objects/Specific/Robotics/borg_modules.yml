@@ -1351,6 +1351,13 @@
           whitelist:
             tags:
             - MagazineLightRifleBox
+      - item: MagazineLightRifleBoxSP
+        hand:
+          emptyRepresentative: MagazineLightRifleBoxSP
+          emptyLabel: borg-slot-light-box-empty
+          whitelist:
+            tags:
+            - MagazineLightRifleBox
       - item: PinpointerSyndicateNuclear
       # Starlight end
     - type: BorgModuleIcon
