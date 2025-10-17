@@ -18192,5 +18192,12 @@ Entries:
   id: 196902
   time: '2025-10-17T14:32:23.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1969
+- author: CawsForConcern
+  changes:
+  - message: Cannabis seeds added the Manager wire inventory of MegaSeed Servitors
+    type: Add
+  id: 196300
+  time: '2025-10-17T14:33:55.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1963
 Order: -1
 
