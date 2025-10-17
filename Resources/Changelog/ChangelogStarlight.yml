@@ -18199,5 +18199,29 @@ Entries:
   id: 196300
   time: '2025-10-17T14:33:55.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1963
+- author: CawsForConcern
+  changes:
+  - message: Reporter's "Journalist Suit" is now locked behind seniority playtime
+      (60h)
+    type: Tweak
+  id: 195300
+  time: '2025-10-17T14:45:34.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1953
+- author: CawsForConcern
+  changes:
+  - message: Reporter's "Reporter Jumpskirt" is no longer locked behind seniority
+      playtime
+    type: Fix
+  id: 195301
+  time: '2025-10-17T14:45:34.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1953
+- author: CawsForConcern
+  changes:
+  - message: Medical Doctor & Surgeon's "Medical Doctor Jumpskirt" is no longer locked
+      behind seniority playtime
+    type: Fix
+  id: 195302
+  time: '2025-10-17T14:45:34.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1953
 Order: -1
 
