@@ -18266,5 +18266,19 @@ Entries:
   id: 195201
   time: '2025-10-17T14:52:40.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1952
+- author: Revelation
+  changes:
+  - message: re-adds the OG service borg chassis
+    type: Add
+  id: 196100
+  time: '2025-10-17T14:57:55.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1961
+- author: Revelation
+  changes:
+  - message: Cyborgs default to their 'normal' chassis from pre-subtypes.
+    type: Tweak
+  id: 196101
+  time: '2025-10-17T14:57:55.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1961
 Order: -1
 
