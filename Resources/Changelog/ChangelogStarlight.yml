@@ -18251,5 +18251,20 @@ Entries:
   id: 194800
   time: '2025-10-17T14:51:46.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1948
+- author: mikeysaurus
+  changes:
+  - message: Fixed mining and advanced mining hardsuits headlamps so they actually
+      exist and work now. They are slightly stronger than salvage headlamps.
+    type: Fix
+  id: 195200
+  time: '2025-10-17T14:52:40.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1952
+- author: mikeysaurus
+  changes:
+  - message: Added vulp/reptilian/corgi sprites to mining and salvage hardsuits
+    type: Add
+  id: 195201
+  time: '2025-10-17T14:52:40.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1952
 Order: -1
 
