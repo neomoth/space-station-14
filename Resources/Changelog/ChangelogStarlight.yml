@@ -18230,5 +18230,12 @@ Entries:
   id: 196000
   time: '2025-10-17T14:39:44.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1960
+- author: aneyeforsecrets
+  changes:
+  - message: Animals can now tug things!
+    type: Tweak
+  id: 195800
+  time: '2025-10-17T14:43:37.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1958
 Order: -1
 
