@@ -18141,5 +18141,19 @@ Entries:
   id: 197800
   time: '2025-10-16T19:36:38.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1978
+- author: Fractalflower
+  changes:
+  - message: The L6 SAW module now comes with four magazines.
+    type: Add
+  id: 198200
+  time: '2025-10-17T14:20:42.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1982
+- author: Fractalflower
+  changes:
+  - message: You can now print L6 SAW magazines at an emagged autolathe or secfab.
+    type: Add
+  id: 198201
+  time: '2025-10-17T14:20:42.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/1982
 Order: -1
 
