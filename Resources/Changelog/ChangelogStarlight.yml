@@ -18337,5 +18337,12 @@ Entries:
   id: 200204
   time: '2025-10-22T13:36:24.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/2002
+- author: STARLIGHT TEAM, orks_are_da_best
+  changes:
+  - message: Added an in-game Bug Report button.
+    type: Add
+  id: 201000
+  time: '2025-10-22T22:23:18.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2010
 Order: -1
 
