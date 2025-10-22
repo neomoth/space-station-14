@@ -18287,5 +18287,12 @@ Entries:
   id: 192200
   time: '2025-10-17T15:00:15.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/1922
+- author: CorruptOmega
+  changes:
+  - message: Missing sentience event localization.
+    type: Add
+  id: 200800
+  time: '2025-10-22T13:34:55.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2008
 Order: -1
 
