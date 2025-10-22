@@ -18302,5 +18302,40 @@ Entries:
   id: 200100
   time: '2025-10-22T13:39:50.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/2001
+- author: Trep_Maul
+  changes:
+  - message: (Leth) Hamlet
+    type: Add
+  id: 200200
+  time: '2025-10-22T13:36:24.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2002
+- author: Trep_Maul
+  changes:
+  - message: (Leth) Named Unknown faxes
+    type: Fix
+  id: 200201
+  time: '2025-10-22T13:36:24.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2002
+- author: Trep_Maul
+  changes:
+  - message: (Leth) Linked Arti pads
+    type: Fix
+  id: 200202
+  time: '2025-10-22T13:36:24.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2002
+- author: Trep_Maul
+  changes:
+  - message: (Leth) Added missing escape pod fans
+    type: Fix
+  id: 200203
+  time: '2025-10-22T13:36:24.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2002
+- author: Trep_Maul
+  changes:
+  - message: (Leth) Adjusted mining layout
+    type: Tweak
+  id: 200204
+  time: '2025-10-22T13:36:24.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2002
 Order: -1
 
