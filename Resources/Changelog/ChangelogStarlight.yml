@@ -18344,5 +18344,12 @@ Entries:
   id: 201000
   time: '2025-10-22T22:23:18.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/2010
+- author: CrazyPhantom
+  changes:
+  - message: Roundstart and Built Station AI's now understand the correct languages.
+    type: Fix
+  id: 201300
+  time: '2025-10-23T17:36:56.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2013
 Order: -1
 
