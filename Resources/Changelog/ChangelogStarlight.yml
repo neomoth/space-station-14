@@ -18351,5 +18351,13 @@ Entries:
   id: 201300
   time: '2025-10-23T17:36:56.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/2013
+- author: CrazyPhantom
+  changes:
+  - message: Medical, Mining and Janitor borgs will no longer force you to use the
+      default sprite.
+    type: Fix
+  id: 202900
+  time: '2025-10-24T11:11:08.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2029
 Order: -1
 
