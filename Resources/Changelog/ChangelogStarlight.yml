@@ -18366,5 +18366,12 @@ Entries:
   id: 204200
   time: '2025-10-26T16:07:19.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/2042
+- author: CrazyPhantom
+  changes:
+  - message: Zombies no longer slowly die to nothing!
+    type: Fix
+  id: 200500
+  time: '2025-10-26T16:13:42.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2005
 Order: -1
 
