@@ -18425,5 +18425,26 @@ Entries:
   id: 205500
   time: '2025-10-28T16:47:49.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/2055
+- author: Rinary
+  changes:
+  - message: Changed some of Felionoid emote sounds to fix license issues.
+    type: Tweak
+  id: 205800
+  time: '2025-10-28T18:10:31.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2058
+- author: Rinary
+  changes:
+  - message: Removed one of Felionoid hiss sound to fix license issue.
+    type: Remove
+  id: 205801
+  time: '2025-10-28T18:10:31.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2058
+- author: Rinary
+  changes:
+  - message: Reverted resomi cry to old variant to fix license issue.
+    type: Remove
+  id: 205802
+  time: '2025-10-28T18:10:31.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2058
 Order: -1
 
