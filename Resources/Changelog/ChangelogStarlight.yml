@@ -18418,5 +18418,12 @@ Entries:
   id: 203404
   time: '2025-10-28T16:49:49.000000+00:00'
   url: https://github.com/ss14Starlight/space-station-14/pull/2034
+- author: Rinary
+  changes:
+  - message: Added new tts voice.
+    type: Add
+  id: 205500
+  time: '2025-10-28T16:47:49.000000+00:00'
+  url: https://github.com/ss14Starlight/space-station-14/pull/2055
 Order: -1
 
